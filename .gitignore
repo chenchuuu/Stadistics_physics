@@ -1,3 +1,10 @@
+# --- Archivos de JetBrains (CLion y PyCharm) ---
+.idea/             # Carpeta de configuración del proyecto (Indispensable ignorar)
+cmake-build-*/     # Carpetas de compilación de CMake creadas por CLion
+*.iws              # Información de espacio de trabajo de JetBrains
+*.iml              # Archivos de módulos de IntelliJ/PyCharm
+out/               # Carpeta de salida de compilación genérica
+
 # --- Archivos específicos de TeXstudio ---
 *.bak              # Copias de seguridad automáticas de TeXstudio
 *.undo             # Historial de "deshacer" local
@@ -25,24 +32,11 @@ texstudio_*.txss   # Archivos de sesión (pestañas abiertas, etc.)
 *.figlist          # Listado de figuras externas
 *.pdfview          # Archivos temporales de visualizadores
 
-# --- C++ (Ejecutables y Compilación) ---
-*.exe              # Ejecutables en Windows
-*.o                # Archivos objeto (Linux/macOS)
-*.obj              # Archivos objeto (Windows)
-*.out              # Binarios de salida genéricos
-build/             # Carpeta de compilación de CMake/Make
-Debug/             # Carpeta de depuración de Visual Studio
-Release/           # Carpeta de optimización de Visual Studio
-.vscode/           # Configuración local de VS Code (opcional)
-
-# --- Python (Caché y Entornos virtuales) ---
+# --- Python (Pycharm y Entornos) ---
 __pycache__/       # Archivos compilados de Python
 *.py[cod]          # Archivos .pyc, .pyo y .pyd
-*$py.class         # Clases de Python compiladas
-venv/              # Entorno virtual estándar
-env/               # Carpeta alternativa de entorno virtual
-.env               # Variables de entorno (¡Contiene contraseñas!)
-.ipynb_checkpoints # Puntos de guardado de Jupyter Notebook
+venv/              # Entorno virtual de Python
+.env               # Variables de entorno sensibles (tokens, claves)
 
 # --- OPCIONAL: El PDF final ---
 # Si quieres que tus PDFs se suban a GitHub, pon un # delante de la siguiente línea:
