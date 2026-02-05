@@ -5,25 +5,44 @@
 texstudio_*.txss   # Archivos de sesión (pestañas abiertas, etc.)
 
 # --- Archivos auxiliares de LaTeX (Fundamentales) ---
-*.aux
-*.log
-*.toc
-*.out
-*.gz
-*.pdfsync
-*.fdb_latexmk
-*.fls
+*.aux              # Archivo auxiliar principal
+*.log              # Registro de la compilación
+*.toc              # Tabla de contenidos
+*.out              # Marcadores de PDF y enlaces
+*.gz               # Archivo comprimido para sincronización con el PDF
+*.pdfsync          # Sincronización antigua entre código y PDF
+*.fdb_latexmk      # Base de datos de cambios de Latexmk
+*.fls              # Lista de archivos usados en la compilación
 
 # --- Bibliografía y Citaciones ---
-*.bbl
-*.blg
-*-blx.bib
-*.run.xml
+*.bbl              # Bibliografía procesada
+*.blg              # Registro de errores de BibTeX
+*-blx.bib          # Bibliografía auxiliar de BibLaTeX
+*.run.xml          # Archivo de control de Biber
 
 # --- Otros paquetes (TikZ, Listings, etc.) ---
-*.makefile
-*.figlist
-*.pdfview
+*.makefile         # Archivos generados por TikZ/External
+*.figlist          # Listado de figuras externas
+*.pdfview          # Archivos temporales de visualizadores
+
+# --- C++ (Ejecutables y Compilación) ---
+*.exe              # Ejecutables en Windows
+*.o                # Archivos objeto (Linux/macOS)
+*.obj              # Archivos objeto (Windows)
+*.out              # Binarios de salida genéricos
+build/             # Carpeta de compilación de CMake/Make
+Debug/             # Carpeta de depuración de Visual Studio
+Release/           # Carpeta de optimización de Visual Studio
+.vscode/           # Configuración local de VS Code (opcional)
+
+# --- Python (Caché y Entornos virtuales) ---
+__pycache__/       # Archivos compilados de Python
+*.py[cod]          # Archivos .pyc, .pyo y .pyd
+*$py.class         # Clases de Python compiladas
+venv/              # Entorno virtual estándar
+env/               # Carpeta alternativa de entorno virtual
+.env               # Variables de entorno (¡Contiene contraseñas!)
+.ipynb_checkpoints # Puntos de guardado de Jupyter Notebook
 
 # --- OPCIONAL: El PDF final ---
 # Si quieres que tus PDFs se suban a GitHub, pon un # delante de la siguiente línea:
