@@ -1,18 +1,18 @@
-\# Física estadística
+# Física estadística
 
 
 
-\## Contenidos
+## Contenidos
 
 
 
-\-
+-
 
 
 
-\# Evaluación
+# Evaluación
 
 
 
-\-
+-
 
