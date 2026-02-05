@@ -2,6 +2,14 @@
 
 
 
+Profesor: Arturo Moncho Jordá
+
+Despacho: N2 Dpto. Física Aplicada
+
+Correo: moncho@ugr.es
+
+
+
 ## Contenidos
 
 
