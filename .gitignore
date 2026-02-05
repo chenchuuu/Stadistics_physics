@@ -1,0 +1,30 @@
+# --- Archivos específicos de TeXstudio ---
+*.bak              # Copias de seguridad automáticas de TeXstudio
+*.undo             # Historial de "deshacer" local
+*.txsscfg          # Configuración de sesión de TeXstudio
+texstudio_*.txss   # Archivos de sesión (pestañas abiertas, etc.)
+
+# --- Archivos auxiliares de LaTeX (Fundamentales) ---
+*.aux
+*.log
+*.toc
+*.out
+*.gz
+*.pdfsync
+*.fdb_latexmk
+*.fls
+
+# --- Bibliografía y Citaciones ---
+*.bbl
+*.blg
+*-blx.bib
+*.run.xml
+
+# --- Otros paquetes (TikZ, Listings, etc.) ---
+*.makefile
+*.figlist
+*.pdfview
+
+# --- OPCIONAL: El PDF final ---
+# Si quieres que tus PDFs se suban a GitHub, pon un # delante de la siguiente línea:
+# *.pdf
