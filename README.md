@@ -5,12 +5,12 @@ Profesores:
 * Alessandro Patti
 * Carlos Pérez Espigares
 
-Despacho (respectivamente):
+Despachos (respectivamente):
 
 * N25 Dpt-Física Aplicada
 * N7 Dpt-Electromagnetismo
 
-Correo (respectivamente):
+Correos (respectivamente):
 
 * apatti@ugr.es
 * carlosperez@ugr.es
