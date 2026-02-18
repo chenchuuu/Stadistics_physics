@@ -7,8 +7,8 @@ Profesores:
 
 Despacho (respectivamente):
 
-* N25 Física Aplicada
-* N7 Electromagnetismo
+* N25 Dpt-Física Aplicada
+* N7 Dpt-Electromagnetismo
 
 Correo (respectivamente):
 
