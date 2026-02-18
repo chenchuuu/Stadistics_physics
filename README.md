@@ -1,10 +1,19 @@
 # Física estadística
 
-Profesor: Alessandro Patti
+Profesores: 
 
-Despacho:
+* Alessandro Patti
+* Carlos Pérez Espigares
 
-Correo:
+Despacho (respectivamente):
+
+* N25 Física Aplicada
+* N7 Electromagnetismo
+
+Correo (respectivamente):
+
+* apatti@ugr.es
+* carlosperez@ugr.es
 
 ## Contenidos
 * 
