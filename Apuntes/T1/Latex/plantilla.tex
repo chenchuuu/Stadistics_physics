@@ -248,6 +248,7 @@ implies that $n=N$, would result in $P_N(n=N)=1/2^N \rightarrow 0$ for large $N$
 
 \begin{equation}
 	\frac{\partial  \ln(P_N(n))}{\partial n} \Big|_{n^*} = \frac{\partial}{\partial n} \big[ \ln N! - \ln n! - \ln(N-n)! - N\ln 2 \big] \Big|_{n^*} = 0
+	\label{eq:maxcondition}
 \end{equation}
 
 \noindent If $N$ is a large number, we can apply the Stirling's approximation
@@ -285,8 +286,49 @@ In light of these results, we know turn our attention to the average value of th
 
 \esp
 
-Our aim is obtaining $\left<n\right>$. To this end, we will show that $P_N(n)$ is actually a Gaussian (normal) distribution with average $\left<n\right>$. Let’s expand the function ln $P_N(n)$ in Taylor series around $n^* = N/2$ up to the second order
+Our aim is obtaining $\left<n\right>$. To this end, we will show that $P_N(n)$ is actually a Gaussian (normal) distribution with average $\left<n\right>$. Let’s expand the function ln $P_N(n)$ in Taylor series around $n^* = N/2$ up to the second order:
 
+\begin{equation}
+	\ln(P_N(n)) \approx \ln(P_N(n^*)) + \frac{\partial \ln(P_N(n))}{\partial n}\Big|_{n^*}(n-n^*)+\frac{1}{2}\frac{\partial^2 \ln(P_N(n))}{\partial n^2}\Big|_{n^*}(n-n^*)^2
+	\label{eq:secondord}
+\end{equation}
+
+According to eq (\ref{eq:maxcondition}), the first order is zero and the second order can be simplified as 
+
+\esp
+
+\begin{equation}
+	\frac{\partial^2 \ln(P_N(n))}{\partial n^2}\Big|_{n^*} = \frac{\partial \ln((N-n)/n)}{\partial n}\Big|_{n^*} = -\frac{1}{N-n}-\frac{1}{n}
+\end{equation}
+
+\esp
+
+\noindent In particular at $n*= N/2$ we get
+
+\begin{equation}
+	\frac{\partial^2 \ln(P_N(n))}{\partial n^2}\Big|_{n^*} = -\frac{4}{N}
+\end{equation}
+
+\esp
+
+\noindent Substituying these results in eq (\ref{eq:secondord}), we obtain
+
+\begin{equation}
+	\ln(P_N(n)) \approx \ln(P_N(N/2)) - \frac{2}{N}\left(n-\frac{N}{2}\right)^2 
+\end{equation}
+
+\esp
+
+\noindent Let’s apply the exponential function to left and right hand sides:
+
+\begin{equation}
+	P_N(n) \approx P_N(N/2)e^{-\frac{2}{N}\left(n-\frac{N}{2}\right)^2} = P_N(N/2)e^{-\left(n-\frac{N}{2}\right)^2/ (N/2)}
+\end{equation}
+
+\esp
+
+This equation highlights that is a Gaussian distribution of the type $f(n) = (1/(\sqrt{2\pi\sigma})) e^{- \frac{(n - \left< n \right>)^2}{2 \sigma^2}}$
+with $n =N/2$ and $\sigma = \sqrt{N}/2$. In particular, $\sigma = \sqrt{\left< n^2 \right> - \left< n \right>^2}$ is the standard deviation of the distribution, whereas $\sigma^2$ is the variance, which quantifies the spread or width of a distribution.
 
 \printbibliography[title={Bibliografía}]
 \end{document}
