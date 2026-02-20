@@ -180,7 +180,23 @@ Another fundamental objective of statistical physics is to deduce the laws or pr
 	\includegraphics[width=0.7\textwidth]{IMG/microandmacro.png}
 \end{figure}
 
-In this section, we expand the ideas introduced in the above example and suggest the interested student to read Appendix A for further details on theory of probability. Here, we would like to estimate the number of microstates, $W_N(n)$, that are compatible with a given macrostate consisting of n particles in the left compartment and $N$-$n$ particles in the right compartment. Because both compartments are supposed identical, left and right are interchangeable. To this end, we need to apply combinatorial principles. More specifically, we have a total of N particles, and we want to determine the number of ways we can distribute n particles in the left compartment and $N$-$n$ particles in the right compartment. This can be visualised by arranging $N$ particles in a line and choosing $n$ of them to be in the left compartment, with the remaining $N$-$n$ particles automatically assigned to the right compartment. The number of microstates can be calculated using the binomial coefficient $\binom{N}{n}$. Mathematically, it can be expressed as
+In this section, we expand the ideas introduced in the above example and suggest the interested student to read Appendix A for further details on theory of probability. Here, we would like to estimate the number of microstates, $W_N(n)$, that are compatible with a given macrostate consisting of n particles in the left compartment and $N$-$n$ particles in the right compartment. Because both compartments are supposed identical, left and right are interchangeable. 
+
+\esp
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{IMG/considerations.png}
+\end{figure}
+
+\esp
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{IMG/combinatories.png}
+\end{figure}
+
+To this end, we need to apply combinatorial principles. More specifically, we have a total of N particles, and we want to determine the number of ways we can distribute n particles in the left compartment and $N$-$n$ particles in the right compartment. This can be visualised by arranging $N$ particles in a line and choosing $n$ of them to be in the left compartment, with the remaining $N$-$n$ particles automatically assigned to the right compartment. The number of microstates can be calculated using the binomial coefficient $\binom{N}{n}$. Mathematically, it can be expressed as
 
 \begin{equation}
 	W_N(n) = \binom{N}{n} = \frac{N!}{n!(N-n)!}
@@ -194,18 +210,83 @@ Let’s take a step further. What is the probability, $P_N(n)$, of observing a m
 
 \begin{equation}
 	P_N(n)=\frac{favourable\ configurations}{total\ configurations} = \frac{W_N(n)}{N_T} = \frac{N!}{n!(N-n)!2^N}
+	\label{eq:prob}
 \end{equation}
 
 It is important to note that in some cases, this probability may also depend on other factors such as energy considerations, constraints, or specific interactions present in the system. These additional factors can influence the likelihood of a macrostate occurring and may require additional considerations in the probability calculation.
 
 \esp
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{IMG/mostprob.png}
+\end{figure}
+
 We first notice that the probability of finding all particles in a single compartment, that mathematically
 implies that $n=N$, would result in $P_N(n=N)=1/2^N \rightarrow 0$ for large $N$. This result indicates that it is highly unlikely to find particles occupying only a single compartment. That said, it makes sense to ask the questions: what is the most probable state, $n=n^*$, and what is the probability $P_N(n^*)$ of observing thtat state? In other words, what is the most probable number of particles that one would find in a compartment? The most probable state is the one that maximises the probability $P_N(n)$:
 
 \begin{equation}
-	\frac{\partial P_N(n)}{\partial n}|_{n^*} = 0
+	\frac{\partial P_N(n)}{\partial n} \Big|_{n^*} = 0
 \end{equation}
+
+\esp 
+
+\noindent To differentiate the probability in eq (\ref{eq:prob}) with respect to $n$, we first notice that\footnote{In Statistics physics is easier use the natural logarithm}
+
+\begin{equation}
+	\frac{\partial P_N(n)}{\partial n} \Big|_{n^*} = 0 \iff \frac{\partial  \ln(P_N(n))}{\partial n} \Big|_{n^*} = 0
+	\label{eq:equiv}
+\end{equation}
+
+\noindent \textbf{Demostration}. As $P_N(n) \neq 0$, then
+
+\begin{equation*}
+	\frac{\partial  \ln(P_N(n))}{\partial n} \Big|_{n^*} = \frac{1}{P_N(n)} \frac{\partial P_N(n)}{\partial n} \Big|_{n^*} = \frac{\partial P_N(n)}{\partial n} \Big|_{n^*} = 0
+\end{equation*}
+
+\noindent Differentiating eq (\ref{eq:prob}) using the equivalence showed in eq (\ref{eq:equiv}) we get
+
+\begin{equation}
+	\frac{\partial  \ln(P_N(n))}{\partial n} \Big|_{n^*} = \frac{\partial}{\partial n} \big[ \ln N! - \ln n! - \ln(N-n)! - N\ln 2 \big] \Big|_{n^*} = 0
+\end{equation}
+
+\noindent If $N$ is a large number, we can apply the Stirling's approximation
+
+\begin{equation}
+	\frac{\partial}{\partial n} \big[ N\ln N - N - n\ln n + n - (N-n)\ln(N-n) + (N-n) - N\ln 2 \big] \Big|_{n^*} = 0
+\end{equation}
+
+\esp
+
+\noindent Finally, we obtain
+
+\begin{equation}
+	\ln \left(\frac{N-n^*}{n^*}\right) = 0
+\end{equation}
+
+\noindent It follows that
+
+\begin{equation}
+	\frac{N-n^*}{n^*} = 1 \implies n^* = N/2
+\end{equation}
+
+\esp
+
+The most probable state is therefore the one that favours a homogeneous distribution of particles across the two compartments. if there were $s$ compartments, the most probable state would be $n_1 = n_2 = n_3 = \dots =
+N/s$.
+
+\esp
+
+In light of these results, we know turn our attention to the average value of the distribution, ⟨n⟩, given by:
+
+\begin{equation}
+	\left< n \right> = \sum_{n=0}^N nP_N(n)
+\end{equation}
+
+\esp
+
+Our aim is obtaining $\left<n\right>$. To this end, we will show that $P_N(n)$ is actually a Gaussian (normal) distribution with average $\left<n\right>$. Let’s expand the function ln $P_N(n)$ in Taylor series around $n^* = N/2$ up to the second order
+
 
 \printbibliography[title={Bibliografía}]
 \end{document}
