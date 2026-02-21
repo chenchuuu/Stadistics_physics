@@ -3,7 +3,7 @@
 % --- Paquetes de Idioma y Codificación ---
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[spanish, es-tabla]{babel}
+\usepackage[english]{babel}
 
 % --- Diseño de Página ---
 \usepackage{geometry}
@@ -27,6 +27,10 @@
 % Espaciadora
 
 \newcommand{\esp}{\vspace{0.5cm}}
+
+% promedio
+
+\newcommand{\prom}[1]{\left\langle #1 \right\rangle}
 
 % Bibliografía
 
@@ -286,6 +290,11 @@ In light of these results, we know turn our attention to the average value of th
 
 \esp
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{IMG/gauss.png}
+\end{figure}
+
 Our aim is obtaining $\left<n\right>$. To this end, we will show that $P_N(n)$ is actually a Gaussian (normal) distribution with average $\left<n\right>$. Let’s expand the function ln $P_N(n)$ in Taylor series around $n^* = N/2$ up to the second order:
 
 \begin{equation}
@@ -329,6 +338,105 @@ According to eq (\ref{eq:maxcondition}), the first order is zero and the second 
 
 This equation highlights that is a Gaussian distribution of the type $f(n) = (1/(\sqrt{2\pi\sigma})) e^{- \frac{(n - \left< n \right>)^2}{2 \sigma^2}}$
 with $n =N/2$ and $\sigma = \sqrt{N}/2$. In particular, $\sigma = \sqrt{\left< n^2 \right> - \left< n \right>^2}$ is the standard deviation of the distribution, whereas $\sigma^2$ is the variance, which quantifies the spread or width of a distribution.
+
+\esp
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{IMG/eqandfluc.png}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{IMG/typeoffluc.png}
+\end{figure}
+
+Let’s use the above example to introduce the concept of \textbf{fluctuations}. The fluctuation of a variable is a measure of how much it deviates from its average value. It is calculated by subtracting the average (also known as the mean) of the variable from its actual value. This deviation, here denoted as $\delta n$, represents the fluctuation of the variable $n$:
+
+\begin{equation}
+	\delta n = n -  \prom{n}
+\end{equation}
+
+\esp
+
+It is important to note that fluctuations are often random in nature, meaning they can vary from one measurement to another. This can be appreciated by observing that its average over the same statistical ensemble equals zero
+
+\begin{equation}
+	\prom{n\prom{n}}=\prom{n}-\prom{\prom{n}}=\prom{n}-\prom{n}=0
+\end{equation}
+
+\esp
+
+Consequently, the above average cannot be applied to characterise fluctuations’ intensity. In statistical physics, two commonly used measures to characterise fluctuations are the \textbf{root mean squared fluctuation} (r.m.s.) and the \textbf{relative fluctuation}:
+
+\begin{enumerate}
+	\item \textbf{Root Mean-Squared Fluctuation}. It provides a measure of the average magnitude of the fluctuations. It is calculated by taking the square root of the average of the squared deviations from the mean. Mathematically, it can be expressed as
+
+	\begin{equation}
+		\sqrt{\langle \delta n^2 \rangle} = \sqrt{\prom{(n-\prom{n})^2}} = \sqrt{\prom{(n^2-2n\prom{n}-\prom{n}^2}} = \sqrt{\prom{n^2}-\prom{n}^2}
+	\end{equation}
+
+	An advantage of the r.m.s.fluctuation is that it has the same dimensionality as the variable itself, so that the ratio between the r.m.s. fluctuation and the average value of the variable is dimensionless
+	and can be employed to characterise the relative intensity of fluctuations. This ratio is defined as the \textbf{relative fluctuation}.
+
+	\item \textbf{Relative Fluctuation}. Also known as the coefficient of variation, the relative fluctuation compares the magnitude of the fluctuation to the average value of the variable. Mathematically, it can be expressed as:
+	
+	\begin{equation}
+		\frac{\sqrt{\prom{\delta n^2}}}{\prom{n}} = \frac{\sqrt{\prom{n^2}-\prom{n}^2}}{\prom{n}}
+	\end{equation}
+
+\end{enumerate}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{IMG/example.png}
+\end{figure}
+
+Using these definitions, we can obtain the values of the root mean squared fluctuation and relative fluctuation for the system of our example:
+
+\begin{equation}
+	\sqrt{\prom{\delta n^2}} = \sqrt{\prom{n^2}-\prom{n}^2} = \sqrt{N}/2
+\end{equation}
+
+\noindent which is the standard deviation of the probability distribution $P_N(n)$ and
+
+\begin{equation}
+	\frac{\sqrt{\prom{\delta n^2}}}{\prom{n}} = \frac{\sqrt{N}/2}{N/2} = \frac{1}{\sqrt{N}}
+\end{equation}
+
+\esp
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{IMG/statave.png}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{IMG/vastN.png}
+\end{figure}	
+
+In a macroscopic sample, where the number of particles is on the order of Avogadro’s number, the fluctuations are on the order of $10^{-11}$ and therefore \textbf{negligible}. As the width of the distribution tends to zero, the maximum value and the mean always coincide in macroscopic systems. The probability of a macrostate that deviates from the mean value is practically zero, even for macrostates very close to the mean. When
+we measure the macrostate of a system in equilibrium, the value we will always observe is the mean value. Macroscopically speaking, the system behaves as if it is always in the state $n = N/2$. The same conclusions can be applied to any other macroscopic property $A \equiv \prom{a}$ that has a corresponding microscopic counterpart associated with the particles:
+
+\begin{equation}
+	\frac{\sqrt{\prom{n^2}-A^2}}{A} \propto \frac{1}{\sqrt{N}} \rightarrow 0
+\end{equation}
+
+\esp
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{IMG/conclusions.png}
+\end{figure}
+
+In this chapter, we have discussed the main goals of Statistical Physics. We have also discussed the concept of Thermodynamic Equilibrium. Equilibrium corresponds to the most probable state of the system (or the mean). The fluctuations in all macroscopic quantities are negligible when the thermodynamic system is large enough. This
+guarantees that the observables of a macroscopic system in equilibrium take fixed values. The fixed values
+of macroscopic observables coincide with the average over all possible microscopic configurations. \textbf{Fortunately, although the microscopic world is chaotic and fluctuating, the macroscopic observables are quantities that do not fluctuate, and we can consider them as constants}. This property allows us to treat macroscopic observables as stable and predictable quantities, even in the presence of microscopic fluctuations. It is the collective behaviour of a large number of microscopic constituents that gives rise to the stability and predictability of macroscopic systems in equilibrium. By studying the statistical properties
+and averaging over all possible microscopic configurations, we can effectively describe and understand the
+macroscopic behaviour of systems in equilibrium. This approach provides a powerful framework for analysing
+and predicting the properties of complex systems, bridging the gap between the microscopic and macroscopic
+scales of the physical world.
 
 \printbibliography[title={Bibliografía}]
 \end{document}
