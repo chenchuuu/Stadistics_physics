@@ -1,0 +1,249 @@
+\documentclass[12pt,a4paper]{report}
+
+% --- Paquetes de Idioma y Codificación ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish, es-tabla]{babel}
+
+% --- Diseño de Página ---
+\usepackage{geometry}
+\geometry{top=2.5cm, bottom=2.5cm, left=3cm, right=3cm}
+
+% --- Matemáticas y Símbolos ---
+\usepackage{amsmath, amssymb, amsthm}
+
+% --- Colores y Cajas ---
+\usepackage[dvipsnames]{xcolor}
+\usepackage[most]{tcolorbox}
+
+% Caption
+
+\usepackage{caption}
+
+% Gráficos
+
+\usepackage{graphicx}
+
+% Espaciadora
+
+\newcommand{\esp}{\vspace{0.5cm}}
+
+% promedio
+
+\newcommand{\prom}[1]{\left\langle #1 \right\rangle}
+
+% ket
+
+\newcommand{\ket}[1]{| #1 \rangle}
+
+% bra
+
+\newcommand{\bra}[1]{\langle #1 |}
+
+% braket
+
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}
+
+% Bibliografía
+
+\usepackage[style=apa, backend=biber]{biblatex} % Estilo APA
+\addbibresource{biblio.bib} % Nombre de tu archivo .bib
+
+% Configuración de cajas personalizadas
+\newtcolorbox{importante}{
+	colback=red!5!white,
+	colframe=red!75!black,
+	title=Importante,
+	fonttitle=\bfseries
+}
+
+\newtcolorbox{nota}{
+	colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Nota,
+	fonttitle=\bfseries
+}
+
+% Definición de la caja de bibliografía
+\newtcolorbox{bibliografia}{
+	colback=gray!5!white,
+	colframe=gray!75!black,
+	title=Bibliografías útiles,
+	fonttitle=\bfseries,
+	breakable
+}
+
+% Socrative para óptica 2
+
+\newtcolorbox{Socrative}{
+	colback=orange!5!white,
+	colframe=orange!75!black,
+	title=Socrative,
+	fonttitle=\bfseries,
+	breakable
+}
+
+% Float
+
+\usepackage{float}
+
+% --- Hipervínculos ---
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+
+% --- Datos del Documento ---
+\title{Statistical Physics}
+\author{Chengyu Jin}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	
+	\tableofcontents
+	\newpage
+	
+	\chapter{Microscopic description}
+	
+	Statistical physics serves as the bridge that connects the microscopic world of atoms and molecules to the macroscopic phenomena observed in our everyday lives. At its core, this field is concerned with unraveling the mysteries of nature by understanding how countless microscopic particles, when aggregated, give rise to
+	the familiar and predictable behaviour of macroscopic systems. This chapter provides us with the tools and knowledge necessary to comprehend the underlying dynamics of particles at the smallest scales. Here, we shift our focus from macroscopic observables like pressure and temperature to study individual particles – their motions, interactions, and the probabilistic nature of their behaviour. As we walk through the microscopic world, we will uncover the principles governing the behaviour of molecules and atoms. We will decipher the significance of concepts such as phase space, Hamiltonian mechanics, and quantum states, all of which play crucial roles in painting a vivid portrait of the microscopic universe. By the end of this chapter, you will possess a profound understanding of how microscopic details pave the way for macroscopic phenomena.
+	
+	\section{Classical Description}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/degreeoffree.png}
+	\end{figure}
+	
+	\esp
+	
+	
+	\begin{enumerate}
+		\item An isotropic atom has no rotational degrees of freedom , but only three translational degrees of freedom. " Reason of no rotational degrees of freedom".
+		\item An anisotropic atom of two side, one likes water and one likes oil has 2 rotational degrees of freedom and the three translational degrees of freedom.
+		\item A diatomic molecule has 3 translational,
+		2 rotational and 1 vibrational (due to the distance between both particles) degrees of freedom.
+	\end{enumerate}
+	
+	\esp
+	
+	\noindent \textbf{Just for curiosity}
+	
+	\esp
+	
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		Degrees of Freedom (s) & A (Atom $\implies$ N=1) & Linear Molecule & Non-linear Molecule \\
+		\hline
+		Traslational & 3(N) & 3 & 3 \\
+		\hline
+		Rotation & 0 & 2 & 3 \\
+		\hline
+		Vibration & 0 & 3N-5 & 3N-6 \\
+		\hline
+		Total & 3(N) & 3N & 3N \\
+		\hline
+	\end{tabular}
+	
+	\esp
+	
+	\noindent \textbf{The degree of freedom is always 3N}.
+	
+	\esp
+	
+	\noindent In this chapter we will only treat particles as a \textbf{simple spheres}.
+	
+	\esp
+
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/classicdynamic.png}
+	\end{figure}
+	
+	\esp
+	
+	In classical physics, the description of a system often involves a fundamental and powerful concept known as phase space, here indicated as $\Gamma$. Phase space provides a comprehensive mathematical framework for understanding and predicting the behaviour of physical systems. It is particularly essential in classical mechanics for analysing systems with complex configurations and interactions. Phase space provides physicists and engineers with a powerful tool for modelling and analysing complex systems. It allows us to visualise
+	and study the system’s evolution over time by tracing its path through the multidimensional space. This approach simplifies the prediction of a system’s future behaviour, making it a fundamental concept in classical mechanics and other branches of physics. Understanding phase space is essential for tackling a wide range of problems, from the motion of celestial bodies to the behaviour of particles in a gas. It forms the basis for classical mechanics and serves as a foundation for more advanced topics in physics. At its core, phase space is a multidimensional mathematical space that offers a complete representation of the state of a physical system. Each point within phase space corresponds to a \textbf{unique state of the system}. The number of dimensions in phase space equals the number of \textbf{generalised coordinates} and \textbf{generalised momenta} required to define the system’s configuration. For example, in a system with s degrees of freedom, the corresponding
+	phase space would be a 2s-dimensional space. This concept allows us to track the system’s evolution through all possible states by examining its trajectory in phase space.
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/examplemicrostate.png}
+	\end{figure}
+
+	\esp 
+	
+	Consider a monoatomic gas composed of N molecules confined within a box. In this case, the degrees of freedom are given by s = 3N. Its generalized coordinates for positions and momenta can be written as
+	follows:
+	
+	\esp
+	
+	\noindent \textbf{Generalised coordinates}
+	
+	\esp
+	
+	$$
+	\left\{
+	\begin{aligned}
+		q_1 &= x_1 & q_2 &= y_1 & q_3 &= z_1 \\
+		q_4 &= x_2 & q_5 &= y_2 & q_6 &= z_2 \\
+		\dots \\
+		q_{3i-2} &= x_i & q_{3i-1} &= y_i & q_{3i} &= z_i
+	\end{aligned}
+	\right.
+	$$
+
+	\esp
+	
+	\noindent \textbf{Generalised momenta}
+	
+	\esp
+
+	$$
+	\left\{
+	\begin{aligned}
+		p_1 &= m_1 \dot{x}_1 & p_2 &= m_1 \dot{y}_1 & p_3 &= m_1 \dot{z}_1 \\
+		p_4 &= m_2 \dot{x}_2 & p_5 &= m_2 \dot{y}_2 & p_6 &= m_2 \dot{z}_2 \\
+		\dots \\
+		p_{3i-2} &= m_i \dot{x}_i & p_{3i-1} &= m_i \dot{y}_i & p_{3i} &= m_i \dot{z}_i
+	\end{aligned}
+	\right.
+	$$
+	
+	\esp
+	
+	In this representation, $q_i$ denotes the position coordinates, while $p_i$ corresponds to the momenta of the i-th particle within the system. These variables, combined with time, allow us to describe the complete state of the system dynamically.
+
+	\esp 
+	
+	\noindent \textbf{Microstate Definition}
+	
+	\esp
+	
+	A microstate is defined as the set of coordinates and momenta that completely characterise the dynamic state of a system.
+	
+	\begin{equation}
+		microstate \equiv \left\{\mathbf{q}, \mathbf{p}\right\}
+	\end{equation}
+	
+	\subsection{Phase Space}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/phasespace.png}
+	\end{figure}
+	
+	\esp
+	
+	The space of phases (or phase space), denoted as $\Gamma$, is defined as a 2s-dimensional metric space, where s is the number of degrees of freedom in the system. The axes of this phase space correspond to the variables $\left\{q_1, \dots , q_s, p_1, \dots , p_s\right\}$. In the phase space, the \textbf{microstate of the system is represented by a point}. Furthermore, the temporal evolution of the system results in a trajectory within the phase space, traversing different microstates.
+
+	\printbibliography[title={Bibliografía}]
+\end{document}
