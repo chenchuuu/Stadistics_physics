@@ -595,5 +595,395 @@
 	
 	The main difference between phase space in classical mechanics and configuration space in QM lies in how they represent the state of a physical system and how variables are handled. Let’s look at this difference in more detail.
 	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/configspace.png}
+	\end{figure}
+	
+	\esp
+	
+	\noindent \textbf{Phase Space in Classical Mechanics}
+	
+	\esp
+	
+	\begin{enumerate}
+		\item \textbf{State Representation}: In classical mechanics, phase space represents the state of a physical system. Each point in phase space corresponds to a unique configuration of the system, defined by the coordinates of position and momentum of all particles in the system.
+		\item \textbf{Classical Variables}: In classical mechanics, the variables that describe the state are real numbers, i.e., position and momentum coordinates are continuous and can take any real value.
+		\item \textbf{Determinism}: In classical phase space, the system follows deterministic trajectories. Given an initial set of initial conditions, the system evolves uniquely along a specific trajectory in phase space, according to Hamilton’s equations or Newton’s equations of motion.
+	\end{enumerate}
+	
+	\esp
+	
+	\noindent \textbf{Configuration Space in QM}
+	
+	\esp
+	
+	\begin{enumerate}
+		\item \textbf{State Representation}: In QM, configuration space represents the state of the system. A quantum state is described by a wave function or a state vector that contains information about the probability of finding a particle in a particular configuration.
+		\item \textbf{Quantum Variables}: In QM, the variables that describe the state are operators that act on wave functions. These operators generally do not commute, leading to properties such as non-commutativity and Heisenberg’s uncertainty.
+		\item \textbf{Probabilistic Nature}: In quantum configuration space, the behaviour of particles is described through wave functions that assign probabilities of finding a particle in a specific configuration. Quantum predictions are related to probabilities and superpositions of states.
+	\end{enumerate}
+	
+	\esp
+	
+	\begin{nota}
+		Each axis of configuration space corresponds to \textbf{one independent generalized coordinate}, i.e., one degree of freedom of the total system. If the state vector is represented on the momentum basis, then the wave function is represented on \textbf{momentum space}, not configuration space.
+	\end{nota}
+	
+	\esp 
+	
+	In summary, while phase space in classical mechanics is based on continuous variables and allows for deterministic evolution of the system, configuration space in QM is based on wave functions and non-commutative operators, and predictions are related to \textbf{probabilities} and the \textbf{principle of superposition}. These fundamental differences reflect the essential distinction between classical physics and quantum physics.
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/qpprobability.png}
+	\end{figure}
+	
+	In QM, one of the fundamental concepts is the probability of finding a physical system in a particular state within its configuration space. This probability is described by the wave function $\Psi(\mathbf{q}, t)$, where $\mathbf{q}$ represents the configuration coordinates of the system and $t$ time. The probability $P(\mathbf{q}, t)$ of finding the system within the region of the configuration space defined by $[q_1, q_1 + dq_1][q_2, q_2 + dq_2]...$ at a specific time $t$ reads:
+	
+	\begin{equation}
+		P(\mathbf{q}, t) = \int_{q}^{q+dq} |\Psi(\mathbf{q}, t)|^2 d\mathbf{q} \tag{2.18}
+	\end{equation}
+	
+	where $\Psi(\mathbf{q}, t)$ is the wave function of the system in the configuration space $\mathbf{q}$ at time $t$; $|\Psi(\mathbf{q}, t)|^2$ is the square modulus of the wave function, providing the probability density; and $d\mathbf{q} = dq_1 \dots dq_s$ represents the infinitesimal volume element in the configuration space.
+	
+	\esp
+	
+	\noindent \textbf{Example 2.2: Probability of Finding a Particle in a Specific Range}
+	
+	\esp
+	
+	Consider a one-dimensional quantum system with the wave function $\Psi(x,t)$. We want to calculate the probability of finding the particle between $x=2$ and $x=4$ at $t=0$. According to QM, the probability $P(2 \le x \le 4; 0)$ of finding the particle in the range $[2,4]$ at time $t=0$ is given by:
+	
+	\begin{equation}
+		P(2 \le x \le 4; 0) = \int_{2}^{4} |\Psi(x,0)|^2 dx
+	\end{equation}
+	
+	Suppose the wave function is given by $\Psi(x,0) = 2\sqrt{2}e^{-x^2}$. Plugging this into the formula, we can calculate the probability:
+	
+	\begin{equation}
+		P(2 \le x \le 4; 0) = \int_{2}^{4} |2\sqrt{2}e^{-x^2}|^2 dx
+	\end{equation}
+	
+	Now, compute the integral:
+	
+	\begin{equation}
+		P(2 \le x \le 4; 0) = \int_{2}^{4} 8e^{-2x^2} dx
+	\end{equation}
+	
+	This integral can be evaluated numerically to find the probability of locating the particle between $x=2$ and $x=4$ at $t=0$. The result will be a numerical value $P(2 \le x \le 4; 0)\approx6.27\cdot 10^{-5}$. But, is this a probability? If the probability in the full space is equal to one, then the answer is yes, else we have to normalise. The integral of the full space give us $\sim 10.026$, then the probability is $6.27\cdot 10^{-5}/10.026 \approx 6.25 \cdot 10^{-6}$.
+	
+	\subsection{Wave function and the Schrödinger equation}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/wavefunc.png}
+	\end{figure}
+
+	\esp
+	
+	For a system with constant volume $V$ and a fixed number of particles $N$, the \textbf{Schrödinger equation} must be satisfied:
+	
+	\begin{equation}
+		i\hbar \frac{\partial}{\partial t}\Psi(\mathbf{r}_1, \mathbf{r}_2, \dots, \mathbf{r}_N, t) = \hat{H}\Psi(\mathbf{r}_1, \mathbf{r}_2, \dots, \mathbf{r}_N, t)
+	\end{equation}
+	
+	\esp
+	
+	where $\hat{H}$ represents the Hamiltonian operator describing the total energy of the system; $\Psi(\mathbf{r}_1, \mathbf{r}_2, \dots, \mathbf{r}_N, t)$ is the wave function of the system, dependent on the coordinates $\mathbf{r}_i$ of the particles and time $t$; $i$ is the imaginary unit; and $\hbar$ is the reduced Planck constant. This equation is the fundamental form of the Schrödinger equation in QM, governing the evolution of the wave function for a quantum system with $N$ particles in a volume $V$. 
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/wavefunc2.png}
+	\end{figure}
+	
+	\esp
+	
+	Additionally, if the energy $E$ of the system is \textbf{constant} (an isolated system), then the above equation simplifies, and the time dependence disappears:
+	
+	\begin{equation}
+		\hat{H}\psi(\mathbf{r}_1, \mathbf{r}_2, \dots, \mathbf{r}_N) = E\psi(\mathbf{r}_1, \mathbf{r}_2, \dots, \mathbf{r}_N)
+	\end{equation}
+	
+	\esp
+	
+	The above equation is employed only when the Hamiltonian itself does not explicitly depend on time. Nevertheless, even in this scenario, the overall wave function remains time-dependent. In particular, the solutions of this equation are the vectors $\psi_{E_n}$, in the basis of energy eigenstates, whose linear combination gives the following \textbf{time-dependent state vector}:
+	
+	\begin{equation}
+		|\Psi(t)\rangle = \sum_n A_n e^{-iE_n t / \hbar} |\psi_{E_n}\rangle
+	\end{equation}
+	
+	\esp
+	
+	where $A_n$ are complex numbers and $e^{-iE_n t / \hbar}$ represents the time evolution operator, also known as the \textbf{propagator}, which describes the time evolution of a quantum state under a time-independent Hamiltonian. 
+	
+	\esp
+	
+	Due to the principle of uncertainty, even if the wave function is known, it is not possible to uniquely determine all the values of $q_i$ and $p_i$: the wave function $\Psi$ determines the probability distribution of physical quantities but not their exact values. More specifically, the square modulus of the wave function $|\Psi|^2$ provides information about the probability density of finding a particle in a particular state or with specific values of physical quantities such as position or momentum. However, it does not provide the exact values of these quantities. This probabilistic nature of QM is a fundamental feature, and it means that we can predict the likelihood of different outcomes, but we cannot precisely determine individual values. The wave function encodes the probabilities associated with various outcomes, reflecting the inherent uncertainty and indeterminacy at the quantum level.
+	
+	\subsection{Pure States and Mixed States}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/puremixed.png}
+	\end{figure}
+	
+	\esp
+	
+	\noindent In QM, there are two fundamental types of quantum states.
+	
+	\begin{itemize}
+		\item \textbf{Pure states} are represented by vectors $\ket{\Psi}$ in a Hilbert space $\hat{H}$. These states are characterised by having a well-defined and definite quantum state. When a system is in a pure state, all information about its quantum properties is contained in a \textbf{single} state vector. Pure states are described by wave functions that are not statistical mixtures of other states.
+	\end{itemize}
+	
+	\begin{itemize}
+		\item \textbf{Mixed states}, on the other hand, are represented by \textbf{density operators} or \textbf{density matrices} $\rho$. These states result from a statistical mixture of pure states. In a mixed state, the system has uncertainty or lack of knowledge about its quantum properties. The density operator $\rho$ contains information about the probabilities of finding the system in different pure states. Mixed states arise in situations where there is incomplete information or when a system is prepared probabilistically.
+	\end{itemize}
+	
+	Understanding and distinguishing between pure states and mixed states is essential in QM as they have different mathematical descriptions and physical interpretations. Pure states correspond to definite quantum states, while mixed states represent statistical ensembles of possible pure states.
+	
+	\esp
+	
+	\subsection{Association of physical quantities with quantum operators}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/op.png}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/op2.png}
+	\end{figure}
+	
+	\esp
+	
+	\noindent In the context of QM, each physical quantity $B$ is associated with a self-adjoint linear operator $\hat{B}$ that operates on the states within the Hilbert space.
+	
+	\begin{enumerate}
+		\item \textbf{Physical Quantity $B$:} In the context of QM, $B$ represents a physical quantity or observable, such as position, momentum, energy, or any other property that we want to measure or describe.
+		
+		\item \textbf{Self-adjoint Linear Operator $\hat{B}$:} This refers to a mathematical operator denoted as $\hat{B}$ that acts on the quantum states within the Hilbert space. The term ``\textbf{self-adjoint}'' means that the operator $\hat{B}$ is Hermitian, which implies that it is equal to its own adjoint (or conjugate transpose). Self-adjoint operators are crucial in QM because they correspond to observable physical quantities, and they have real eigenvalues.
+		
+		\item \textbf{Hilbert Space:} The Hilbert space is a mathematical space used in QM to describe the possible states of a quantum system. It is a complex vector space where quantum states, represented as kets (e.g., $\ket{\psi}$), reside. These states can be operated upon by quantum operators like $\hat{B}$ to obtain measurements or predictions of physical quantities.
+	\end{enumerate}
+	
+	\subsubsection{Properties of the self-adjoint operator}
+	
+	\noindent A self-adjoint operator $\hat{B}$ in QM possesses several key properties:
+	
+	\begin{enumerate}
+		\item \textbf{Hermitian Nature:} A self-adjoint operator $\hat{B}$ is Hermitian, which means it is equal to its own adjoint or conjugate transpose:
+		\begin{equation}
+			\hat{B} = \hat{B}^\dagger
+		\end{equation}
+		This property ensures that the inner product (expected value) of $\hat{B}$ acting on a state vector is the same whether one takes the inner product of $\psi_1$ and $\hat{B}\psi_2$ or $\psi_2$ and $\hat{B}\psi_1$ (symmetry of the inner product). Mathematically, $\langle \psi_1 | \hat{B} | \psi_2 \rangle = \langle \psi_2 | \hat{B} | \psi_1 \rangle^*$.
+		
+		\item \textbf{Real Eigenvalues:} The eigenvalues of a self-adjoint operator $\hat{B}$ are always real numbers. This property is crucial because it ensures that measurements of physical quantities associated with $\hat{B}$ yield real values.
+	\end{enumerate}
+	
+	\begin{enumerate}
+		\item \textbf{Orthogonal Eigenvectors:} The eigenvectors corresponding to distinct eigenvalues of $\hat{B}$ are orthogonal to each other. In other words, if two eigenvalues $\lambda_i$ and $\lambda_j$ are different, then the eigenvectors $|i\rangle$ and $|j\rangle$ associated with these eigenvalues are orthogonal:
+		\begin{equation}
+			\langle i | j \rangle = 0 \quad \text{for } \lambda_i \neq \lambda_j
+		\end{equation}
+		
+		\item \textbf{Completeness:} The set of eigenvectors of $\hat{B}$ forms a complete orthonormal basis for the Hilbert space. This property allows any quantum state to be expressed as a linear combination of these eigenvectors.
+	\end{enumerate}
+	
+	\subsection{Expectation value}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/expectation.png}
+	\end{figure}
+	
+	\esp
+	
+	\noindent In QM, the numerical value observed in a measurement of a certain physical quantity after preparing the system in a specific microstate $\psi$ is not defined. The only quantity we can define is its average value. This average value is what we would obtain after performing a large number of measurements under identical conditions (the same microstate $\psi$). This is usually referred to as \textbf{quantum average}. The result of a measurement (observable) for a quantum system in the state $\psi$ is equal to the expected value (average) of the operator $\hat{B}$ for that state $\psi$. In mathematical terms, this can be expressed as:
+	
+	\begin{equation}
+		\bar{B} = \langle \psi | \hat{B} | \psi \rangle = \langle \psi | (\hat{B}\psi) \rangle = \int \psi^* (\hat{B}\psi) dq_1 \dots dq_n
+	\end{equation}
+	
+	This equation reflects the fundamental concept that in QM, the result of a measurement is probabilistic, and the expectation value of the operator $\hat{B}$ provides the average or expected outcome for that measurement when the system is in the state $\psi$. We also notice that $|\psi\rangle$ is normalised to unity, that is $\langle \psi | \psi \rangle = 1$. This condition guarantees that the probability of finding the system in any possible state is conserved and equal to 1. Finally, one should note that the fact that $\hat{B}$ is self-adjoint ensures that its expected value is a real number.
+	
+	\esp
+	
+	When our quantum system is in a mixed state, meaning it can exist in multiple quantum states with certain probabilities, the outcome of a measurement is probabilistic. In this scenario, \textit{we cannot predict a single definite value for the measurement}. Instead, we can calculate the expected or average value of the measurement, which is known as the ``expectation value.'' The expectation value represents the average outcome we would obtain if we were to repeat the same measurement on identically prepared systems in their respective mixed states many times. It is a fundamental concept in QM and is calculated using the principles of quantum probability.
+	
+	\subsection{Eigenvalues, eigenstates, eigenfunctions}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/eigen.png}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/eigen2.png}
+	\end{figure}
+	
+	\esp
+	
+	\noindent In QM, eigenfunctions are special functions associated with a physical observable (represented by the operator $\hat{B}$) that have the property that when the operator $\hat{B}$ acts on them, it returns a scaled version of the same function. Mathematically, this can be expressed as:
+	
+	\begin{equation}
+		\hat{B}|\phi_n\rangle = b_n|\phi_n\rangle
+	\end{equation}
+	
+	\esp
+	
+	where $\hat{B}$ is the operator corresponding to the physical observable and $\phi_n$ represents the \textit{eigenfunction} associated with the \textit{eigenvalue} $b_n$. This equation is usually referred to as the \textbf{eigenvalue equation}. It describes how certain special states (called \textit{eigenstates}) of an operator remain the same except for a scaling factor (the eigenvalue) when acted upon by that operator.
+	
+	\esp
+	
+	Eigenfunctions are crucial in QM because they provide a basis in which any quantum state can be expressed through a linear combination. This means that if we know the eigenfunctions of an operator, we can represent any quantum state using those eigenfunctions and coefficients. Decomposition of a state vector into an orthonormal basis $\{\phi_n\}_{n=1}^\infty$ is a fundamental concept in vector space theory and also applies in QM.
+	
+	\esp
+	
+	\noindent \textbf{Example}:
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/eigenex.png}
+	\end{figure}
+		
+
+	
+	\subsection{Decomposition of $\ket{\psi}$ into an orthonormal basis}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/decomp1.png}
+	\end{figure}
+	
+	\esp
+	
+	In this context, an orthonormal basis is a set of linearly independent vectors in a vector space that are normalised, meaning they have a norm (length) equal to 1 and are mutually orthogonal (the inner product between two different vectors is 0). In QM, the states of a system are represented as vectors in a Hilbert space, and these states can be decomposed in terms of an orthonormal basis. There are two options here: either the orthonormal basis $\{\phi_n\}_{n=1}^\infty$ is an eigenfunction of $\hat{B}$ or it is not.
+	
+	\subsubsection{Case I. The orthonormal basis $\left\{\phi_n\right\}_{n=1}^\infty$ is an eigenfunction of $\hat{B}$.}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/decomp2.png}
+	\end{figure}
+	
+	\noindent The decomposition of a quantum state $\ket{\psi}$ in terms of the eigenfunctions of the operator $\hat{B}$ can be written as:
+	
+	\begin{equation}
+		\ket{\psi} = \sum_{n=1}^\infty c_n \ket{\phi_n}
+	\end{equation}
+	
+	where $\ket{\psi}$ is the quantum state we want to decompose; $\ket{\phi_n}$ are the elements of the orthonormal basis (eigenfunctions of operator $\hat{B}$); and $c_n$ are complex numbers describing how much each element of the basis contributes to the state $\ket{\psi}$. To find the coefficients $c_n$, inner products and properties of the orthonormal basis are used. In particular, $c_n$ is calculated as the inner product between the state $\ket{\psi}$ and the basis element $\ket{\phi_n}$:
+	
+	\begin{equation}
+		c_n = \braket{\phi_n}{\psi} = \int \phi_n^* \psi dq_1 \dots dq_N
+	\end{equation}
+	
+	\noindent Additionally
+	
+	\begin{equation}
+		\bra{\psi} = \sum_{n=1}^\infty \bra{\phi_n} c_n^*
+	\end{equation}
+	
+	where $|c_n|^2$ is the probability that, given a system in the pure state $\ket{\psi}$, after a measurement it will be found in the state $\ket{\phi_n}$. It must hold that
+	
+	\begin{equation}
+		\sum_{n=1}^\infty |c_n|^2 = 1
+	\end{equation}
+	
+	\noindent It follows that the expected value of the observable $\hat{B}$ reads
+	
+	\begin{equation}
+		\bar{B} = \bra{\psi}\hat{B}\ket{\psi} = \left( \sum_{m=1}^\infty \bra{\phi_m} c_m^* \right) \hat{B} \left( \sum_{n=1}^\infty c_n \ket{\phi_n} \right) = \sum_{m=1}^\infty c_m^* \sum_{n=1}^\infty c_n \bra{\phi_m} \underbrace{\hat{B} \ket{\phi_n}}_{b_n \ket{\phi_n}}
+	\end{equation}
+	
+	\noindent where $\ket{\phi_n}$ are eigenvalues of $\hat{B}$. This equation reduces to
+	
+	\begin{equation}
+		\bar{B} = \sum_{m=1}^\infty \sum_{n=1}^\infty c_m^* c_n b_n \braket{\phi_m}{\phi_n} = \sum_{m=1}^\infty \sum_{n=1}^\infty c_m^* c_n b_n \delta_{nm} = \sum_{n=1}^\infty |c_n|^2 b_n
+	\end{equation}
+	
+	where $\delta_{nm} \equiv \braket{\phi_m}{\phi_n}$ is an orthonormal basis and $b_n$ is the value of $B$ in state $n$ (real number). In other words, $\bar{B}$ is an average, where each $b_n$ should be weighted by its corresponding probability $|c_n|^2$.
+	
+	\subsubsection{Case II. The orthonormal basis $\left\{\phi_n\right\}_{n=1}^\infty$ is not an eigenfunction of $\hat{B}$.}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/decomp3.png}
+	\end{figure}
+	
+	\noindent In this case, 
+	
+	\begin{equation}
+		\hat{B}|\phi_n\rangle \neq b_n|\phi_n\rangle
+	\end{equation}
+	
+	\noindent and
+	
+	\begin{equation}
+		\bar{B} = \sum_{m=1}^\infty \sum_{n=1}^\infty c_m^* c_n \underbrace{\langle \phi_m | \hat{B} | \phi_n \rangle}_{b_{mn}}
+	\end{equation}
+	
+	\noindent where $b_{mn}$ is an element of matrix $(m,n)$ and can be a complex number. We conclude that $\bar{B}$ is a real number, but its expression is not that typical of an average: it is a quantum average and its contributions $b_{mn}$ are consequence of quantum interferences: they do not have a classical analogue.
+	
+	\esp
+	
+	Generally speaking, decomposition into an orthonormal basis is fundamental for understanding and working with quantum systems, as it allows us to express any state in terms of well-defined basic states and calculate probabilities and expectations of observables. Additionally, it ensures that the norm of the state $|\psi\rangle$ is preserved in the decomposition.
+	
+	\subsection{Temporal Evolution of an Operator}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/tempevolqp.png}
+	\end{figure}
+	
+	\esp
+	
+	\noindent The temporal evolution of states $\ket{\psi_t} \in \hat{H}$ follows the Schrödinger equation:
+	
+	\begin{equation}
+		i\hbar \frac{\partial}{\partial t}\ket{\psi_t} = \hat{H}\ket{\psi_t}
+	\end{equation}
+	
+	This equation has a formal solution. In the case where the Hamiltonian is independent of time:
+	
+	\begin{equation}
+		\ket{\psi_t} = e^{-\frac{i\hat{H}t}{\hbar}} \ket{\psi(0)}
+	\end{equation}
+	
+	\noindent where $\ket{\psi(0)}$ is the wave function at $t = 0$ (independent from time). Additionally
+	
+	\begin{equation}
+		\bra{\psi_t} = \bra{\psi(0)}e^{\frac{i\hat{H}t}{\hbar}}
+	\end{equation}
+	
+	\noindent The expected value of an operator $\hat{B}$ at time $t$ reads
+	
+	\begin{equation}
+		\bra{\psi_t} \hat{B} \ket{\psi_t} = \bra{\psi(0)}\underbrace{e^{\frac{i\hat{H}t}{\hbar}} \hat{B} e^{-\frac{i\hat{H}t}{\hbar}}}_{\hat{B}_t} \ket{\psi(0)} = \bra{\psi(0)} \hat{B}_t \ket{\psi(0)}
+	\end{equation}
+	
+	where we have transferred the time dependence to the operator $\hat{B}_t$. It follows that we can calculate the derivative of $\hat{B}_t$ with respect to time:
+	
+	\begin{equation}
+		\frac{d\hat{B}_t}{dt} = \frac{d}{dt} \left( e^{\frac{i\hat{H}t}{\hbar}} \hat{B} e^{-\frac{i\hat{H}t}{\hbar}} \right) = \frac{i}{\hbar} \hat{H} e^{\frac{i\hat{H}t}{\hbar}} \hat{B} e^{-\frac{i\hat{H}t}{\hbar}} - \frac{i}{\hbar} e^{\frac{i\hat{H}t}{\hbar}} \hat{B} \hat{H} e^{-\frac{i\hat{H}t}{\hbar}} = \frac{i}{\hbar} [\hat{H} \hat{B}_t - \hat{B}_t \hat{H}] = \frac{1}{i\hbar} [\hat{B}_t \hat{H} - \hat{H} \hat{B}_t]
+	\end{equation}
+	
+	\noindent Equivalently:
+	
+	\begin{equation}
+		\frac{d\hat{B}_t}{dt} = \frac{1}{i\hbar} [\hat{B}_t, \hat{H}]
+	\end{equation}
+	
+	If $[\hat{B}_t, \hat{H}] = 0$, then $\hat{B}_t$ is a constant of motion of the system$^5$ and there exists a basis that diagonalises both operators simultaneously.
+	
 	\printbibliography[title={Bibliografía}]
 \end{document}
