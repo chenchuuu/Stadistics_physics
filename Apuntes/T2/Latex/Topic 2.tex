@@ -983,7 +983,313 @@
 		\frac{d\hat{B}_t}{dt} = \frac{1}{i\hbar} [\hat{B}_t, \hat{H}]
 	\end{equation}
 	
-	If $[\hat{B}_t, \hat{H}] = 0$, then $\hat{B}_t$ is a constant of motion of the system$^5$ and there exists a basis that diagonalises both operators simultaneously.
+	If $[\hat{B}_t, \hat{H}] = 0$, then $\hat{B}_t$ is a constant of motion of the system and there exists a basis that diagonalises both operators simultaneously.
+	
+	\section{Systems of Identical Particles: Bosons and Fermions}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/distin.png}
+	\end{figure}
+	
+	In the field of statistical physics, it is common to encounter systems composed of a large number of identical particles, and these particles are \textit{quantum mechanically indistinguishable}. This concept plays a significant role in understanding the behaviour of matter in various physical systems.
+	
+	\esp
+	
+	In gases and liquids, particles are quantum mechanically indistinguishable, meaning it is impossible to tell one particle apart from another based on their individual properties. In solids, however, particles are typically considered distinguishable. This distinction arises because, in the classical viewpoint, it is always possible to determine the coordinates and momenta of a particle and track its evolution over time. Therefore, in classical mechanics, particles can be labeled or numbered, making them distinguishable. The concept of indistinguishability is a fundamental property that \textbf{cannot be explained within classical physics}. In classical mechanics, particles are distinguishable because they have well-defined trajectories and properties.
+	
+	\esp
+	
+	By contrast, in QM, particles are fundamentally indistinguishable. This indistinguishability arises from the fact that \textbf{particles cannot be localised in configuration space as individual points} but rather as regions of uncertainty, known as cells of indeterminacy. The indistinguishability of identical particles is closely connected to the \textbf{invariance of the Hamiltonian under the exchange of labels or enumerations of two particles}. In QM, the particles' properties and behaviour are described by wave functions, and it is not meaningful to label or enumerate individual particles, as they exist in a state of quantum superposition.
+	
+	\subsection{Ideal System of Identical Particles}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/ideal.png}
+	\end{figure}
+	
+	\esp
+	
+	Let's consider an ideal system of identical particles $i$ where these particles do not interact with each other. In such a system, the total energy can be expressed as the sum of individual energies:
+	
+	\begin{equation}
+		E = \sum_{i=1}^{N} \varepsilon^{(i)}
+	\end{equation}
+	
+	The Hamiltonian operator for this system can be written as the sum of individual single-particle Hamiltonian operators:
+	
+	\begin{equation}
+		\hat{H} = \sum_{i=1}^{N} \hat{h}^{(i)}
+	\end{equation}
+	
+	\noindent where $\hat{h}^{(i)}$ operates on the state $\phi_{k}^{(i)}$, resulting in the energy $\varepsilon_{k}^{(i)}$, and position $\vec{r}_i$. In other words:
+	
+	\begin{equation}
+		\hat{h}^{(i)} \phi_{k}^{(i)}(\vec{r}_i) = \varepsilon_{k}^{(i)} \phi_{k}^{(i)}(\vec{r}_i)
+	\end{equation}
+	
+	If we want to describe the quantum state $\psi$ of the entire system as the product of individual states, $\phi_{k_1}^{(1)} \phi_{k_2}^{(2)} \dots \phi_{k_N}^{(N)}$, we need to take into account the \textbf{indistinguishability} of particles. However, simply taking the product of individual states is incorrect, because swapping two particles should not lead to a physically distinct state. In particular, in case we deal with a system of $N$ bosons, the \textbf{symmetric} wave function reads:
+	
+	\begin{equation}
+		\psi = \frac{1}{\sqrt{\mathcal{N}!}} \sum_P \hat{P} \phi_{k_1}^{(1)} \phi_{k_2}^{(2)} \dots \phi_{k_N}^{(N)}
+	\end{equation}
+	
+	where $\hat{P}$ is the permutation operator, the sum $\sum_P$ goes over all permutations of the particles and the factor $\sqrt{\mathcal{N}!}$ normalises the wave function ($\mathcal{N}!$ is basically the number of permutations). By contrast, if we deal with a system of $N$ fermions, the \textbf{antisymmetric} wave function reads:
+	
+	\begin{equation}
+		\psi = \frac{1}{\sqrt{\mathcal{N}!}} \sum_P (-1)^P \hat{P} \phi_{k_1}^{(1)} \phi_{k_2}^{(2)} \dots \phi_{k_N}^{(N)}
+	\end{equation}
+	
+	Generally speaking, in ideal systems, the spectrum of energies is the same for all identical particles. However, it's crucial to correctly account for the symmetrisation of the quantum state when dealing with such systems of identical particles.
+	
+	\esp
+	
+	\noindent \textbf{Example.} Consider a system with two identical particles and two available states $a$ and $b$. Following the general definitions for symmetric and antisymmetric wave functions:
+	
+	\begin{align*}
+		\psi_B(1,2) &= \frac{1}{\sqrt{2}} \left( \phi_a^{(1)} \phi_b^{(2)} + \phi_b^{(1)} \phi_a^{(2)} \right) \\
+		\psi_F(1,2) &= \frac{1}{\sqrt{2}} \left( \phi_a^{(1)} \phi_b^{(2)} - \phi_b^{(1)} \phi_a^{(2)} \right)
+	\end{align*}
+	
+	\subsection{Permutation operator in systems of identical indistinguishable particles}
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/distinpar.png}
+	\end{figure}
+	
+	\esp
+	
+	Consider a system composed of $N$ identical and indistinguishable particles. In the context of QM, we introduce the \textbf{permutation operator}, denoted as $\hat{P}_{ij}$, which operates on the wave function $\psi$ of the system as follows:
+	
+	\begin{equation}
+		\hat{P}_{ij} \psi(\vec{r}_1, \dots, \vec{r}_i, \dots, \vec{r}_j, \dots, \vec{r}_N) = \psi(\vec{r}_1, \dots, \vec{r}_j, \dots, \vec{r}_i, \dots, \vec{r}_N)
+	\end{equation}
+	
+	\esp
+	
+	The permutation operator $\hat{P}_{ij}$ essentially exchanges the positions of particle $i$ and particle $j$ in the wave function. Now, if the system's Hamiltonian operator $\hat{H}$ is invariant under the interchange of labels or enumeration of any two particles, then the following commutation relation holds:
+	
+	\begin{equation}
+		[\hat{H}, \hat{P}_{ij}] = 0
+	\end{equation}
+	
+	\esp
+	
+	This means that the Hamiltonian operator commutes with the permutation operator $\hat{P}_{ij}$. Consequently, the eigenfunctions (wave functions) of both $\hat{H}$ and $\hat{P}_{ij}$ are the same. This property is of significant importance in QM, particularly when dealing with systems of identical particles. \textbf{It reflects the symmetry of the system with respect to the exchange of two indistinguishable particles.} When such symmetry exists, the wave functions corresponding to different permutations of particle positions have the same energy, and this leads to the concept of \textbf{degeneracy} in the energy levels of the system. The degeneracy of a particle state is the number of different quantum states that have the same energy. It is represented mathematically by the Hamiltonian for the system having more than one linearly independent eigenstate with the same energy eigenvalue.
+	
+	\subsection{Eigenvalues of the Permutation Operator $\hat{P_{ij}}$}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/pereigen.png}
+	\end{figure}
+	
+	\esp
+	
+	Let's explore the eigenvalues of the permutation operator $\hat{P}_{ij}$ in more detail. The permutation operator that operates on a wave function $\psi(\vec{r}_1, \dots, \vec{r}_i, \dots, \vec{r}_j, \dots, \vec{r}_N)$, results in:
+	
+	\begin{equation}
+		\hat{P}_{ij} \psi(\vec{r}_1, \dots, \vec{r}_i, \dots, \vec{r}_j, \dots, \vec{r}_N) = \lambda \psi(\vec{r}_1, \dots, \vec{r}_i, \dots, \vec{r}_j, \dots, \vec{r}_N) = \psi(\vec{r}_1, \dots, \vec{r}_j, \dots, \vec{r}_i, \dots, \vec{r}_N)
+	\end{equation}
+	
+	This equation indicates that applying the permutation operator $\hat{P}_{ij}$ to the wave function $\psi$ yields another wave function $\psi$ with a possible scaling factor $\lambda$. Let's examine the square of the permutation operator $\hat{P}_{ij}^2$:
+	
+	\begin{equation}
+		\hat{P}_{ij}^2 \psi(\vec{r}_1, \dots, \vec{r}_i, \dots, \vec{r}_j, \dots, \vec{r}_N) = \lambda^2 \psi(\vec{r}_1, \dots, \vec{r}_i, \dots, \vec{r}_j, \dots, \vec{r}_N) = \psi(\vec{r}_1, \dots, \vec{r}_i, \dots, \vec{r}_j, \dots, \vec{r}_N)
+	\end{equation}
+	
+	Now, since $\hat{P}_{ij}^2$ is equivalent to applying the permutation operator twice, we obtain the same wave function $\psi$ with a scaling factor $\lambda^2$. Therefore:
+	
+	\begin{equation}
+		\lambda^2 = 1 \implies \lambda = \pm 1
+	\end{equation}
+	
+	This means that the eigenvalues of the permutation operator $\hat{P}_{ij}$ are $\lambda = \pm 1$. These eigenvalues are fundamental in QM when dealing with systems of identical particles. They indicate that applying the permutation operator to a wave function either leaves it unchanged (for $\lambda = 1$) or changes its sign (for $\lambda = -1$), reflecting the indistinguishable nature of the particles and the symmetry of the quantum states.
+	
+	\subsection{Symmetric and Antisymmetric Wave Functions}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/bosonfermion.png}
+	\end{figure}
+	
+	\esp
+	
+	When we examine the eigenvalues of the permutation operator $\hat{P}_{ij}$, we find that if $\lambda = +1$, the wave function is symmetric under the exchange of two particles, indicating the particles are \textbf{bosons}:
+	
+	\begin{equation}
+		\psi(\vec{r}_1, \dots, \vec{r}_i, \dots, \vec{r}_j, \dots, \vec{r}_N) = \psi(\vec{r}_1, \dots, \vec{r}_j, \dots, \vec{r}_i, \dots, \vec{r}_N) \quad (\text{for bosons})
+	\end{equation}
+	
+	Bosons are particles that follow Bose-Einstein statistics. They can occupy the same quantum state simultaneously. This property leads to phenomena like Bose-Einstein condensation, where a large number of bosons collapse into the lowest quantum state, resulting in exotic states of matter. On the other hand, if $\lambda = -1$, the wave function becomes antisymmetric under the exchange of two particles, revealing that the particles are \textbf{fermions}:
+	
+	\begin{equation}
+		\psi(\vec{r}_1, \dots, \vec{r}_i, \dots, \vec{r}_j, \dots, \vec{r}_N) = -\psi(\vec{r}_1, \dots, \vec{r}_j, \dots, \vec{r}_i, \dots, \vec{r}_N) \quad (\text{for fermions})
+	\end{equation}
+	
+	Fermions, on the other hand, obey Fermi-Dirac statistics. The Pauli exclusion principle dictates that no two fermions can occupy the same quantum state simultaneously. This principle underlies the stability of matter, preventing electrons in atoms from all falling into the lowest energy state, which would result in the collapse of all matter. Symmetric wave functions are associated with bosons, which can occupy the same quantum state, while antisymmetric wave functions are associated with fermions, which obey the Pauli exclusion principle and cannot occupy the same quantum state simultaneously.
+	
+	\esp
+	
+	\begin{center}
+		\begin{tabular}{|p{2.5cm}|p{5.5cm}|p{5.5cm}|}
+			\hline
+			& \textbf{Bosons} & \textbf{Fermions} \\
+			\hline
+			Statistics & Bose-Einstein Statistics & Fermi-Dirac Statistics \\
+			\hline
+			Wave function & $\psi(\vec{r}_1, \vec{r}_2) = \psi(\vec{r}_2, \vec{r}_1)$ & $\psi(\vec{r}_1, \vec{r}_2) = -\psi(\vec{r}_2, \vec{r}_1)$ \\
+			\hline
+			Q. State & They can occupy the same quantum state & They cannot occupy the same quantum state \\
+			\hline
+			Example & Photons & Electrons, protons, etc. \\
+			\hline
+			Spin & $0, 1, 2, \dots$ & $1/2, 3/2, \dots$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	
+	\subsubsection{Invariance of Observables}
+	
+	In a system of identical particles, all observables must be invariant under the exchange of particle labels. This is represented by the commutation of the observable $\hat{B}$ with the permutation operator $\hat{P}_{ij}$ for all particles $i$ and $j$:
+	
+	\begin{equation}
+		[\hat{B}, \hat{P}_{ij}] = 0 \quad \text{for all } i, j, \text{ and } \hat{B}. \tag{2.51}
+	\end{equation}
+	
+	In QM, two quantum states that differ only by the exchange of two particles are considered the same quantum state and are indistinguishable. They are not counted as two separate states, but as a single state.
+	
+	\esp
+	
+	\noindent \textbf{Example}. Consider a system with two particles where the single-particle basis is defined by:
+	
+	\esp
+	
+	\noindent Consider the single-particle basis states:
+	\begin{equation*}
+		|\psi_1\rangle = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad |\psi_2\rangle = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+	\end{equation*}
+	
+	\noindent The tensor products of these states are calculated as follows:
+	\begin{align*}
+		|\psi_1\rangle \otimes |\psi_2\rangle &= \begin{pmatrix} 1 \\ 0 \end{pmatrix} \otimes \begin{pmatrix} 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \end{pmatrix} \\
+		|\psi_2\rangle \otimes |\psi_1\rangle &= \begin{pmatrix} 0 \\ 1 \end{pmatrix} \otimes \begin{pmatrix} 1 \\ 0 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \end{pmatrix}
+	\end{align*}
+	
+	\esp
+	
+	\noindent \textbf{Bosons}
+	
+	\esp
+	
+	\noindent The symmetric state $|\Psi_B\rangle$ is:
+	\begin{equation*}
+		|\Psi_B\rangle = \frac{1}{\sqrt{2}} \left( |\psi_1\rangle \otimes |\psi_2\rangle + |\psi_2\rangle \otimes |\psi_1\rangle \right) = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ 1 \\ 1 \\ 0 \end{pmatrix}
+	\end{equation*}
+	
+	\esp
+	
+	\noindent \textit{Check normalization:}
+	
+	\esp
+	
+	$\langle \Psi_B | \Psi_B \rangle = \frac{1}{2} (0, 1, 1, 0) \begin{pmatrix} 0 \\ 1 \\ 1 \\ 0 \end{pmatrix} = 1$ \quad \textbf{good}
+	
+	\esp
+	
+	\noindent \textbf{Fermions}
+	
+	\esp
+	
+	\noindent The antisymmetric state $|\Psi_F\rangle$ is:
+	
+	\esp
+	
+	\begin{equation*}
+		|\Psi_F\rangle = \frac{1}{\sqrt{2}} \left( |\psi_1\rangle \otimes |\psi_2\rangle - |\psi_2\rangle \otimes |\psi_1\rangle \right) = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ 1 \\ -1 \\ 0 \end{pmatrix}
+	\end{equation*}
+	
+	\esp
+	
+	\noindent \textit{Check normalization:}
+	
+	\esp
+	
+	$\langle \Psi_F | \Psi_F \rangle = \frac{1}{2} (0, 1, -1, 0) \begin{pmatrix} 0 \\ 1 \\ -1 \\ 0 \end{pmatrix} = 1$ \quad \textbf{good}
+	
+	\esp
+	
+	\subsection{Some examples of Ideal System of Identical Particles}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/33pe.png}
+	\end{figure}
+	
+	Let's consider a system of three identical particles, each occupying only one of three distinct quantum states: $a, b$, and $c$. We'll describe the quantum state for bosons and fermions separately.
+	
+	\esp
+	
+	Bosons are particles that follow Bose-Einstein statistics, which means they are indistinguishable and obey \textbf{symmetric exchange properties under particle exchange}. For bosons, the quantum state must be symmetric under the exchange of any two particles. Since there are three particles and three states, we need to construct symmetric combinations of the single-particle states. Therefore, the symmetric combination for three bosons reads:
+	
+	\esp
+	
+	\begin{equation}
+		\begin{aligned}
+			\psi_{\text{bosons}} = \frac{1}{\sqrt{6}} \Big[ &\phi_a(1)\phi_b(2)\phi_c(3) + \phi_a(1)\phi_b(3)\phi_c(2) + \phi_a(2)\phi_b(1)\phi_c(3) \\
+			&+ \phi_a(2)\phi_b(3)\phi_c(1) + \phi_a(3)\phi_b(2)\phi_c(1) + \phi_a(3)\phi_b(1)\phi_c(2) \Big]
+		\end{aligned}
+	\end{equation}
+	
+	\esp
+	
+	Note that when, for example, we exchange the positions of particle 2 and 3 keeping the position of particle 1, the sign stays positive. Here, $\phi_a(1)$ represents the state $a$ of the first particle, $\phi_b(2)$ represents the state $b$ of the second particle, and so on.
+	
+	\esp
+	
+	Fermions, on the other hand, follow Fermi-Dirac statistics, which means they are indistinguishable but obey \textbf{antisymmetric exchange properties under particle exchange}. For fermions, the quantum state must be antisymmetric under the exchange of any two particles. Similar to bosons, we need to construct antisymmetric combinations of the single-particle states, which read:
+	
+	\esp
+	
+	\begin{equation}
+		\begin{aligned}
+			\psi_{\text{fermions}} = \frac{1}{\sqrt{6}} \Big[ &\phi_a(1)\phi_b(2)\phi_c(3) - \phi_a(1)\phi_b(3)\phi_c(2) - \phi_a(2)\phi_b(1)\phi_c(3) \\
+			&+ \phi_a(2)\phi_b(3)\phi_c(1) + \phi_a(3)\phi_b(2)\phi_c(1) - \phi_a(3)\phi_b(1)\phi_c(2) \Big]
+		\end{aligned}
+	\end{equation}
+	
+	\esp
+	
+	Note that when, for example, we exchange the positions of particle 2 and 3 keeping the position of particle 1, the sign changes. Again, $\phi_a(1)$ represents the state $a$ of the first particle, $\phi_b(2)$ represents the state $b$ of the second particle, and so on.
+	
+	\esp
+	
+	\begin{nota}
+		It could be difficult to construct the antisymmetric combinations, then we can use the determinant that simplify the process
+	\end{nota}
+	
+	\esp
+	
+	\noindent We can use a determinant, which simplifies the process:
+	
+	\begin{equation*}
+		\psi_F = \frac{1}{\sqrt{6}} 
+		\begin{vmatrix}
+			\phi_a^{(1)} & \phi_a^{(2)} & \phi_a^{(3)} \\
+			\phi_b^{(1)} & \phi_b^{(2)} & \phi_b^{(3)} \\
+			\phi_c^{(1)} & \phi_c^{(2)} & \phi_c^{(3)}
+		\end{vmatrix}
+	\end{equation*}
+	
+	\noindent In this representation:
+	\begin{itemize}
+		\item Each \textbf{row} corresponds to a specific quantum state ($a, b$, or $c$).
+		\item Each \textbf{column} corresponds to a specific particle ($1, 2$, or $3$).
+	\end{itemize}
 	
 	\printbibliography[title={Bibliografía}]
 \end{document}
