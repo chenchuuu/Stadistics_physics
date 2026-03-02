@@ -1286,10 +1286,84 @@
 	\end{equation*}
 	
 	\noindent In this representation:
+	
+	\esp
+	
 	\begin{itemize}
 		\item Each \textbf{row} corresponds to a specific quantum state ($a, b$, or $c$).
 		\item Each \textbf{column} corresponds to a specific particle ($1, 2$, or $3$).
 	\end{itemize}
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/3p2s.png}
+	\end{figure}
+	
+	\esp
+	
+	Now, let's consider a system of three identical particles, but this time two of them can occupy the quantum state a and one of them the quantum state b. Let's describe the quantum state for bosons and fermions.
+	
+	\esp
+	
+	\noindent For bosons, the three-particle state reads
+	
+	\esp
+	
+	\begin{equation}
+		\psi_{\text{bosons}} = \frac{1}{\sqrt{3}} [\phi_a(1)\phi_a(2)\phi_b(3) + \phi_a(1)\phi_a(3)\phi_b(2) + \phi_a(2)\phi_a(3)\phi_b(1)]
+	\end{equation}
+	
+	\esp
+	
+	For fermions, we already know that two particles \textbf{cannot} be in the same \textbf{quantum state}. Let's see what we find then:
+	
+	\begin{align}
+		\psi_{\text{fermions}} &= \frac{1}{\sqrt{6}} \left[ \phi_a(1)\phi_a(2)\phi_b(3) - \phi_a(1)\phi_a(3)\phi_b(2) - \phi_a(2)\phi_a(1)\phi_b(3) \right. \nonumber \\
+		& \quad + \phi_a(2)\phi_a(3)\phi_b(1) - \phi_a(3)\phi_a(2)\phi_b(1) + \phi_a(3)\phi_a(1)\phi_b(2) \left. \vphantom{\sqrt{6}} \right] = 0
+	\end{align}
+	
+	\esp
+	
+	It is \textbf{possible} to find two or more bosons in the same quantum state. This is because bosons follow Bose-Einstein statistics and have no restrictions on the occupation of identical quantum states. In contrast, for fermions, the antisymmetry of the wave function prevents two particles from simultaneously occupying the same quantum state. This result reflects the \textbf{Pauli exclusion principle}, which prohibits multiple fermions from occupying the same quantum state. In this case, all states that would involve two fermions in the same state are canceled out, resulting in a net value of zero for the quantum state. This exclusion forms the basis of the electronic structure of atoms and the formation of chemical bonds.
+	
+	\subsection{Rephrasing the Problem in Terms of Occupation Numbers}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/rephra.png}
+	\end{figure}
+	
+	\esp
+	
+	Rather than jumping straight to the question, ``In which state can we find particle 1, particle 2, and so on?'' it's crucial to begin by asking, ``How many particles are currently occupying state 1? How many are residing in state 2, and so forth?'' This subtle shift in perspective sets the stage for a more profound understanding of quantum systems' intricate behaviour. By focusing on the occupancy of each state, we lay the groundwork for exploring the statistical characteristics of particles in different quantum states. To deal with ideal systems of identical particles, it is highly advisable to employ the occupation numbers of each state. This approach provides a more effective means of characterising the distribution and behaviour of particles within such systems. In particular, we can represent the conservation of particles and energy in the context of ideal systems of identical particles as follows:
+	
+	\esp
+	
+	\begin{equation}
+		\sum_{k} n_k = N \quad (\text{Conservation of Particles})
+	\end{equation}
+	
+	\esp
+	
+	\begin{equation}
+		\sum_{k} \epsilon_k n_k = E \quad (\text{Conservation of Energy})
+	\end{equation}
+	
+	\esp
+	
+	\noindent where $n_k$ is the number of particles in the energy state $\epsilon_k$
+	
+	\esp
+	
+	The conditions of symmetry or antisymmetry for a particle are not deduced from theoretical proofs but rather from experimental observations. These observations have allowed us to establish a rule for distinguishing between these types of particles based on their spin. More specifically, \textbf{bosons} are particles with an integer or zero spin. Examples of bosons include photons, phonons, and more. The number of particles in a boson state can vary from 0 to infinity, represented as $n_j = \{0, 1, 2, \dots, \infty\}$. By contrast, \textbf{fermions} are particles with half-integer spin. Examples of fermions include electrons, protons, and neutrons. In the case of fermions, the number of particles in a given state is either 0 or 1, denoted as $n_j = \{0, 1\}$.
+	
+	\section{Some Examples of Microstate Counting}
+	
+	\noindent Look example 2.6 in the \textbf{Lecture notes by A.Patti and CP.Perez}.
+	
+	\end{document}
 	
 	\printbibliography[title={Bibliografía}]
 \end{document}
