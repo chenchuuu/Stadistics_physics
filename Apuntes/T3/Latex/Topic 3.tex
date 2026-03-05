@@ -151,7 +151,7 @@
 	\esp
 	
 	\begin{equation}
-		\int_\Gamma \rho(\vec{q},\vec{p})d\vec{q}d\vec{p}
+		\int_\Gamma \rho(\vec{q},\vec{p})d\vec{q}d\vec{p} = 1
 	\end{equation}
 	
 	\section{Definition of Ensemble}
@@ -500,7 +500,7 @@
 		\item In an ergodic system, starting from an initial microstate, one can approach any other microstate in the system as closely as desired.
 	\end{enumerate}
 	
-	\subsection{Density Function. Liouville’s Theorem}
+	\section{Density Function. Liouville’s Theorem}
 	
 	\begin{figure}[H]
 		\centering
@@ -539,7 +539,7 @@
 	
 	\esp
 	
-	\subsubsection{Alternative Definition of the Density Function}
+	\subsection{Alternative Definition of the Density Function}
 	
 	\begin{figure}[H]
 		\centering
@@ -594,6 +594,142 @@
 	\esp
 	
 	Outside of equilibrium, the density function will also evolve in time. What is the time evolution of the density function? This is described by \textbf{Liouville's Theorem}.
-
+	
+	\subsection{Liouville’s Theorem}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/Liou.png}
+	\end{figure}
+	
+	\esp
+	
+	In statistical physics, understanding the time evolution of the density function $\rho(\mathbf{q}, \mathbf{p}; t)$ is crucial. This function represents the probability density of finding the system in a specific region of phase space at time $t$. \textbf{Liouville’s theorem} provides crucial insights into this evolution. It states that in phase space, the density of an ensemble of systems evolving under Hamilton’s equations remains constant along phase-space trajectories:
+	
+	\esp
+	
+	\begin{equation}
+		\frac{d\rho}{dt} = \frac{\partial\rho}{\partial t} + \{ \rho, H \} = 0
+	\end{equation}
+	
+	\esp
+	
+	where $\{ \cdot, \cdot \}$ indicates Poisson brackets. In other words, the phase-space density is \textbf{conserved} along trajectories of the system. We notice that $\rho(\mathbf{q}, \mathbf{p}; t)$ is defined in $\Gamma$ with the structure of the dynamic functions. However, while it evolves dynamically, it is not a physical observable in the usual sense, as it does not correspond to a directly measurable quantity. It should be noticed that the \textbf{total derivative} of $\rho(\mathbf{q}, \mathbf{p}; t)$ is zero, while the \textbf{partial time derivative} is zero only if the system is at the thermodynamic equilibrium (no change over time). In non-equilibrium systems, $\rho(\mathbf{q}, \mathbf{p}; t)$ evolves explicitly with time, but this evolution is exactly balanced by the system’s motion in phase space, ensuring that the total derivative remains zero:
+	
+	\esp
+	
+	\begin{equation}
+		\frac{\partial\rho}{\partial t} + \sum_i \left( \frac{\partial\rho}{\partial q_i} \frac{\partial H}{\partial p_i} - \frac{\partial\rho}{\partial p_i} \frac{\partial H}{\partial q_i} \right) = 0
+	\end{equation}
+	
+	\esp
+	
+	This occurs in systems such as a gas expanding into a vacuum, a system relaxing after an external perturbation, or a system driven by a time-dependent external force. By contrast, if the system is at thermodynamic equilibrium, then all the averages are time-independent and
+	
+	\esp
+	
+	\begin{equation}
+		\frac{\partial\rho}{\partial t} = 0
+	\end{equation}
+	
+	\esp
+	
+	\noindent which leads to
+	
+	\esp
+	
+	\begin{equation}
+		\{ \rho, H \} = 0
+	\end{equation}
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/Liou2.png}
+	\end{figure}
+	
+	\esp
+	
+	A particular solution of $\{ \rho, H \} = 0$ is $\rho = \text{const.}$ This implies that all the available states in the phase space are equally probable for the systems in that particular ensemble. Such an ensemble, where number of particles, volume and energy are constant, is referred to as \textbf{microcanonical ensemble} (it will be discussed in the following chapter). In other ensembles, $\rho$ is stationary, but not necessarily constant. For instance, in the \textbf{canonical ensemble}, where temperature, rather than energy, is constant, $\rho \sim e^{-E/kT}$ and, in the \textbf{macrocanonical ensemble}, where the number of particles fluctuates and the chemical potential is constant along with volume and temperature, $\rho \sim e^{-E/kT + \mu N/kT}$.
+	
+	\esp
+	
+	Note that, in the most general case, the above result does not necessarily mean that the \textit{shape} of a given region of phase space remains unchanged, but only that the volume this portion occupies is constant over time. In simpler terms, Liouville’s theorem tells us that if we know the initial distribution of microstates in phase space (described by the density function), this distribution will remain constant as the system evolves. This theorem is particularly useful for systems obeying Hamiltonian dynamics, such as ideal gases, and plays a central role in classical statistical physics. For a detailed proof of Liouville’s theorem, the interested reader is referred to Appendix E.
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/Liou3.png}
+	\end{figure}
+	
+	\esp
+	
+	A free particle of mass $m$ is constrained to move in one dimension, with a Hamiltonian given by $H = p^2/2m$. Let’s verify that the area of the rectangular enclosure shown in Fig. above remains invariant during the natural evolution of the system.
+	
+	\esp
+	
+	In order to demonstrate that the area of the rectangular enclosure remains invariant during the natural evolution of the system, let’s begin by defining the rectangular enclosure in the phase space and then make use of Liouville’s theorem. The phase space, in this case, is two-dimensional, represented by the coordinates $q$ and momenta $p$. At time $t = 0$, the rectangular enclosure can be defined in terms of its four corners:
+	
+	\esp
+	
+	\begin{equation*}
+		(q_0, p_0), (2q_0, p_0), (q_0, 2p_0) \text{ and } (2q_0, 2p_0),
+	\end{equation*}
+	
+	\esp
+	
+	where $q_0, 2q_0, p_0$, and $2p_0$ are given values. The total area is then $A(t = 0) = A_0 = q_0 p_0$. Let’s write the equations of motion:
+	
+	\esp
+	
+	\begin{equation}
+		\dot{p} = -\frac{\partial H}{\partial q} = -\frac{\partial(p^2/2m)}{\partial q} = 0 \longrightarrow p = p_0 = \text{const.}
+	\end{equation}
+	
+	\esp
+	
+	\begin{equation}
+		\dot{q} = \frac{\partial H}{\partial p} = \frac{\partial(p^2/2m)}{\partial p} = \frac{p}{m}
+	\end{equation}
+	
+	\esp
+	
+	\noindent Integrating with respect to time, we obtain:
+	
+	\esp
+	
+	\begin{equation}
+		\int_0^t dq = \int_0^t \frac{p}{m} dt \longrightarrow q = q_0 + \frac{p}{m}t = q_0 + \frac{p_0}{m}t
+	\end{equation}
+	
+	\esp
+	
+	The new coordinates are obtained with a linear transformation of the old coordinates. This implies that the straight lines of the rectangle are still straight. The locations of the four points at time $t$ are:
+	
+	\esp
+	
+	\begin{enumerate}
+		\item $a_1 = (q_0, p_0) \longrightarrow a'_1 = (q_0 + \frac{p_0}{m}t, p_0)$
+		\item $a_2 = (2q_0, p_0) \longrightarrow a'_2 = (2q_0 + \frac{p_0}{m}t, p_0)$
+		\item $a_3 = (q_0, 2p_0) \longrightarrow a'_3 = (q_0 + \frac{2p_0}{m}t, 2p_0)$
+		\item $a_4 = (2q_0, 2p_0) \longrightarrow a'_4 = (2q_0 + \frac{2p_0}{m}t, 2p_0)$
+	\end{enumerate}
+	
+	\esp
+	
+	The area at time $t$ can be computed as the cross product of $\vec{u} \equiv \vec{a'_2 a'_1}$ and $\vec{v} \equiv \vec{a'_3 a'_1}$. That is $A(t) = \vec{u} \times \vec{v} = q_0 p_0$. This result is a consequence of Liouville’s theorem and demonstrates that the area of the rectangular enclosure, whose shape changes to rhombus, remains invariant during the natural evolution of the system. A quick test to corroborate the invariance of the volume (area in 2D case) of the phase space over time is showing that the Jacobian associated to the transformation $\mathcal{T} : (q_0, p_0) \to (q, p)$ is equal to 1. The Jacobian of the transformation $\mathcal{T}$ reads:
+	
+	\esp
+	
+	\begin{equation}
+		J = \frac{\partial(q_t, p_t)}{\partial(q_0, p_0)} = \begin{vmatrix} \frac{\partial q_t}{\partial q_0} & \frac{\partial q_t}{\partial p_0} \\ \frac{\partial p_t}{\partial q_0} & \frac{\partial p_t}{\partial p_0} \end{vmatrix} = \begin{vmatrix} 1 & \frac{t}{m} \\ 0 & 1 \end{vmatrix} = 1
+	\end{equation}
+	
+	\esp
+	
+	We conclude that the Jacobian is indeed equal to 1 and consequently the transformation $\mathcal{T}$ satisfies Liouville’s theorem. However, it should be noticed that calculating the Jacobian says nothing on whether the shape of the phase space changes or not.
+	
 	\printbibliography[title={Bibliografía}]
 \end{document}
