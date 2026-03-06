@@ -731,5 +731,322 @@
 	
 	We conclude that the Jacobian is indeed equal to 1 and consequently the transformation $\mathcal{T}$ satisfies Liouville’s theorem. However, it should be noticed that calculating the Jacobian says nothing on whether the shape of the phase space changes or not.
 	
+	\section{Quantum Formulation of the First Postulate}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/QP1.png}
+	\end{figure}
+	
+	\esp
+	
+	As we mentioned in the previous section, the first postulate of classical statistical mechanics states that the state of a system is described by a probability distribution $\rho(\mathbf{q}, \mathbf{p})$ over its microstates, where $\mathbf{q}$ and $\mathbf{p}$ are the generalized coordinates and momenta of the system. The macroscopic properties of the system, such as the expected value of an observable $B(\mathbf{q}, \mathbf{p})$, are calculated as ensemble averages, which are integrals over phase space:
+	
+	\esp
+	
+	\begin{equation}
+		\langle B \rangle = \int_{\Gamma} B(\mathbf{q}, \mathbf{p}) \rho(\mathbf{q}, \mathbf{p}) \, d\mathbf{q} d\mathbf{p}
+	\end{equation}
+	
+	\esp
+	
+	Now, consider a quantum system prepared in the pure state $|\psi\rangle$. The expected value of an operator $\hat{B}$ in this state is given by
+	
+	\esp
+	
+	\begin{equation}
+		\bar{B} = \langle \psi | \hat{B} | \psi \rangle = \int \Psi^*(q_1, \dots, q_s) (\hat{B} \Psi(q_1, \dots, q_s)) \, dq_1 \dots dq_s
+	\end{equation}
+	
+	\esp
+	
+	where $\bar{B}$ is the quantum expectation value of the observable $B$, $|\psi\rangle$ represents the quantum state of the system (a pure state), $\hat{B}$ is the operator associated with the observable $B$, $\Psi(q_1, \dots, q_s)$ is the wavefunction of the system in the chosen representation and $\Psi^*(q_1, \dots, q_s)$ is the complex conjugate of the wavefunction. This expectation value represents the mean outcome obtained from repeated measurements of $B$ on identically prepared systems in the state $|\psi\rangle$. It is essential to distinguish this \textbf{quantum average} from an ensemble average, which involves a second average.
+	
+	\esp
+	
+	In Quantum Mechanics, the expectation value is a first-level average, determined solely by the quantum state $\psi$ (a pure state). However, in practical scenarios, we often lack complete knowledge of the system's exact microstate. Instead, we only have information about its macrostate, which may correspond to a statistical mixture of pure states, that is a mixed state.
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/QP2.png}
+	\end{figure}
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/QP3.png}
+	\end{figure}
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/QP4.png}
+	\end{figure}
+	
+	\esp
+	
+	In the case of an ensemble consisting of a large number of systems, the ensemble average of an operator $\hat{B}$ at time $t$ is given by:
+	
+	\esp
+	
+	\begin{equation}
+		\langle B(t) \rangle = \lim_{N_c \to \infty} \frac{1}{N_c} \sum_{i=1}^{N_c} \bar{B}^{(i)}(t) = \lim_{N_c \to \infty} \frac{1}{N_c} \sum_{i=1}^{N_c} \langle \psi^{(i)}(t) | \hat{B} | \psi^{(i)}(t) \rangle
+		\label{eq:328}
+	\end{equation}
+	
+	\esp
+	
+	This equation states that, in an ensemble of $N_c$ quantum systems, the macroscopic physical quantity $B$ at time $t$ is obtained by averaging the expectation values of the corresponding operator $B$ over all individual systems. In the limit as $N_c \to \infty$, this ensemble average provides a \textbf{statistical description} of the system’s macroscopic behaviour. A more compact and general way to express this ensemble average is through the \textbf{density operator} (or \textbf{density matrix}) $\hat{\rho}$, which describes the statistical mixture of quantum states within an ensemble. We will see how in the following section. Thus, Eq. (\ref{eq:328}) emphasises that, when dealing with a large number of systems, the expectation value of an operator (representing a macroscopic physical quantity) can be equivalently obtained as an ensemble average.
+	
+	\esp
+	
+	In summary, the first postulate in quantum mechanics involves ($i$) a quantum average that describes the behaviour of individual quantum systems (specific pure states), and ($ii$) a statistical average that describes the overall system when it is in a mixed state or an ensemble of quantum systems.
+	
+	\section{Density Matrix. Von Neumann's Equation}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/densityma.png}
+	\end{figure}
+	
+	\esp
+	
+	The introduction of the density matrix provides a powerful framework for describing quantum systems statistically, bridging the gap between quantum mechanics and thermodynamic ensembles. When we describe a system using a density matrix, it means that the system is not necessarily in a single, well-defined quantum state (a pure state). Instead, it could be in one of several pure states $|\psi^{(i)}(t)\rangle$, each with a probability $P_i$. Basically, the density matrix encodes both the quantum mechanical superposition (within each $|\psi^{(i)}(t)\rangle$) and the classical uncertainty (the probability $P_i$) over which state the system is actually in. This is what we are discussing in this section.
+	
+	\esp
+	
+	In the average of Eq. 3.28, certain systems might be in the same quantum state $|\psi^{(i)}\rangle$. For instance, $N^{(1)}$ systems in $|\psi^{(1)}\rangle$, $N^{(2)}$ systems in $|\psi^{(2)}\rangle$, etc. It follows that
+	
+	\esp
+	
+	\begin{equation}
+		\langle B(t) \rangle = \lim_{N_c \to \infty} \left\{ \frac{N^{(1)}}{N_c} \bar{B}^{(1)}(t) + \frac{N^{(2)}}{N_c} \bar{B}^{(2)}(t) + \dots + \frac{N^{(i)}}{N_c} \bar{B}^{(i)}(t) + \dots \right\}
+		\label{eq:Ave}
+	\end{equation}
+	
+	\esp
+	
+	\noindent Let's define the probability to find the quantum state $|\psi^{(i)}\rangle$ in the ensemble as
+	
+	\esp
+	
+	\begin{equation}
+		P_i = \lim_{N_c \to \infty} \frac{N^{(i)}}{N_c}
+	\end{equation}
+	
+	\esp
+	
+	\noindent Then Eq. (\ref{eq:Ave}) can be rewritten as
+	
+	\esp
+	
+	\begin{equation}
+		\langle B(t) \rangle = \sum_i P_i \bar{B}^{(i)}(t) = \sum_i P_i \langle \psi^{(i)}(t) | \hat{B} | \psi^{(i)}(t) \rangle
+	\end{equation}
+	
+	\esp
+	
+	\noindent with
+	
+	\esp
+	
+	\begin{equation}
+		\sum_i P_i = 1
+	\end{equation}
+	
+	\esp
+	
+	\noindent and
+	
+	\esp
+	
+	\begin{equation}
+		P_i \geq 0
+	\end{equation}
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/densityma2.png}
+	\end{figure}
+	
+	\esp
+	
+	The state vectors $|\psi^{(i)}(t)\rangle$ are normalized to unity, although they may not necessarily be orthogonal to one another. To obtain the matrix representation of the operator, it is necessary to express each state vector $|\psi^{(i)}(t)\rangle$ in an orthonormal basis $\{|\phi_n\rangle\}$ of the Hilbert space:
+	
+	\esp
+	
+	\begin{equation}
+		|\psi^{(i)}(t)\rangle = \sum_n c_n^{(i)} |\phi_n\rangle
+	\end{equation}
+	
+	\esp
+	
+	\begin{equation}
+		\langle \psi^{(i)}(t) | = \sum_n c_n^{(i)*} \langle \phi_n |
+	\end{equation}
+	
+	\esp
+	
+	where $c_n^{(i)} = c_n^{(i)}(t)$ and $c_n^{(i)*} = c_n^{(i)*}(t)$ are complex numbers. It follows that $^2$
+	
+	\esp
+	
+	\begin{align}
+		\bar{B}^{(i)}(t) &= \langle \psi^{(i)}(t) | \hat{B} | \psi^{(i)}(t) \rangle = \nonumber \\
+		&= \left\{ \sum_n c_n^{(i)*} \langle \phi_n | \right\} \hat{B} \left\{ \sum_m c_m^{(i)} | \phi_m \rangle \right\} = \nonumber \\
+		&= \sum_{n,m} c_n^{(i)*} c_m^{(i)} \underbrace{\langle \phi_n | \hat{B} | \phi_m \rangle}_{B_{nm}}
+	\end{align}
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/densityma3.png}
+	\end{figure}
+	
+	\esp
+	
+	In particular, $B_{nm}$ is the matrix element of $\hat{B}$ in the $\{|\phi_n\rangle\}$ basis, which gives the inner product between the state $|\phi_n\rangle$ and the result of applying the operator $\hat{B}$ to the state $|\phi_m\rangle$. It follows that the ensemble average reads
+	
+	\esp
+	
+	\begin{equation}
+		\langle B(t) \rangle = \sum_i P_i \bar{B}^{(i)}(t) = \sum_i P_i \sum_{n,m} c_n^{(i)*} c_m^{(i)} B_{nm}
+	\end{equation}
+	
+	\esp
+	
+	where the first sum on the right-hand side is over different elements of the ensemble, whereas the second sum takes place in the orthonormal basis $\{|\phi_n\rangle\}$. Let's rearrange
+	
+	\esp
+	
+	\begin{equation}
+		\langle B(t) \rangle = \sum_{n,m} \left[ \underbrace{\sum_i P_i c_m^{(i)} c_n^{(i)*}}_{\rho_{mn}(t)} \right] B_{nm}
+	\end{equation}
+	
+	\esp
+	
+	where $\rho_{mn}(t)$ is the \textbf{density matrix}. Now, the density matrix $\rho_{mn}(t)$ is not generally diagonal. However, there always exists a basis in which it is diagonal. We can assume that the orthonormal basis $\{|\phi_n\rangle\}$ we have chosen is one such basis (see also observations below). It follows that
+	
+	\esp
+	
+	\begin{equation}
+		\langle B(t) \rangle = \sum_{n,m} \rho_{mn}(t) B_{nm} = \sum_n \underbrace{\left[ \sum_m B_{nm} \rho_{mn}(t) \right]}_{(\hat{B} \cdot \hat{\rho}(t))_{nn}}
+	\end{equation}
+	
+	\esp
+	
+	\noindent The last equation can be further simplified
+	
+	\esp
+	
+	\begin{equation}
+		\langle B(t) \rangle = \sum_n (\hat{B} \cdot \hat{\rho}(t))_{nn} = \text{Tr}[\hat{B} \cdot \hat{\rho}(t)]
+	\end{equation}
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/densityma4.png}
+	\end{figure}
+	
+	\esp
+	
+	\noindent Some observations:
+	
+	\esp
+	
+	\begin{itemize}
+		\item The density operator is self-adjoint: $\rho_{nm}^* = \rho_{mn}$. Proof:
+		
+		\esp
+		
+		\begin{equation}
+			\rho_{nm}^* = \left( \sum_i P_i c_n^{(i)}(t) c_m^{(i)*}(t) \right)^* = \sum_i P_i c_n^{(i)*}(t) c_m^{(i)}(t) = \rho_{mn}(t)
+		\end{equation}
+		
+		\esp
+		
+		\item The elements on the diagonal of the density matrix $\rho_{mn}(t)$ represent the probability $P_n$ of finding a system in the ensemble in the state $|\psi^{(n)}(t)\rangle$:
+		
+		\esp
+		
+		\begin{equation}
+			\rho_{nn}(t) = \sum_i P_i |c_n^{(i)}(t)|^2 = P_n
+		\end{equation}
+	\end{itemize}
+	
+	\esp
+	
+	with $0 \leq \rho_{nn}(t) \leq 1$. The quantity $P_i$ represents the probability that the system is in the pure quantum state $|\psi^{(i)}(t)\rangle$ within a statistical ensemble. This is a classical (statistical) probability, indicating that the system is in one of the states $|\psi^{(i)}(t)\rangle$ with probability $P_i$, but without specifying which particular state. On the other hand, $|c_n^{(i)}(t)|^2$ represents the probability that a system, already in the pure state$|\psi^{(i)}(t)\rangle$, is found in the basis state $|\phi_n\rangle$ upon measurement. This is a quantum probability, arising from the superposition principle and the probabilistic nature of quantum mechanics$^4$. It follows that $\sum_n |c_n^{(i)}(t)|^2 = 1$, and thus,
+	
+	\esp
+	
+	\begin{equation}
+		\sum_n \rho_{nn}(t) = \sum_n \sum_i P_i |c_n^{(i)}(t)|^2 = \sum_i P_i \sum_n |c_n^{(i)}(t)|^2 = \sum_i P_i = 1 \longrightarrow \text{Tr}[\hat{\rho}(t)] = 1
+	\end{equation}
+	
+	\esp
+	
+	Thus, while $P_i$ describes the statistical uncertainty regarding which pure state the system occupies, $|c_n^{(i)}(t)|^2$ describes the intrinsic quantum uncertainty in the measurement of a system already in a specific pure state. Combining these two probabilities, the density matrix formalism provides a complete description of both classical and quantum uncertainties in statistical quantum mechanics.
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/densityma5.png}
+	\end{figure}
+	
+	\esp
+	
+	\begin{itemize}
+		\item In general, the density matrix is not diagonal. The off-diagonal elements, usually complex numbers, cannot be interpreted as probabilities. They represent correlations between the basis states and are related to phenomena of \textbf{quantum interference} that do not exhibit classical counterparts. However, there always exists an orthonormal basis that makes the density operator diagonal: $\rho_{mn}(t) = P_n \delta_{mn}$.
+		
+		\esp
+		
+		\item The density matrix can be expressed as an operator, that is $\hat{\rho}(t) = \sum_i P_i |\psi^{(i)}(t)\rangle \langle \psi^{(i)}(t)|$. This definition accounts for both the quantum state and the statistical probabilities. Let's prove this result by projecting onto an orthonormal basis $\{|\phi_n\rangle\}$ and finding the matrix elements of $\hat{\rho}$ in this basis:
+		
+		\esp
+		
+		\begin{equation}
+			\langle \phi_m | \hat{\rho}(t) | \phi_n \rangle = \langle \phi_m | \left\{ \sum_i P_i |\psi^{(i)}(t)\rangle \langle \psi^{(i)}(t)| \right\} | \phi_n \rangle = \sum_i P_i \underbrace{\langle \phi_m | \psi^{(i)}(t) \rangle}_{c_m^{(i)}} \underbrace{\langle \psi^{(i)}(t) | \phi_n \rangle}_{c_n^{(i) *}} = \rho_{mn}(t)
+		\end{equation}
+		
+		\esp
+		
+		We then recover the definition of the density matrix $\rho_{mn}(t)$ as introduced in Eq. 3.38.
+		
+		\esp
+		
+		\item If $\{|\phi_n\rangle\}$ is a basis that diagonalizes the density operator, then the expression for the average is simpler:
+		
+		\esp
+		
+		\begin{equation}
+			\langle B(t) \rangle = \text{Tr}[\hat{\rho}(t) \cdot \hat{B}] = \sum_{nm} \rho_{mn}(t) B_{nm} = \sum_{nm} P_n \delta_{nm} B_{nm} = \sum_n P_n B_{nn}
+		\end{equation}
+		
+		\esp
+		
+		It follows that
+		
+		\esp
+		
+		\begin{equation}
+			\langle B(t) \rangle = \sum_n P_n(t) \underbrace{\langle \phi_n | \hat{B} | \phi_n \rangle}_{B_{nn}}
+		\end{equation}
+		
+		\esp
+		
+		where $B_{nn}$ is the expected value of $\hat{B}$ in the basis $\{|\phi_n\rangle\}$.
+	\end{itemize}
+	
 	\printbibliography[title={Bibliografía}]
 \end{document}
