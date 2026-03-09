@@ -1048,5 +1048,106 @@
 		where $B_{nn}$ is the expected value of $\hat{B}$ in the basis $\{|\phi_n\rangle\}$.
 	\end{itemize}
 	
+	\esp
+	
+	\subsubsection{von Neumann Equation}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/von.png}
+	\end{figure}
+	
+	\esp
+	
+	If $|\psi^{(i)}(t)\rangle$ is a pure state corresponding to the state $i$ of the ensemble, then it must follow the Schrödinger equation:
+	
+	\esp
+	
+	\begin{equation}
+		i\hbar \frac{\partial}{\partial t} |\psi^{(i)}(t)\rangle = \hat{H} |\psi^{(i)}(t)\rangle
+	\end{equation}
+	
+	\esp
+	
+	\noindent Equivalently
+	
+	\esp
+	
+	\begin{equation}
+		i\hbar \frac{\partial}{\partial t} \langle\psi^{(i)}(t)| = -\langle\psi^{(i)}(t)| \hat{H}
+	\end{equation}
+	
+	\esp
+	
+	\begin{equation}
+		i\hbar \frac{\partial \hat{\rho}(t)}{\partial t} = i\hbar \frac{\partial}{\partial t} \left\{ \sum_i P_i |\psi^{(i)}(t)\rangle \langle\psi^{(i)}(t)| \right\} = i\hbar \sum_i P_i \left\{ \frac{\partial |\psi^{(i)}(t)\rangle}{\partial t} \langle\psi^{(i)}(t)| + |\psi^{(i)}(t)\rangle \frac{\partial \langle\psi^{(i)}(t)|}{\partial t} \right\}
+	\end{equation}
+	
+	\esp
+	
+	\noindent which gives
+	
+	\esp
+	
+	\begin{equation}
+		i\hbar \frac{\partial \hat{\rho}(t)}{\partial t} = \sum_i P_i \left\{ \hat{H} |\psi^{(i)}(t)\rangle \langle\psi^{(i)}(t)| - |\psi^{(i)}(t)\rangle \langle\psi^{(i)}(t)| \hat{H} \right\} = \hat{H}\hat{\rho} - \hat{\rho}\hat{H} = [\hat{H}, \hat{\rho}]
+	\end{equation}
+	
+	\esp
+	
+	\noindent In its final form:
+	
+	\esp
+	
+	\begin{equation}
+		\frac{\partial \hat{\rho}(t)}{\partial t} = \frac{1}{i\hbar} [\hat{H}, \hat{\rho}]
+		\label{eq:von}
+	\end{equation}
+	
+	\esp
+	
+	where $[\hat{H}, \hat{\rho}] = \hat{H}\hat{\rho} - \hat{\rho}\hat{H}$ is the \textbf{commutator}. Eq. (\ref{eq:von}) is known as the \textbf{von Neumann equation}. Just as the Schrödinger equation describes the time evolution of pure states, the von Neumann equation, also known as the Liouville-von Neumann equation or the quantum master equation, describes the time evolution of the density matrix for a quantum system. \textbf{It is equivalent to the Liouville equation in the classical formalism}: $\partial \rho / \partial t = \{H, \rho\}$ (see Appendix E).
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/von2.png}
+	\end{figure}
+	
+	\section{Postulate II: Equal Prior Probability}
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/p2.png}
+	\end{figure}
+	
+	\esp
+	
+	We now know that there exists a density operator or matrix that evolves over time, linking the microscopic and macroscopic descriptions of a physical system. This operator plays a crucial role in our understanding of the system's behaviour. Now, let's explore the specific characteristics of this operator when applied to an \textbf{isolated system in equilibrium}. This brings us to the \textit{Postulate of Equal A Priori Probability}, shedding light on how probabilities are distributed in such systems. This postulate applies exclusively to macroscopic systems that are both \textbf{isolated} and in \textbf{thermodynamic equilibrium}. 
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/p21.png}
+	\end{figure}
+	
+	\esp
+	
+	An isolated system is one that remains entirely independent of its surroundings, with no external interactions. This means that the number of particles (or molecules, atoms, etc.) ($N$), volume ($V$) and the Hamiltonian ($H$) of the system, which describes its total energy, remain constant. More specifically:
+	
+	\begin{itemize}
+		\item No mechanical coupling through rigid walls: $V$ constant.
+		\item No material exchange through impermeable walls: $N$ constant.
+		\item No thermal interchange through adiabatic walls: $H(\mathbf{q}, \mathbf{p}) = E$ constant.
+	\end{itemize}
+	
+	In the classical description, thermodynamic equilibrium is characterised by the absence of any time dependence in any macroscopic property, whether it be mechanical or thermal ($A(\vec{r}, t) = A(\vec{r})$). Specifically, even the density function (or density matrix) remains independent of time. This property is rigorously expressed through the Liouville equation:
+	\begin{equation}
+		\frac{\partial \rho}{\partial t} = 0 \iff \{\rho, H\} = 0
+	\end{equation}
 	\printbibliography[title={Bibliografía}]
 \end{document}
