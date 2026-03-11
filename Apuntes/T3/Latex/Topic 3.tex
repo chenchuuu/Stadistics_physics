@@ -1146,8 +1146,146 @@
 	\end{itemize}
 	
 	In the classical description, thermodynamic equilibrium is characterised by the absence of any time dependence in any macroscopic property, whether it be mechanical or thermal ($A(\vec{r}, t) = A(\vec{r})$). Specifically, even the density function (or density matrix) remains independent of time. This property is rigorously expressed through the Liouville equation:
+	
+	\esp
+	
 	\begin{equation}
 		\frac{\partial \rho}{\partial t} = 0 \iff \{\rho, H\} = 0
 	\end{equation}
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/p22.png}
+	\end{figure}
+	
+	\esp
+	
+	The density matrix ($\rho$) should be a function of the system's constants of motion. If there are a total of $s$ degrees of freedom, we have a set of $2s$ constants of motion for the system denoted as $\{\alpha_1, \dots, \alpha_{2s}\}$ such that
+	
+	\esp
+	
+	\begin{equation}
+		\rho = \rho(\alpha_1, \alpha_2, \dots, \alpha_{2s})
+	\end{equation}
+	
+	\esp
+	
+	\noindent In particular, it should be a function of the 7 independent additive integrals of motion: the system's energy, the three components of the total linear momentum, and the three components of the total angular momentum:
+	
+	\esp
+	
+	\begin{equation}
+		\rho = \rho(E, p_x, p_y, p_z, L_x, L_y, L_z, \alpha_1, \dots, \alpha_{2s-7})
+	\end{equation}
+	
+	\esp
+	
+	\noindent The total linear and angular momenta are associated with the translation and rotation of the system as a whole, which is usually irrelevant for most thermodynamic systems of interest that are typically at rest. On the other hand, $\alpha_1, \alpha_2, \dots, \alpha_{2s-7}$ constitute the remaining non-trivial constants of motion for the dynamic system, which are practically impossible to compute. Let's distinguish between two types of constants of motion, $\alpha_1, \alpha_2, \dots, \alpha_{2s-7}$: \textit{controlable} and \textit{non-controlable}.
+	
+	\esp
+	
+	\begin{itemize}
+		\item \textit{Controlable}. If $\alpha_1$ is a controlable constant of motion, it is a quantity known to the experimenter and can be set at will. In other words, its value can be controlled externally, and for each chosen value, one can expect the system's behaviour to be different. Therefore, we must explicitly include the dependence of $\rho$ on $\alpha_1$:
+		
+		\esp
+		
+		\begin{equation}
+			\rho = \rho(E, \alpha_1).
+		\end{equation}
+		
+		\item \textit{Non-controlable}. If $\alpha_1$ is a non-controlable constant of motion, then $\alpha_1(\mathbf{q}, \mathbf{p})$ is entirely unknown to the experimenter. In this case, there's no need to include it in the expression for the density function:
+		
+		\esp
+		
+		\begin{equation}
+			\rho = \rho(E).
+		\end{equation}
+	\end{itemize}
+	
+	\esp
+	
+	By excluding it from $\rho$, we are effectively performing a different averaging in phase space over points where the condition $\alpha_1(\mathbf{q}, \mathbf{p}) = \text{const}$ may be violated. Is this a significant issue?$^6$
+	
+	\esp
+	
+	If all constants of motion are non-controlable (except for energy), then the density function depends exclusively on energy ($E$). In practice, this is often the case.
+	
+	\esp
+	
+	\begin{equation}
+		\rho(\mathbf{q}, \mathbf{p}) = \rho(E) = \rho(H(\mathbf{q}, \mathbf{p}))
+	\end{equation}
+	
+	\subsection{Quantum Description}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/qdesc.png}
+	\end{figure}
+	
+	\esp
+	
+	Thermodynamic equilibrium implies that the density operator does not depend on time:
+	
+	\esp
+	
+	\begin{equation}
+		\frac{\partial \hat{\rho}}{\partial t} = 0,
+	\end{equation}
+	
+	\esp
+	
+	\noindent By applying the von Neumann equation:
+	
+	\esp
+	
+	\begin{equation}
+		[\hat{H}, \hat{\rho}(t)] = 0
+	\end{equation}
+	
+	\esp
+	
+	Since both operators commute, it is possible to find an orthonormal basis that simultaneously diagonalises both operators. This means that both operators share a common set of eigenstates, and the action of the Hamiltonian on these eigenstates results in specific energy eigenvalues ($E_n$).
+	
+	\esp
+	
+	\begin{equation}
+		\hat{H}|\phi_n\rangle = E_n|\phi_n\rangle,
+	\end{equation}
+	
+	\esp
+	
+	\begin{equation}
+		\hat{\rho}|\phi_n\rangle = P_n|\phi_n\rangle.
+	\end{equation}
+	
+	\esp
+	
+	On one hand, when the Hamiltonian operator operates on the quantum state $|\phi_n\rangle$, it results in the energy eigenvalue $E_n$ times the same state. This equation represents the time-independent Schrödinger equation, signifying that $|\phi_n\rangle$ is an eigenstate of the Hamiltonian associated with the energy $E_n$. On the other hand, when the density operator acts on the quantum state $|\phi_n\rangle$, it results in another quantum state, represented as $P_n|\phi_n\rangle$, where $P_n = P_n(E_n)$ is a coefficient (probability amplitude). Because they share the same set of eigenstates, the density operator can be expressed as a function of the Hamiltonian operator, $\hat{\rho} = \hat{\rho}(\hat{H})$. In other words, $\hat{\rho}$ depends on the energy eigenvalues ($E_n$) determined by the Hamiltonian. So, the statement $\hat{\rho} = \hat{\rho}(\hat{H})$ expresses that in thermodynamic equilibrium, the statistical properties of the quantum system are determined by the energy eigenstates and eigenvalues associated with the Hamiltonian operator.
+	
+	\esp
+	
+	In a macrostate with constant energy, volume, and number of particles, there are numerous compatible microstates. What probability (statistical weight) do we assign to each of these microstates?
+	
+	\esp
+	
+	The probability, or statistical weight, assigned to each of the microstates in a macrostate with constant energy, volume, and number of particles is based on the fundamental principle of statistical mechanics and is called the "principle of equal a priori probability" or "principle of equiprobability." This principle states that, in the absence of additional information, the same probability is assigned to each microstate compatible with the macrostate. According to the Liouville (von Neumann) equation, we know that for isolated systems in thermodynamic equilibrium, the density function/operator depends exclusively on the Hamiltonian: $\rho = \rho(H)$. With mechanics alone, we can only conclude that $\rho$ is a function of $H$. Unfortunately, there exists an infinity of functions $\rho$ that satisfy this condition. In 1938, Tolman asserted that it was not possible to arrive at a macroscopic description using only Mechanics, but that some probabilistic hypotheses had to be introduced. We do not have more information regarding which microstates are more likely to occur in an isolated system in equilibrium with energy $E$. The most we can do is assuming that all microstates with $H = E$ are \textbf{equally probable}. Why? Because in the absence of information, there is no a priori reason for one microstate to be more probable than another, provided it is compatible with the condition $H = E$. This is the essence of the \textbf{principle of equal a priori probability}, which states:
+	
+	\esp
+	
+	\begin{quote}
+		\textit{in the absence of additional information, the same probability is assigned to each microstate compatible with the macrostate}
+	\end{quote}
+	
+	\esp
+	
+	In other words, all microstates compatible with an equilibrium macrostate of an isolated system have the same probability of occurring. When we lack additional information that would allow us to distinguish between microstates, we assume that all compatible microstates are equally likely. This is because we are dealing with systems in thermal equilibrium, and in that context, we have no reason to favor one specific microstate over another.
+	
+	\esp
+	
+	\noindent \textbf{EXAMPLE OF EXERCISE IN RAW}
+	
 	\printbibliography[title={Bibliografía}]
 \end{document}
