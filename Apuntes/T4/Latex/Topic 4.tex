@@ -404,6 +404,270 @@
 		\centering
 		\includegraphics[width=0.7\textwidth]{IMG/density5.png}
 	\end{figure}
+	
+	\section{Connection with Thermodynamics}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/connect.png}
+	\end{figure}
+	
+	\esp
+	
+	Let's consider two systems, $A_1$ and $A_2$, which are initially separated and in equilibrium, as shown in Fig. above. At a certain moment, we bring both systems into thermal contact, allowing an exchange of energy between them. The separating wall remains rigid and impermeable: $N_i = \text{const}, V_i = \text{const}$. However, the walls allows for heat exchange: $E_i \neq \text{const}$. The global system $A = A_1 + A_2$ is also isolated. Its total energy reads $E = E_1 + E_2 + E_{12}$, with $E_{12}$ being negligible compared to $E_1$ and $E_2$, $E \approx E_1 + E_2$.
+	
+	\esp
+	
+	\begin{equation*}
+		\begin{aligned}
+			A_1 \to N_1, V_1, E_1 \quad &\implies \quad \omega_1(N_1, V_1, E_1) \\
+			A_2 \to N_2, V_2, E_2 \quad &\implies \quad \omega_2(N_2, V_2, E_2)
+		\end{aligned} \quad \Bigg\}
+	\end{equation*}
+	
+	\esp
+	
+	The coordinates and moment of $A_1$ and $A_2$ are, respectively, $(\mathbf{q}_1, \mathbf{p}_1)$ and $(\mathbf{q}_2, \mathbf{p}_2)$, whereas those of the global system $A$ are $(\mathbf{q}, \mathbf{p})$. It follows that the global Hamiltonian can be expressed as
+	
+	\esp
+	
+	\begin{equation}
+		H(\mathbf{q}, \mathbf{p}) = H_1(\mathbf{q}_1, \mathbf{p}_1) + H_2(\mathbf{q}_2, \mathbf{p}_2)
+	\end{equation}
+	
+	\esp
+	
+	Now, let’s calculate the number of accessible states of the isolated system $A = A_1 + A_2$. The number of microstates that correspond to energy $E$, which is the multiplicity introduced in Eq. 4.5, reads
+	
+	\esp
+	
+	\begin{equation}
+		\Omega(N, V, E) = \omega(N, V, E) \Delta E,
+	\end{equation}
+	
+	\esp
+	
+	\noindent with
+	
+	\esp
+	
+	\begin{equation}
+		\omega(N, V, E) = \frac{1}{h^{s_1+s_2} N_1! N_2!} \int \delta(E - H(q, p)) \, dq \, dp
+	\end{equation}
+	
+	\esp
+	
+	\noindent This equation can be re-written by incorporating the linearity of the Hamiltonian:
+	
+	\esp
+	
+	\begin{equation}
+		\omega(E) = \frac{1}{h^{s_1} N_1!} \int dq_1 \, dp_1 \frac{1}{h^{s_2} N_2!} \int dq_2 \, dp_2 \, \delta(E - \underbrace{H_1(q_1, p_1)}_{E_1} - H_2(q_2, p_2)) \underbrace{\int_0^E \delta(E_1 - H_1(q_1, p_1)) \, dE_1}_{=1}
+	\end{equation}
+	
+	\esp
+	
+	\noindent the last integral in the right hand side of the above equation has just been added for reasons that become clear in the following equation
+	
+	\esp
+	
+	\begin{equation}
+		\omega(E) = \int_0^E dE_1 \underbrace{\frac{1}{h^{s_1} N_1!} \int dq_1 \, dp_1 \, \delta(E_1 - H_1(q_1, p_1))}_{\omega_1(E_1)} \underbrace{\frac{1}{h^{s_2} N_2!} \int dq_2 \, dp_2 \, \delta(E - E_1 - H_2(q_2, p_2))}_{\omega_2(E-E_1)}
+	\end{equation}
+	
+	\esp
+	
+	\noindent It follows that
+	
+	\esp
+	
+	\begin{equation}
+		\omega(E) = \int_0^E \omega_1(E_1) \omega_2(E - E_1) \, dE_1
+	\end{equation}
+	
+	\esp
+	
+	The energy $E$ of the global system is fixed, but $E_1$ can vary. Only the values of $E_1$ that are sufficiently close to $E_1^*$ contribute to the integral. If $|E_1 - E_1^*| \gg 0$, then the number of microstates decreases abruptly. What is the value of $E_1$ that is compatible with equilibrium? If we refer to it as $E_1^*$, it follows that the corresponding equilibrium value for $A_2$ will be $E_2^* = E - E_1^*$. The above integral $\omega(E)$ (see red curve in Fig. 4.6) tends to a distribution that is especially peaked at $E_1^*$. The maximum of this distribution indicates the equilibrium macrostate with largest probability of being observed. Let’s approximate $\omega(E)$ to a Gaussian distribution:
+	
+	\esp
+	
+	\begin{equation}
+		\omega_1(E_1) \omega_2(E - E_1) \simeq \omega_1(E_1^*) \omega_2(E - E_1^*) e^{-(E_1 - E_1^*)^2/2\sigma_E^2}
+	\end{equation}
+	
+	\esp
+	
+	The idea behind this approximation is to assume that around the point $E_1^*$, the densities $\omega_1(E_1)$ and $\omega_2(E - E_1)$ can be approximated by their values at $E_1^*$, with a Gaussian "correction" term to account for variations away from $E_1^*$. This is often used in statistical mechanics when combining two densities of states that are expected to behave similarly near their maximum values (see Fig. 4.6).
+	
+	\esp
+	
+	\noindent It follows that
+	
+	\esp
+	
+	\begin{equation}
+		\omega(E) = \int_0^E \omega_1(E_1) \omega_2(E - E_1) \, dE_1 \simeq \omega_1(E_1^*) \omega_2(E - E_1^*) \int_0^E e^{-(E_1 - E_1^*)^2/2\sigma_E^2} \, dE_1
+	\end{equation}
+	
+	\esp
+	
+	The integral between 0 and $E$ can be approximated to the integral between $-\infty$ and $+\infty$, that is $\int_0^E \simeq \int_{-\infty}^{+\infty}$. We then note that
+	
+	\esp
+	
+	\begin{equation}
+		\int_{-\infty}^{+\infty} e^{-(E_1 - E_1^*)^2/2\sigma_E^2} \, dE_1 = \sqrt{2\pi} \sigma_E
+	\end{equation}
+	
+	\esp
+	
+	\noindent Therefore
+	
+	\esp
+	
+	\begin{equation}
+		\omega(E) \simeq \omega_1(E_1^*) \omega_2(\underbrace{E - E_1^*}_{E_2^*}) \sqrt{2\pi} \sigma_E
+	\end{equation}
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/connect2.png}
+	\end{figure}
+	
+	\esp
+	
+	If we now multiply both sides by $\Delta E$ and take the logarithm, we obtain
+	
+	\esp
+	
+	\begin{equation}
+		\omega(E)\Delta E = \Omega(E) \simeq \omega_1(E_1^*) \Delta E \omega_2(E_2^*) (\Delta E)^2 \frac{\sqrt{2\pi} \sigma_E}{\Delta E} = \Omega_1(E_1^*) \Omega_2(E_2^*) \frac{\sqrt{2\pi} \sigma_E}{\Delta E}
+	\end{equation}
+	
+	\esp
+	
+	\begin{equation}
+		\ln \Omega(E) \simeq \ln \Omega_1(E_1^*) + \ln \Omega_2(E_2^*) + \ln \left( \frac{\sqrt{2\pi} \sigma_E}{\Delta E} \right)
+	\end{equation}
+	
+	\esp
+	
+	\noindent Some observations:
+	
+	\esp
+	
+	\begin{itemize}
+		\item $\Omega(E)$ increases exponentially with $N$ in \textit{normal} systems; $\ln(\Omega(E))$ increases linearly with $N$; $\sqrt{\sigma_E}$ grows as $\sqrt{N}$; and $\Delta E$ does not change.
+		\item $\ln(\sigma_E/\Delta E)$ grows as $\ln(N)$ and in the limit of macroscopic systems $\ln(N) \ll N$ and $N \gg 1$.
+	\end{itemize}
+	
+	\esp
+	
+	\noindent We therefore conclude that
+	
+	\esp
+	
+	\begin{equation}
+		\ln \Omega(E) \simeq \ln \Omega_1(E_1^*) + \ln \Omega_2(E_2^*)
+	\end{equation}
+	
+	\esp
+	
+	\noindent This result is especially important as it implies that $\ln \Omega(E)$ is an additive or \textbf{extensive} property.
+	
+	\subsection{Condition of Thermal Equilibrium}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/thermalcond.png}
+	\end{figure}
+	
+	\esp
+	
+	What are the conditions observed when equilibrium is achieved? In other words, what do we observe when $A_1 \to E_1^*$ and $A_2 \to E_2^*$? Let's locate the maximum of the distribution by differentiating the distribution with respect to $E_1$:
+	
+	\esp
+	
+	\begin{equation}
+		\frac{d}{dE_1} [\omega_1(E_1)\omega_2(E - E_1)]_{E_1^*} = 0
+	\end{equation}
+	
+	\esp
+	
+	\noindent It follows that
+	
+	\esp
+	
+	\begin{equation}
+		\left. \frac{d\omega_1(E_1)}{dE_1} \right|_{E_1^*} \omega_2(E - E_1^*) + \omega_1(E_1^*) \left. \frac{d\omega_2(E - E_1)}{dE_1} \right|_{E_1^*} = 0
+	\end{equation}
+	
+	\esp
+	
+	\noindent Since $E_2 = E - E_1$, then $d/dE_2 = -d/dE_1$ and the above equation can be rewritten as
+	
+	\esp
+	
+	\begin{equation}
+		\left. \frac{d\omega_1(E_1)}{dE_1} \right|_{E_1^*} \omega_2(E_2^*) - \omega_1(E_1^*) \left. \frac{d\omega_2(E_2)}{dE_2} \right|_{E_2^*} = 0
+	\end{equation}
+	
+	\esp
+	
+	\noindent Equivalently:
+	
+	\esp
+	
+	\begin{equation}
+		\left. \frac{1}{\omega_1} \frac{d\omega_1}{dE_1} \right|_{E_1^*} = \left. \frac{1}{\omega_2} \frac{d\omega_2}{dE_2} \right|_{E_2^*}
+	\end{equation}
+	
+	\esp
+	
+	\noindent which gives
+	
+	\esp
+	
+	\begin{equation}
+		\left. \frac{1}{\Omega_1} \frac{d\Omega_1}{dE_1} \right|_{E_1^*} = \left. \frac{1}{\Omega_2} \frac{d\Omega_2}{dE_2} \right|_{E_2^*}
+	\end{equation}
+	
+	\esp
+	
+	\noindent and equivalently
+	
+	\esp
+	
+	\begin{equation}
+		\underbrace{\left. \frac{d \ln \Omega_1}{d E_1} \right|_{E_1^*}}_{\text{depends on } A_1} = \underbrace{\left. \frac{d \ln \Omega_2}{d E_2} \right|_{E_2^*}}_{\text{depends on } A_2}
+	\end{equation}
+	
+	\esp
+	
+	We have therefore proved that there exists a property, $\beta$ that is identical in both systems when equilibrium is achieved:
+	
+	\esp
+	
+	\begin{equation}
+		\beta \equiv \left( \frac{\partial \ln \Omega}{\partial E} \right)_{N,V}
+	\end{equation}
+	
+	\esp
+	
+	\noindent We can finally obtain the \textit{condition of thermal equilibrium}:
+	
+	\esp
+	
+	\begin{equation}
+		\beta_1 = \beta_2
+	\end{equation}
+	
+	\esp
+	
+	This property is necessarily a function of intensive variables only, that is $\beta = \beta(T, \rho, \mu, \dots)$, as it does not depend on the system size. Nevertheless, we still have to understand what $\ln \Omega$ and $\beta$ actually are and to what thermodynamic properties they are associated.
+	
 
 	\printbibliography[title={Bibliografía}]
 \end{document}
