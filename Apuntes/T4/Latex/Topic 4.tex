@@ -668,6 +668,584 @@
 	
 	This property is necessarily a function of intensive variables only, that is $\beta = \beta(T, \rho, \mu, \dots)$, as it does not depend on the system size. Nevertheless, we still have to understand what $\ln \Omega$ and $\beta$ actually are and to what thermodynamic properties they are associated.
 	
+	\subsection{Entropy}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/entropy.png}
+	\end{figure}
+	
+	\esp
+	
+	\noindent Let's write its total derivative as follows
+	
+	\esp
+	
+	\begin{equation}
+		dX = \left( \frac{\partial \ln \Omega}{\partial E} \right)_{N,V} dE \tag{4.40}
+	\end{equation}
+	
+	\esp
+	
+	\noindent Therefore
+	
+	\esp
+	
+	\begin{equation}
+		dE = \frac{dX}{\left( \frac{\partial \ln \Omega}{\partial E} \right)_{N,V}} \tag{4.41}
+	\end{equation}
+	
+	\esp
+	
+	\noindent From the First and Second Law of Thermodynamics, we know that
+	
+	\esp
+	
+	\begin{equation}
+		dQ = T dS = dE + p dV
+	\end{equation}
+	
+	\esp
+	
+	\noindent Because volume is constant
+	
+	\esp
+	
+	\begin{equation}
+		dE = \frac{dX}{\left( \frac{\partial \ln \Omega}{\partial E} \right)_{N,V}} = T dS
+	\end{equation}
+	
+	\esp
+	
+	\noindent We can then write $dS$ as the total differential of $X$ - it only depends on $X$
+	
+	\esp
+	
+	\begin{equation}
+		dS = \frac{dX}{T \left( \frac{\partial \ln \Omega}{\partial E} \right)_{N,V}}
+	\end{equation}
+	
+	\esp
+	
+	\noindent Such an exclusive dependence implies that the factor accompanying $dX$ can only depend on $X$. Mathematically:
+	
+	\esp
+	
+	\begin{equation}
+		dS = \frac{dX}{f(X)}
+	\end{equation}
+	
+	\esp
+	
+	\noindent By integrating the above equation, we obtain
+	
+	\esp
+	
+	\begin{equation}
+		S = \underbrace{\int \frac{dX}{f(X)}}_{g(X)} + S_0
+	\end{equation}
+	
+	\esp
+	
+	\noindent We know that entropy is an extensive property:
+	
+	\esp
+	
+	\begin{equation}
+		S_{1+2} = S_1 + S_2
+	\end{equation}
+	
+	\esp
+	
+	\noindent and so is $X = \ln \Omega$:
+	
+	\esp
+	
+	\begin{equation}
+		X_{1+2} = X_1 + X_2
+	\end{equation}
+	
+	\esp
+	
+	\noindent Therefore
+	
+	\esp
+	
+	\begin{equation}
+		S_{1+2} = g(X_{1+2}) + S_{0,1+2} = g(X_{1+2}) + S_{0,1} + S_{0,2} = g(X_1 + X_2) + S_{0,1} + S_{0,2}
+	\end{equation}
+	
+	\esp
+	
+	\noindent It is also true that
+	
+	\esp
+	
+	\begin{equation}
+		S_{1+2} = S_1 + S_2 = g(X_1) + S_{0,1} + g(X_2) + S_{0,2}
+	\end{equation}
+	
+	\esp
+	
+	\noindent It follows that
+	
+	\esp
+	
+	\begin{equation}
+		g(X_1 + X_2) = g(X_1) + g(X_2)
+	\end{equation}
+	
+	\esp
+	
+	\noindent The only function that satisfies the above equation is a linear function of $X$:
+	
+	\esp
+	
+	\begin{equation}
+		g(X) = kX
+	\end{equation}
+	
+	\esp
+	
+	\noindent where $k$ is a constant. Therefore
+	
+	\esp
+	
+	\begin{equation}
+		S = kX + S_0
+	\end{equation}
+	
+	\esp
+	
+	\noindent By substituting the $X$ function with its original value, we get:
+	
+	\esp
+	
+	\begin{equation}
+		S = k \ln \Omega + S_0
+	\end{equation}
+	
+	\esp
+	
+	In the limit of a temperature approaching zero ($T \to 0$ K), there exist only one accessible microstate, which is the one with the lowest possible energy. It then follows that, for this particular situation, $\Omega = 1$:
+	
+	\esp
+	
+	\begin{equation}
+		\lim_{T \to 0} S = k \ln 1 + S_0 = S_0
+	\end{equation}
+	
+	\esp
+	
+	\noindent The Third Law of Thermodynamics states that the entropy of a closed system at equilibrium approaches a constant value when its temperature approaches absolute zero. This constant value, here denoted as $S_0$, is usually set to zero by convention. It then follows that
+	
+	\esp
+	
+	\begin{equation}
+		S = k \ln \Omega
+	\end{equation}
+	
+	\esp
+	
+	\noindent This is a formula of fundamental importance in physics. It provides a bridge between the macroscopic and microscopic worlds. Now we know that $\ln \Omega$ refers to. What about $\beta$?
+	
+	\esp
+	
+	\begin{equation}
+		\beta \equiv \left( \frac{\partial \ln \Omega}{\partial E} \right)_{N,V} = \frac{1}{k} \left( \frac{\partial S}{\partial E} \right)_{N,V} = \frac{1}{kT}
+	\end{equation}
+	
+	\esp
+	
+	\noindent It is then clear that $\beta$ is the \textit{inverse temperature}, whereas $k$ is a \textit{universal constant} that we don't know yet. It is also clear why Eq. 4.39 gives $\beta_1 = \beta_2$ for two systems in contact that achieve equilibrium: their temperature must be the same. Now, how do we calculate the constant $k$? Since $k$ is a constant, its value is expected to be the same regardless the system. To calculate it, we can then make use of the simplest thermodynamic system, that is the classical monotonic ideal gas. The equation of state of this system is known:
+	
+	\esp
+	
+	\begin{equation}
+		pV = nRT
+	\end{equation}
+	
+	\esp
+	
+	\noindent where $n = N/N_A$ is the number of moles, $T$ the absolute temperature, $p$ pressure, $V$ volume and $R \simeq 8.314$ J Kmol$^{-1}$ the ideal-gas constant. In the next section, we will use this gas to derive an expression of entropy that is functional to understand what $k$ is and calculate its numerical value.
+	
+	\section{Classical Monoatomic Ideal Gas}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/mono.png}
+	\end{figure}
+	
+	\esp
+	
+	Let's write the Hamiltonian of a monoatomic ideal gas enclosed in a volume $V$ of radius $r$:
+	
+	\esp
+	
+	\begin{equation}
+		H = \sum_{j=1}^N \left[ \frac{p_j^2}{2m} + U_r(\bar{r}_j) \right] \tag{4.59}
+	\end{equation}
+	
+	\esp
+	
+	\noindent To calculate the entropy $S$ of this gas, we need to know the number of microstates:
+	
+	\esp
+	
+	\begin{equation}
+		\Omega(N, V, E; \Delta E) \longrightarrow S = k \ln \Omega \tag{4.60}
+	\end{equation}
+	
+	\esp
+	
+	\noindent Let's introduce $\phi(E)$, which is the number of microstates with energy in the interval $[0, E]$. Calculating $\phi(E)$ is easier than calculating the total number of compatible microstates with a macrostate of energy $E$, that is $\Omega(E)$. In particular:
+	
+	\esp
+	
+	\begin{equation}
+		\phi(N, V, E) = \frac{1}{h^{3N} N!} \int \theta(E - H) dq \, dp = \frac{1}{h^{3N} N!} \int \theta(E - H) d\bar{r}_1 \dots d\bar{r}_N d\bar{p}_1 \dots d\bar{p}_N \tag{4.61}
+	\end{equation}
+	
+	\esp
+	
+	\noindent Therefore
+	
+	\esp
+	
+	\begin{equation}
+		\phi(N, V, E) = \frac{1}{h^{3N} N!} \int d\bar{r}_1 \dots d\bar{r}_N \int d\bar{p}_1 \dots d\bar{p}_N \theta \left[ E - \sum_{j=1}^N \left( \frac{p_j^2}{2m} + U_r(\bar{r}_j) \right) \right] \tag{4.62}
+	\end{equation}
+	
+	\esp
+	
+	\noindent If we pay attention to the above integral, we see that the function $\theta(E - H)$ is zero for all points behind radius $r$ and, for all the remaining points $U_r(\bar{r}_j) = 0$. Consequently, Eq. 4.62 can be simplified and re-written as follows
+	
+	\esp
+	
+	\begin{equation}
+		\phi(N,V,E) = \frac{1}{h^{3N} N!} \underbrace{\int d\bar{r}_1 \dots d\bar{r}_N}_{\text{accessible volume}} \underbrace{\int d\bar{p}_1 \dots d\bar{p}_N \, \theta \left[ E - \sum_{j=1}^N \left( \frac{p_j^2}{2m} \right) \right]}_{\text{independent of } \{\bar{r}_j\}} \tag{4.63}
+	\end{equation}
+	
+	\esp
+	
+	\noindent We then obtain
+	
+	\esp
+	
+	\begin{equation}
+		\phi(N,V,E) = \frac{V^N}{h^{3N} N!} \int d p_1 \dots d p_{3N} \, \theta \left[ E - \sum_{j=1}^{3N} \left( \frac{p_j^2}{2m} \right) \right] \tag{4.64}
+	\end{equation}
+	
+	\esp
+	
+	\noindent Because $\theta(x - a) = \theta(b(x - a))$, with $b$ positive constant, then
+	
+	\esp
+	
+	\begin{equation}
+		\phi(N,V,E) = \frac{V^N}{h^{3N} N!} \underbrace{\int d p_1 \dots d p_{3N} \, \theta \left[ 2mE - \sum_{j=1}^{3N} p_j^2 \right]}_{\text{volume of a 3N-D hypersphere of } r = \sqrt{2mE}} \tag{4.65}
+	\end{equation}
+	
+	\esp
+	
+	\noindent Only momenta that satisfy $\sum_{j=1}^{3N} p_j^2 \leq 2mE$ contribute to the above integral. For the volume of a hypersphere see the note below. In particular
+	
+	\esp
+	
+	\begin{nota}
+		The general formula for the $d$-dimensional volume of a hypersphere reads
+		
+		\esp
+		
+		\begin{equation}
+			V_d(r) = r^d \frac{\pi^{d/2}}{\Gamma\left(\frac{d}{2} + 1\right)} \tag{4.66}
+		\end{equation}
+		
+		\esp
+		
+		\noindent For example, if $d = 2$, we recover the area of a circle:
+		
+		\esp
+		
+		\begin{equation}
+			V_2(r) = r^2 \frac{\pi}{\Gamma(2)} = \pi r^2.
+		\end{equation}
+		
+		\esp
+		
+		\noindent If $d = 3$, then
+		
+		\esp
+		
+		\begin{equation}
+			V_3(r) = r^3 \frac{\pi^{3/2}}{\Gamma(5/2)} = r^3 \frac{\pi^{3/2}}{\frac{3}{2} \frac{1}{2} \Gamma(1/2)} = \frac{4}{3} r^3 \frac{\pi^{3/2}}{\pi^{1/2}} = \frac{4}{3} \pi r^3.
+		\end{equation}
+		
+		\esp
+		
+		\noindent We also remind that
+		
+		\esp
+		
+		\begin{equation}
+			\Gamma(n+1) = n!
+		\end{equation}
+	\end{nota}
+	
+	\esp
+	
+	\begin{equation}
+		\phi(N,V,E) = \frac{V^N}{h^{3N} N!} (2mE)^{3N/2} \frac{\pi^{3N/2}}{\Gamma \left( \frac{3N}{2} + 1 \right)} = \frac{V^N}{h^{3N} N!} \frac{(2\pi mE)^{3N/2}}{\Gamma \left( \frac{3N}{2} + 1 \right)}
+	\end{equation}
+	
+	\esp
+	
+	\noindent We can finally estimate the number of states in the interval $[E, E + \Delta E]$:
+	
+	\esp
+	
+	\begin{equation}
+		\Omega(E; \Delta E) = \frac{\partial \phi}{\partial E} \Delta E = \frac{V^N}{h^{3N} N!} \frac{(2\pi mE)^{3N/2}}{\Gamma \left( \frac{3N}{2} + 1 \right)} \frac{3N}{2} \frac{\Delta E}{E}
+	\end{equation}
+	
+	\esp
+	
+	\noindent This equation allows us to calculate entropy, $S = k \ln \Omega$, in the thermodynamic limit, that is for $N \to \infty$, $V \to \infty$ and $E \to \infty$:
+	
+	\esp
+	
+	\begin{align}
+		S(N,V,E) &= \\
+		&= k \ln \Omega = k \left\{ N \ln \left[ \frac{V(2\pi m E)^{3/2}}{h^3} \right] - \ln N! - \ln \Gamma\left(\frac{3N}{2} + 1\right) + \ln\left(\frac{3N}{2}\right) + \ln \frac{\Delta E}{E} \right\} = \\
+		&= k \left\{ N \ln \left[ \frac{V(2\pi m E)^{3/2}}{h^3} \right] - \ln N! - \left(\frac{3N}{2} + 1\right) \ln\left(\frac{3N}{2} + 1\right) + \left(\frac{3N}{2} + 1\right) + \ln\left(\frac{3N}{2}\right) + \ln \frac{\Delta E}{E} \right\} \\
+		&\simeq k \left\{ N \ln \left[ \frac{V(2\pi m E)^{3/2}}{h^3} \right] - \ln N! - \left(\frac{3N}{2}\right) \ln\left(\frac{3N}{2}\right) + \left(\frac{3N}{2}\right) + \ln\left(\frac{3N}{2}\right) + \ln \frac{\Delta E}{E} \right\}
+	\end{align}
+	
+	\esp
+	
+	\noindent where we used that $\ln \Gamma(x) \simeq x \ln x - x$. We now apply Stirling's approximation$^4$ and get
+	
+	\esp
+	
+	\begin{align}
+		S(N,V,E) &= kN \ln \left[ \frac{V(2\pi m E)^{3/2}}{h^3} \right] + \\
+		&+ k \left\{ -N \ln N + N - \frac{3N}{2} \ln \left(\frac{3N}{2}\right) + \frac{3N}{2} + \ln\left(\frac{3N}{2}\right) + \ln \frac{\Delta E}{E} \right\} = \\
+		&= kN \ln \left[ \frac{V(2\pi m E)^{3/2}}{h^3} \right] + k \left\{ -N \ln N + N - \left(\frac{3N}{2} - 1\right) \ln \left(\frac{3N}{2}\right) + \frac{3N}{2} + \ln \frac{\Delta E}{E} \right\} \simeq \\
+		&\simeq kN \ln \left[ \frac{V(2\pi m E)^{3/2}}{h^3} \right] + kN \left\{ -\ln N + 1 - \ln \left(\frac{3N}{2}\right)^{3/2} + \frac{3}{2} + \frac{1}{N} \ln \frac{\Delta E}{E} \right\} \simeq \\
+		&\simeq kN \left\{ \ln \left[ \frac{V}{N} \frac{(2\pi m E)^{3/2}}{h^3} \right] - \ln \left(\frac{3N}{2}\right)^{3/2} + \frac{5}{2} \right\}
+	\end{align}
+	
+	\esp
+	
+	\noindent and merging the two logarithms, we finally get
+	
+	\esp
+	
+	\begin{equation}
+		S(N,V,E) \simeq kN \left\{ \ln \left[ \frac{V}{N} \left( \frac{4\pi m E}{3h^2 N} \right)^{3/2} \right] + \frac{5}{2} \right\} \tag{4.74}
+	\end{equation}
+	
+	\esp
+	
+	\noindent Eq. 4.74, referred to as the "Sackur-Tetrode formula", gives the absolute entropy of a classical monoatomic ideal gas. Note that both $V/N$ and $E/N$ in the above equation are \textbf{intensive properties}. As such, the absolute entropy can be concisely written as $S/kN = f(\text{intensive})$, where $f(\text{intensive})$ indicates that $S/kN$ is a function of intensive properties. Nevertheless, $S \propto N f(\text{intensive})$ is an \textbf{extensive property} as it increases with the number of particles in the system.
+	
+	\subsubsection{Boltzmann Constant}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/mono2.png}
+	\end{figure}
+	
+	\esp
+	
+	We are now in the conditions to obtain the numerical value of the constant $k$. To this end, we need to calculate the pressure of the ideal gas
+	
+	\esp
+	
+	\begin{equation}
+		p = T \left( \frac{\partial S}{\partial V} \right)_{N,E} = TkN \frac{\partial}{\partial V} \ln V = TkN \frac{1}{V}
+	\end{equation}
+	
+	\esp
 
+	Rearranging, we obtain
+	
+	\esp
+	
+	\begin{equation}
+		pV = NkT \tag{4.76}
+	\end{equation}
+	
+	\esp
+	
+	\noindent and because the ideal-gas law $pV = nRT$ must hold, we conclude that
+	
+	\esp
+	
+	\begin{equation}
+		Nk = nR \tag{4.77}
+	\end{equation}
+	
+	\esp
+	
+	\noindent equivalently
+	
+	\esp
+	
+	\begin{equation}
+		k = \frac{n}{N}R = \frac{R}{N_A} \tag{4.78}
+	\end{equation}
+	
+	\esp
+	
+	\noindent where $N_A$ is the Avogadro's number and $R$ the ideal-gas constant. Therefore:
+	
+	\esp
+	
+	\begin{equation}
+		k \simeq 1.380649 \times 10^{-23} \text{J K}^{-1} \tag{4.79}
+	\end{equation}
+	
+	\esp
+	
+	\noindent This constant is known as the \textbf{Boltzmann constant}, named after the Austrian physicist Ludwig Boltzmann, who made significant contributions to the development of statistical mechanics and the understanding of the behaviour of particles in a gas.
+
+	
+	\subsubsection{Intensive and Extensive Properties from Entropy}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/mono3.png}
+	\end{figure}
+	
+	\esp
+	
+	\noindent Let's differentiate the Sackur-Tetrode equation with respect to $E, V$ and $N$, the three key properties of the microcanonical ensemble:
+	
+	\esp
+	
+	\begin{equation}
+		\left( \frac{\partial S}{\partial E} \right)_{N,V} = \frac{3}{2} \frac{kN}{E} = \frac{1}{T}
+	\end{equation}
+	
+	\esp
+	
+	\noindent where we have applied the equipartition theorem. 
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/mono3.png}
+	\end{figure}
+	
+	\esp
+	
+	\noindent Additionally, differentiating $S$ with respect to $V$, one obtains
+	
+	\esp
+	
+	\begin{equation}
+		\left( \frac{\partial S}{\partial V} \right)_{N,E} = \frac{kN}{V} = \frac{p}{T}
+	\end{equation}
+	
+	\esp
+	
+	\noindent where we have applied the ideal-gas law $pV = NkT$. Finally, we can define the \textit{chemical potential} as
+	
+	\esp
+	
+	\begin{equation}
+		\mu = -T \left( \frac{\partial S}{\partial N} \right)_{V,E} = -kT \ln \left[ \frac{V}{N} \left( \frac{4\pi mE}{3h^2 N} \right)^{3/2} \right] = -kT \ln \left[ \frac{V}{N} \left( \frac{2\pi mkT}{h^2} \right)^{3/2} \right]
+	\end{equation}
+	
+	\esp
+	
+	\noindent where we have used $E/N = 3/2 kT$. We can now write down the total derivative of $S$ with respect to $N, V$ and $E$:
+	
+	\esp
+	
+	\begin{equation}
+		dS = \frac{1}{T} dE + \frac{p}{T} dV - \frac{\mu}{T} dN
+	\end{equation}
+	
+	\esp
+	
+	\noindent or
+	
+	\esp
+	
+	\begin{equation}
+		dE = T dS - p dV + \mu dN
+	\end{equation}
+	
+	\esp
+	
+	\noindent It is then possible to calculate the intensive variables in terms of energy change:
+	
+	\esp
+	
+	\begin{align}
+		T &= \left( \frac{\partial E}{\partial S} \right)_{N,V} \tag{4.85} \\
+		p &= -\left( \frac{\partial E}{\partial V} \right)_{N,S} = T \left( \frac{\partial S}{\partial V} \right)_{N,E} \tag{4.86} \\
+		\mu &= \left( \frac{\partial E}{\partial N} \right)_{V,S} = -T \left( \frac{\partial S}{\partial N} \right)_{E,V}
+	\end{align}
+	
+	\esp
+	
+	From here, we can also obtain the heat capacities at constant volume and constant pressure
+	
+	\esp
+	
+	\begin{equation}
+		C_v = \left( \frac{\partial E}{\partial T} \right)_{N,V} = T \left( \frac{\partial S}{\partial T} \right)_{N,V} = \frac{3}{2} kN
+	\end{equation}
+	
+	\esp
+	
+	\noindent where we have again made use of the equipartition theorem.
+	
+	\esp
+	
+	\begin{equation}
+		C_p = \left( \frac{\partial H}{\partial T} \right)_{N,P} = T \left( \frac{\partial S}{\partial T} \right)_{N,P} = \frac{5}{2} kN
+	\end{equation}
+	
+	\esp
+	
+	\noindent where $H$ stands for enthalpy and we have made use of the ideal-gas law.
+	
+	\esp
+	
+	\noindent We stress that both properties are extensive. Nevertheless, the heat capacities per mol, that is $c_v = C_v/n$ and $c_p = C_p/n$, usually referred to as specific heats, are intensive properties. We can then obtain the Mayer relation:
+	
+	\esp
+	
+	\begin{equation}
+		c_p - c_v = \frac{5}{2} \frac{kN}{n} - \frac{3}{2} \frac{kN}{n} = R
+	\end{equation}
+	
+	\esp
+	
+	\noindent Following similar steps, we can obtain the Gibbs free energy ($G$), enthalpy ($H$) and Helmholtz free energy ($A$):
+	
+	\esp
+	
+	\begin{equation}
+		G = A + pV = \mu N = -NkT \ln \left[ \frac{V}{N} \left( \frac{2\pi mkT}{h^2} \right)^{3/2} \right]
+	\end{equation}
+	
+	\esp
+	
+	\begin{equation}
+		H = E + pV = G + TS = \frac{5}{2} NkT
+	\end{equation}
+	
+	\esp
+	
+	\begin{equation}
+		A = E - TS = \mu N - pV = -NkT \left\{ \ln \left[ \frac{V}{N} \left( \frac{2\pi mkT}{h^2} \right)^{3/2} \right] + 1 \right\}
+	\end{equation}
+	
 	\printbibliography[title={Bibliografía}]
 \end{document}
