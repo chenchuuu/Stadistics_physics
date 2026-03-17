@@ -1187,7 +1187,7 @@
 	
 	\begin{align}
 		T &= \left( \frac{\partial E}{\partial S} \right)_{N,V} \tag{4.85} \\
-		p &= -\left( \frac{\partial E}{\partial V} \right)_{N,S} = T \left( \frac{\partial S}{\partial V} \right)_{N,E} \tag{4.86} \\
+		p &= -\left( \frac{\partial E}{\partial V} \right)_{N,S} = T \left( \frac{\partial S}{\partial V} \right)_{N,E} \\
 		\mu &= \left( \frac{\partial E}{\partial N} \right)_{V,S} = -T \left( \frac{\partial S}{\partial N} \right)_{E,V}
 	\end{align}
 	
@@ -1250,6 +1250,113 @@
 	\esp
 	
 	\noindent \textbf{EXAMPLES IN LECTURE NOTES}
+	
+	\section{Quantum Microcanonical Ensemble}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/quantum.png}
+	\end{figure}
+	
+	\esp
+	
+	The quantum microcanonical ensemble refers to a collection of quantum systems that share fixed total energy, number of particles, and volume. As observed for the classical $NVE$ ensemble, also in its quantum counterpart, individual systems are considered to be isolated and in equilibrium, meaning that they do not exchange energy, particles, or volume with their surroundings. Basically, we are going to repeat the same arguments as in the previous sections, but this time for the quantum case.
+	
+	\esp
+	
+	In the formulation of the quantum $NVE$ ensemble, the correction factor $N!h^s$, which was necessary in the classical expression for the number of states $\Omega$, is no longer required. Why? In quantum statistical mechanics, we do not integrate over phase space; instead, we directly count quantum energy eigenstates. This eliminates the need for the factor $h^s$ because (i) quantum states are inherently discrete, and (ii) there is no need to adjust units, as was necessary when defining the density of states in the classical formulation. Furthermore, the factor $N!$ is also unnecessary because quantum mechanics inherently accounts for particle indistinguishability—only valid arrangements are counted from the outset, avoiding the overcounting issue that arises in classical mechanics. In the classical formulation, it is more practical to first count all microstates in phase space and then apply corrections, rather than restricting the counting to only distinct states from the beginning.
+	
+	\esp
+	
+	Once again, we consider an isolated system in equilibrium. Let’s remember here some relevant results of Chapter 3:
+	
+	\esp
+	
+	\begin{itemize}
+		\item Time-independent Schrödinger equation
+		
+		\begin{equation}
+			\hat{H}\psi = E\psi
+		\end{equation}
+		
+		\item Liouville-von Neumann equation
+		
+		\begin{equation}
+			\frac{\partial \hat{\rho}}{\partial t} = 0 \rightarrow [\hat{\rho}, \hat{H}] = 0
+		\end{equation}
+		
+		\item There exists an orthonormal basis $\{|\phi_n\rangle\}$ that simultaneously diagonalises both operators $H$ and $\rho$.
+		
+		\begin{center}
+			\fbox{
+				\begin{minipage}{0.5\textwidth}
+					\begin{align*}
+						\hat{H} |\varphi_n\rangle &= E_n |\varphi_n\rangle & \hat{\rho} |\varphi_n\rangle &= P_n |\varphi_n\rangle \\
+						\hat{\rho} &= \sum_n P_n |\varphi_n\rangle \langle\varphi_n| & \text{Tr}[\hat{\rho}] &= \sum_n P_n = 1 \\
+						\rho_{mn} &= P_n \delta_{mn} & & 
+					\end{align*}
+				\end{minipage}
+			}
+		\end{center}
+	\end{itemize}
+	
+	\esp
+	
+	What are the values of the probabilities $P_n$ for an isolated system in equilibrium?
+	
+	\esp
+	
+	\subsection{Determination of the density matrix and number of states with energy $E$}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/quantum2.png}
+	\end{figure}
+	
+	\esp
+	
+	An isolated system with energy $E$ is an idealisation. In reality, we can never completely eliminate interactions with the external world. Any small error in determining the energy covers a broad spectrum of microstates. According to the Heisenberg Uncertainty Principle, obtaining the exact energy would require a measurement of infinite duration.
+	
+	Instead of specifying the energy, we will define an isolated system as one in which its energy levels are within the interval $\Delta E$, that is:
+	
+	\begin{equation}
+		E_n \in [E, E + \Delta E], \text{ with } \Delta E \ll E
+	\end{equation}
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/quantum3.png}
+	\end{figure}
+	
+	\esp
+	
+	In order to deduce the value of the probabilities $P_n$, we again employ the postulate of equal \textit{a priori} probability: all microstates $n$ compatible with the macrostate of constant energy are equally probable. Therefore, if the total number of microstates compatible with $E_n \in [E, E + \Delta E]$ is $\Omega$, then
+	
+	\begin{equation}
+		P_n = 
+		\begin{cases} 
+			1/\Omega \, \forall n & \text{if } E_n \in [E, E + \Delta E] \\
+			0 \, \forall n & \text{if } E_n \notin [E, E + \Delta E]
+		\end{cases}
+	\end{equation}
+	
+	It follows that the ensemble average of the operator $\hat{B}$ (see also Section 3.6 in Chapter 3) reads
+	
+	\begin{equation}
+		\langle B \rangle = \sum_n P_n B_{nn} = \sum_n P_n \langle\phi_n | \hat{B} | \phi_n\rangle = \frac{1}{\Omega} \sum_{n^*} \langle\phi_n | \hat{B} | \phi_n\rangle
+	\end{equation}
+	
+	where $n^*$ indicates microstates compatible with the condition $E_n \in [E, E + \Delta E]$. We can see that, within this ensemble, the expected values are averaged by assigning each of them the same statistical weight: all are equally probable. It can be demonstrated that, similar to classical formalism, entropy is connected to the number of microstates as: $S = k \ln \Omega$.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/quantum4.png}
+	\end{figure}
+	
+	
+	
 	
 	\printbibliography[title={Bibliografía}]
 \end{document}
