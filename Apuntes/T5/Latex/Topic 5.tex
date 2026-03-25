@@ -807,5 +807,402 @@ and
 
 \noindent \textbf{SOME PROVES IN RAW}
 
+\esp
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{IMG/einsteinmodel.png}
+\end{figure}
+
+\esp
+
+Let's consider a set of $N$ quantum three-dimensional harmonic oscillators, with vibration frequency $\omega$ at temperature $T$ isolated from the surroundings, as shown in Fig. 5.3. Our aim is calculating the canonical partition function $Z$ and, once the expression for $Z$ is obtained, the thermodynamic properties. To this end, we make use of the Einstein solid, which consists of $3N$ distinguishable and independent oscillators of equal frequency, $\omega$. In the Einstein crystal model, the partition function can then be derived by treating the system as a collection of $3N$ independent quantum harmonic oscillators, corresponding to the vibrational degrees of freedom of the $N$ atoms in the crystal.
+
+\esp
+
+To obtain $Z$, we should first write down the total energy of this system, which is given by
+
+\esp
+
+\begin{equation}
+	E = \sum_{i=1}^{3N} \epsilon_i = \sum_{i=1}^{3N} \hbar \omega \left( n_i + \frac{1}{2} \right) \tag{5.62}
+\end{equation}
+
+\esp
+
+with $n_i = 0, 1, \dots \infty$. It follows that the partition function reads
+
+\esp
+
+\begin{equation}
+	Z = \sum_{\{E\}} e^{-\beta E} = \sum_{n_1=0}^{\infty} \sum_{n_2=0}^{\infty} \dots \sum_{n_{3N}=0}^{\infty} e^{-\beta \hbar \omega \sum_{i=1}^{3N} (n_i + \frac{1}{2})} \tag{5.63}
+\end{equation}
+
+\esp
+
+which gives
+
+\esp
+
+\begin{equation}
+	Z = \underbrace{\sum_{n_1=0}^{\infty} e^{-\beta \hbar \omega (n_1 + \frac{1}{2})}}_{Z_1} \underbrace{\sum_{n_2=0}^{\infty} e^{-\beta \hbar \omega (n_2 + \frac{1}{2})}}_{Z_2} \dots \underbrace{\sum_{n_{3N}=0}^{\infty} e^{-\beta \hbar \omega (n_{3N} + \frac{1}{2})}}_{Z_{3N}} = (Z_1)^{3N} \tag{5.64}
+\end{equation}
+
+\esp
+
+\begin{equation}
+	Z_1 = \sum_{n=0}^{\infty} e^{-\beta \hbar \omega (n + \frac{1}{2})} = e^{-\beta \hbar \omega / 2} \sum_{n=0}^{\infty} e^{-\beta \hbar \omega n} = e^{-\beta \hbar \omega / 2} \frac{1}{1 - e^{-\beta \hbar \omega}} \tag{5.65}
+\end{equation}
+
+\esp
+
+where we have made use of the property $\sum_{n=0}^{\infty} a^n = 1/(1 - a)$ for $a < 1$ and $a = e^{-\beta \hbar \omega}$. It follows that
+
+\esp
+
+\begin{equation}
+	Z_1 = \frac{1}{2 \sinh(\beta \hbar \omega / 2)} = \frac{1}{2 \sinh(\hbar \omega / 2kT)} \tag{5.66}
+\end{equation}
+
+\esp
+
+and
+
+\esp
+
+\begin{equation}
+	Z = \left( \frac{1}{2 \sinh(\hbar \omega / 2kT)} \right)^{3N} \tag{5.67}
+\end{equation}
+
+\esp
+
+The Helmholtz free energy reads
+
+\esp
+
+\begin{equation}
+	A = -kT \ln Z = 3NkT \ln \left[ 2 \sinh \left( \frac{\hbar \omega}{2kT} \right) \right] \tag{5.68}
+\end{equation}
+
+\esp
+
+which is, as it is easy to check, an extensive variable. Let's now calculate entropy and internal energy $U$:
+
+\esp
+
+\begin{equation}
+	S = -\left. \frac{\partial A}{\partial T} \right|_{N,V} = -3Nk \left. \frac{\partial \{T \ln [2 \sinh (\hbar \omega / 2kT)]\}}{\partial T} \right|_{N,V} = -3Nk \left( \ln [2 \sinh (\beta \hbar \omega / 2)] - \frac{\beta \hbar \omega}{2} \coth (\beta \hbar \omega / 2) \right) \tag{5.69}
+\end{equation}
+
+\esp
+
+\begin{equation}
+	U = -\left. \frac{\partial \ln Z}{\partial \beta} \right|_{N,V} = \left. \frac{\partial \{3N \ln [2 \sinh (\beta \hbar \omega / 2)]\}}{\partial \beta} \right|_{N,V} = 3N \frac{\cosh(\beta \hbar \omega / 2)}{\sinh(\beta \hbar \omega / 2)} \frac{\hbar \omega}{2} = \frac{3N \hbar \omega}{2} \coth \left( \frac{\beta \hbar \omega}{2} \right) \tag{5.70}
+\end{equation}
+
+\esp
+
+We also see that for very large temperatures, we recover the result that we obtained in the microcanonical ensemble, that is
+
+\esp
+
+\begin{equation}
+	\lim_{T \to \infty} U = 3NkT \tag{5.71}
+\end{equation}
+
+\esp
+
+Other thermodynamic functions can be calculated by applying the same strategy.
+
+\section{Application to Ideal Classical Systems: Boltzmann Statistics}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{IMG/classicalideal.png}
+\end{figure}
+
+\esp
+
+What do we mean by ideal system? It's the application of Statistical Physics to a system formed by $N$ particles, with $N \gg 1$. The resolution of the Schrödinger equation of the system, although necessary to know $E_j(N, V)$, is, in general, a prohibitive task. However, there exist a significant number of systems of great physical interest, whose Hamiltonian can be separated into independent terms:
+
+\esp
+
+\begin{equation}
+	H(N) = \sum_{j=1}^{N} H_j \longrightarrow E(N) = \sum_{j=1}^{N} \epsilon_j \tag{5.72}
+\end{equation}
+
+\esp
+
+The \textbf{ideal system} is a set where $H_j$ involves a reduced set of degrees of freedom that do not interact with the rest, consisting of \textbf{mutually independent} particles. Consequently, the problem of $N$ bodies can be separated into $N$ individual one-body problems. The dynamics of each particle is not affected by the presence of other particles - some examples of this kind are included in Table 5.1.
+
+\esp
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{IMG/classicalideal2.png}
+\end{figure}
+
+\esp
+
+The Second Law states that for an isolated system, entropy tends to increase over time, leading to equilibrium. However, in an ideal system, (1) if particles do not interact, their individual energies remain constant; (2) there is no mechanism for redistributing energy among the components of the system; and (3) without redistribution, a system that starts out in a non-equilibrium state (\textit{e.g.}, with different regions having different energy distributions) will remain in that state indefinitely. Since the Second Law relies on microscopic interactions driving the system toward a more probable (higher entropy) state, a system without interactions fails to obey this principle. However, in real systems, even weak interactions restore thermalisation and entropy growth over time.
+
+\esp
+
+An ideal system, as typically defined in physics, consists of non-interacting particles. If there is no interaction between particles, then no energy or momentum exchange can occur between them. This can lead to situations where the system does not evolve toward equilibrium from an arbitrary initial state, which
+
+\esp
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{IMG/classicalideal3.png}
+\end{figure}
+
+\esp
+
+\textit{appears} to contradict the Second Law of Thermodynamics$^5$. Despite these limitations, this model remains very useful when weak interactions between system components exist. These interactions allow eventual equilibration, with their smallness representing minor corrections to ideal behaviour. With reference to Fig. 5.4, we will now explore the characteristics of ideal systems of distinguishable and indistinguishable particles.
+
+\subsection{Case 1. Ideal systems of identical and distinguishable particles}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{IMG/case1.png}
+\end{figure}
+
+\esp
+
+A system composed of $N$ identical but distinguishable particles does not require consideration of the bosonic/fermionic nature of the particles. For example, atoms in a solid fit this description. They are localised at specific positions, thus, they are distinguishable. The total energy of this system can be written as:
+
+\esp
+
+\begin{equation}
+	E = \sum_{\alpha=1}^{N} \epsilon_{\xi}^{(\alpha)} = \epsilon_{i}^{(1)} + \epsilon_{j}^{(2)} + \epsilon_{k}^{(3)} + \dots \tag{5.73}
+\end{equation}
+
+\esp
+
+where $\alpha = 1, 2, \dots, N$ labels a specific particle, whose quantum state is indicated by $\xi = i, j, k, \dots$. 
+
+\esp
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{IMG/case12.png}
+\end{figure}
+
+\esp
+
+In particular, $Z$ can be calculated as the sum over all configurations compatible with the system total energy:
+
+\esp
+
+\begin{equation}
+	Z_N = \sum_{\{E\}} e^{-\beta E} \tag{5.74}
+\end{equation}
+
+\esp
+
+Summing for all $E$ values is equivalent to summing over any configuration of the quantum numbers $i, j, k,$ etc.
+
+\esp
+
+\begin{equation}
+	Z_N = \sum_{i,j,k,\dots} e^{-\beta [\epsilon_i^{(1)} + \epsilon_j^{(2)} + \epsilon_k^{(3)} + \dots]} \tag{5.75}
+\end{equation}
+
+\esp
+
+We can solve these sums by breaking down the argument of the sum into products of exponentials and grouping:
+
+\esp
+
+\begin{equation}
+	Z_N = \left[ \sum_{i} e^{-\beta \epsilon_i^{(1)}} \right] \left[ \sum_{j} e^{-\beta \epsilon_j^{(2)}} \right] \left[ \sum_{k} e^{-\beta \epsilon_k^{(3)}} \right] \dots \tag{5.76}
+\end{equation}
+
+\esp
+
+and in total, we have $N$ factors. Since the particles are identical, the energy spectrum $\{\epsilon_i\}$ is the same for all; therefore, these $N$ factors are identical. Let's define the partition function of a single particle:
+
+\esp
+
+\begin{equation}
+	Z_1 = \sum_{m} e^{-\beta \epsilon_m} \tag{5.77}
+\end{equation}
+
+\esp
+
+where $m$ represents the number of states. Because particles are ideal and distinguishable, then
+
+\esp
+
+\begin{equation}
+	Z_N = (Z_1)^N \tag{5.78}
+\end{equation}
+
+\esp
+
+if there is degeneracy$^6$, then $Z_1$ is better expressed as a sum over energy levels the form
+
+\esp
+
+\begin{equation}
+	Z_1 = \sum_{n} g_n e^{-\beta \epsilon_n} \tag{5.79}
+\end{equation}
+
+\esp
+
+where $g_n$ is the degeneracy of the energy level $\epsilon_n$ of a particle. In conclusion, for an ideal system with $N$ distinguishable particles, \textbf{the problem of $N$ bodies can be reduced to the problem of a single body}. If there are more species, for instance there are $N_A$ particles of type A and $N_B$ particles of type B, then the resulting partition function reads
+
+\esp
+
+\begin{equation}
+	Z_N(N_A, N_B, T, V) = (Z_1^{(A)})^{N_A} (Z_1^{(B)})^{N_B} \tag{5.80}
+\end{equation}
+
+\subsection{Case 2. Ideal systems of identical and indistinguishable particles}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{IMG/case2.png}
+\end{figure}
+
+\esp
+
+The expression derived in the previous section, that is $Z_N = (Z_1)^N$, is no longer valid when particles are indistinguishable (non-localised). The total energy of the ideal system results from the sum of distinct, autonomous terms.
+
+\esp
+
+\begin{equation}
+	E_N = \sum_{j=1}^{N} \epsilon^{(j)} \tag{5.81}
+\end{equation}
+
+\esp
+
+Ideal conditions allow for the definition of independent quantum states for each particle:
+
+\esp
+
+\begin{equation}
+	E_N = \epsilon_i^{(1)} + \epsilon_j^{(2)} + \epsilon_k^{(3)} + \dots \tag{5.82}
+\end{equation}
+
+\esp
+
+and the new canonical partition function reads
+
+\esp
+
+\begin{equation}
+	Z_N = \sum_{i,j,k,\dots} e^{-\beta (\epsilon_i^{(1)} + \epsilon_j^{(2)} + \epsilon_k^{(3)} + \dots)} \tag{5.83}
+\end{equation}
+
+\esp
+
+These sums are no longer independent of each other. The symmetry/antisymmetry of the wave function generates correlations. There is a need to distinguish between bosons and fermions.
+
+\esp
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{IMG/case21.png}
+\end{figure}
+
+\esp
+
+\noindent \textbf{1. Bosons.}
+
+\begin{itemize}
+	\item Example 1. There are 5 bosons in the states $\{\epsilon_a, \epsilon_b, \epsilon_c, \epsilon_d, \epsilon_e\}$. Therefore there are $W = 5!$ ways to arrange the 5 particles.
+	\item Example 2. There are 5 bosons in the states $\{\epsilon_a, \epsilon_a, \epsilon_a, \epsilon_b, \epsilon_b\}$. Therefore there are $W = \frac{5!}{3!2!} = 10$ ways to arrange the 5 particles.
+	\item Example 3. There are 5 bosons in the states $\{\epsilon_a, \epsilon_a, \epsilon_a, \epsilon_a, \epsilon_b\}$. Therefore there are $W = \frac{5!}{4!1!} = 5$ ways to arrange the 5 particles.
+\end{itemize}
+
+\esp
+
+In general, if there are $n_1$ bosons in state $\epsilon_1$, $n_2$ in state $\epsilon_2$, $n_3$ in state $\epsilon_3, \dots$, then $W = \frac{N!}{n_1!n_2!n_3! \dots}$ with $N = n_1 + n_2 + n_3 + \dots$. Consequently, for bosons, we have:
+
+\esp
+
+\begin{equation}
+	Z_N = \sum_{i} \sum_{j} \sum_{k} (\dots) \frac{n_1!n_2!n_3! \dots}{N!} e^{-\beta \epsilon_i^{(1)}} e^{-\beta \epsilon_j^{(2)}} e^{-\beta \epsilon_k^{(3)}} \dots \tag{5.84}
+\end{equation}
+
+\esp
+
+Due to the restriction $\sum_i n_i = N$, the above summation is indeed very complicated.
+
+\esp
+
+\noindent \textbf{2. Fermions.}
+
+As far as fermions are concerned, one can apply \textbf{Pauli's Exclusion Principle}. It follows that either are the states empty or they are occupied by a single particle:
+
+\esp
+
+\begin{equation}
+	n_i = \{0, 1\} \rightarrow n_i! = 1 \tag{5.85}
+\end{equation}
+
+\esp
+
+and the partition function reads
+
+\esp
+
+\begin{equation}
+	Z_N = \frac{1}{N!} \sum_{i} \sum_{j} \sum_{k} \dots e^{-\beta \epsilon_i^{(1)}} e^{-\beta \epsilon_j^{(2)}} e^{-\beta \epsilon_k^{(3)}} \dots \tag{5.86}
+\end{equation}
+
+\esp
+
+\textbf{Figure 5.5:} At low temperatures, the thermal energy ($kT$) is small, making it very difficult for a particle to get access to high energy levels. Instead, most particles remain in low-energy quantum states. Therefore, the number of accessible states is of the same order or smaller than the number of particles.
+
+\esp
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{IMG/case22.png}
+\end{figure}
+
+\esp
+
+In general, the above summations for bosons and fermions are very complicated, especially so at low temperatures (see Fig. 5.5). Nevertheless, if temperature is large enough, the number of accessible states is significantly larger than the number of particles (see Fig. 5.6). This favourable condition implies that is very unlikely to find two particles in the same quantum state. Therefore, for bosons we can assume that $n_1! = n_2! \simeq 1$ and for fermions that the condition $i \neq j \neq k \neq \dots$ does not apply. The resulting partition function for both bosons and fermions is then modified as follows
+
+\esp
+
+\begin{equation}
+	Z_N = \frac{1}{N!} \underbrace{ \left( \sum_i e^{-\beta \epsilon_i^{(1)}} \right) \left( \sum_j e^{-\beta \epsilon_j^{(2)}} \right) \left( \sum_k e^{-\beta \epsilon_k^{(3)}} \right) \dots }_{N \text{ summations with no restrictions}} = \frac{1}{N!} (Z_1)^N \tag{5.87}
+\end{equation}
+
+where
+
+\begin{equation}
+	Z_1 = \sum_i e^{-\beta \epsilon_i} = \sum_m g_m e^{-\beta \epsilon_m} \tag{5.88}
+\end{equation}
+
+\esp
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{IMG/case24.png}
+\end{figure}
+
+Thermodynamic systems whose partition function factorises according to these equations are known as \textbf{classical ideal systems}. Ideal systems consist of:
+
+\begin{enumerate}
+	\item Distinguishable particles.
+	\item Indistinguishable particles at high temperatures (classical ideal gases).
+\end{enumerate}
+
+These systems follow the so-called \textit{Boltzmann Statistics}. A summary of their thermodynamic properties is provided in Fig. 5.7.
+
+\esp
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{IMG/case23.png}
+\end{figure}
+
+
 \printbibliography[title={Bibliografía}]
 \end{document}
