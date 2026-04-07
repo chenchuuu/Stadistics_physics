@@ -1,0 +1,423 @@
+\documentclass[12pt,a4paper]{report}
+
+% --- Paquetes de Idioma y Codificación ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish, es-tabla]{babel}
+
+% --- Diseño de Página ---
+\usepackage{geometry}
+\geometry{top=2.5cm, bottom=2.5cm, left=3cm, right=3cm}
+
+% --- Matemáticas y Símbolos ---
+\usepackage{amsmath, amssymb, amsthm}
+
+% --- Colores y Cajas ---
+\usepackage[dvipsnames]{xcolor}
+\usepackage[most]{tcolorbox}
+
+% Caption
+
+\usepackage{caption}
+
+% Gráficos
+
+\usepackage{graphicx}
+
+% Espaciadora
+
+\newcommand{\esp}{\vspace{0.5cm}}
+
+% promedio
+
+\newcommand{\prom}[1]{\left\langle #1 \right\rangle}
+
+% ket
+
+\newcommand{\ket}[1]{| #1 \rangle}
+
+% bra
+
+\newcommand{\bra}[1]{\langle #1 |}
+
+% braket
+
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}
+
+% Bibliografía
+
+\usepackage[style=apa, backend=biber]{biblatex} % Estilo APA
+\addbibresource{biblio.bib} % Nombre de tu archivo .bib
+
+% Configuración de cajas personalizadas
+\newtcolorbox{importante}{
+	colback=red!5!white,
+	colframe=red!75!black,
+	title=Importante,
+	fonttitle=\bfseries
+}
+
+\newtcolorbox{nota}{
+	colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Nota,
+	fonttitle=\bfseries
+}
+
+% Definición de la caja de bibliografía
+\newtcolorbox{bibliografia}{
+	colback=gray!5!white,
+	colframe=gray!75!black,
+	title=Bibliografías útiles,
+	fonttitle=\bfseries,
+	breakable
+}
+
+% Socrative para óptica 2
+
+\newtcolorbox{Socrative}{
+	colback=orange!5!white,
+	colframe=orange!75!black,
+	title=Socrative,
+	fonttitle=\bfseries,
+	breakable
+}
+
+% Float
+
+\usepackage{float}
+
+% --- Hipervínculos ---
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+
+% --- Datos del Documento ---
+\title{Stadistical Physics}
+\author{Chengyu Jin}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	
+	\tableofcontents
+	\newpage
+	
+	\chapter{Macrocanonical Ensemble}
+	
+	\section{Introduction}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/intro.png}
+	\end{figure}
+	
+	\esp
+	
+	In Chapter 4, we examined the microcanonical ensemble, focusing on isolated systems at equilibrium. In Chapter 5, we introduced the canonical ensemble, where systems in equilibrium exchange energy with their surroundings. This ensemble allows us to comprehend the behaviour of systems with a fixed energy content interacting with a thermal reservoir. Now, a key question arises: can we design an ensemble that captures the essence of macroscopic systems, ones that not only exchange energy with the external environment, but also mass? This scenario forms the basis of the macrocanonical (or grand canonical) ensemble, an ensemble tailor-made for systems achieving both energy and material equilibrium with the exterior. To this end, let's first resume the main conclusions on microcanonical and canonical ensembles.
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/intro2.png}
+	\end{figure}
+	
+	\esp
+	
+	The \textbf{microcanonical ensemble} is mathematically challenging to employ. Moreover, the concept of isolated physical systems is more of an idealisation than a reality. In practical terms, the study of systems interacting with their environment often holds greater significance. Experimentally, there is no instrument available to directly measure or control a system's energy. Instead, it is typically inferred from other observables such as pressure, temperature, among others. By contrast, fixing the temperature proves to be more straightforward—it is directly observable through a thermometer and easily manageable with a thermal bath.
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/intro3.png}
+	\end{figure}
+	
+	\esp
+	
+	The \textbf{canonical ensemble} proves to be a significantly more versatile ensemble, offering immense utility in addressing a multitude of physical problems within closed systems. However, the canonical ensemble exhibits significant limitations when attempting to address various other physical and chemical problems: (1) systems in equilibrium that exchange particles with the surroundings (open systems); (2) systems in equilibrium where chemical reactions take place; and (3) systems separated into phases in mutual coexistence (liquid-vapour, solid-vapour, etc.). These are all systems where the number of particles of each species is not constant.
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/intro4.png}
+	\end{figure}
+	
+	\esp
+	
+	Let’s consider an isolated system at equilibrium. This system is formed by two subsystems, A and B, that can exchange energy and mass, as shown in Fig. 6.1. If the chemical potential of A, $\mu_A$, equals the chemical potential of B, $\mu_B$, then there is no net mass exchange. However, if this is not the case, then there will be a mass transfer from A to B if $\mu_A > \mu_B$ or from B to A if $\mu_A < \mu_B$. We should note that this mass transfer is internal to the A+B system. In other words,
+	
+	\esp
+	
+	\begin{equation}
+		N_A + N_B = \text{const} \quad \rightarrow \quad dN_A + dN_B = 0 \tag{6.1}
+	\end{equation}
+	
+	\esp
+	
+	Additionally, the total entropy change of the system reads
+	
+	\esp
+	
+	\begin{equation}
+		dS = \left( \frac{\partial S}{\partial N_A} \right)_{N_B,U,V} dN_A + \left( \frac{\partial S}{\partial N_B} \right)_{N_A,U,V} dN_B = dN_A \left[ \left( \frac{\partial S}{\partial N_A} \right) - \left( \frac{\partial S}{\partial N_B} \right) \right] \tag{6.2}
+	\end{equation}
+	
+	\esp
+	
+	where the infinitesimal entropy change with mass is proportional to the chemical potential:
+	
+	\esp
+	
+	\begin{equation}
+		\mu = -T \left( \frac{\partial S}{\partial N} \right)_{U,V} \tag{6.3}
+	\end{equation}
+	
+	\esp
+	
+	Therefore, substituting Eq. 6.3 into Eq. 6.2, we obtain
+	
+	\esp
+	
+	\begin{equation}
+		dS = -\frac{dN_A}{T}(\mu_A - \mu_B) \tag{6.4}
+	\end{equation}
+	
+	\esp
+	
+	Note that, if $\Delta \mu \equiv \mu_A - \mu_B > 0$, then $dN_A < 0$; by contrast, if $\Delta \mu < 0$, then $dN_A > 0$. In both cases, $dS > 0$ and $dS = 0$ if no mass transfer occurs, that is if $\Delta \mu = 0$.
+	
+	\esp
+	
+	\begin{center}
+		\textbf{A + B $\rightleftharpoons$ C}
+	\end{center}
+	
+	\esp
+	
+	Now, let's consider a system where the generic chemical reaction A + B = C occurs (see Fig. 6.2). At equilibrium, the chemical potentials of the three species are related as follows
+	
+	\esp
+	
+	\begin{equation}
+		\mu_A + \mu_B = \mu_C \tag{6.5}
+	\end{equation}
+	
+	\esp
+	
+	\noindent Out of equilibrium, then products or reagents can form:
+	
+	\begin{align}
+		\mu_A + \mu_B > \mu_C \quad &\implies \quad \text{A + B} \rightarrow \text{C} \tag{6.6} \\
+		\mu_A + \mu_B < \mu_C \quad &\implies \quad \text{C} \rightarrow \text{A + B} \tag{6.7}
+	\end{align}
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/intro5.png}
+	\end{figure}
+	
+	\esp
+	
+	In Fig. 6.3, we schematically show a representative member $S$ of the macrocanonical ensemble that exchange energy and mass with its surrounding reservoir $W$. The net mass exchange is zero at the thermodynamic equilibrium, when $T_s = T_w$ and $\mu_s = \mu_w$. 
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/intro6.png}
+	\end{figure}
+	
+	\esp
+	
+	In particular, $S$ is confined within rigid, permeable and diathermic walls that allow mass and energy transfer, but leave temperature ($T$), volume ($V$) and chemical potential ($\mu$) constant. To stress these conditions, the macrocanonical ensemble that we wish to design is also denoted as $(\mu, V, T)$ ensemble and the corresponding partition function as $\Xi = \Xi(\mu, V, T)$. Additionally, we will introduce the \textbf{macrocanonical potential}, also known as the grand canonical potential or the Helmholtz free energy in the macrocanonical ensemble, $J(\mu, V, T) = -kT \ln \Xi$, defined as:
+	
+	\esp
+	
+	\begin{equation}
+		J = U - TS - \mu N = A - \mu N \tag{6.8}
+	\end{equation}
+	
+	\esp
+	
+	where $U$ is the internal energy, $S$ the entropy, $N$ the number of particles and $A$ the Helmholtz free energy. The minimisation of the macrocanonical potential at equilibrium conditions provides the most probable distribution of energy and particles for a given temperature, chemical potential, and volume.
+	
+	\section{Design of the grand canonical ensemble}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/design.png}
+	\end{figure}
+	
+	\esp
+	
+	With reference to Fig. 6.4, the system $S$ is very large, but much smaller than $W$, that is $S \ll W$, and
+	
+	\esp
+	
+	\begin{equation}
+		1 \ll N_s \ll N_w \tag{6.9}
+	\end{equation}
+	
+	\esp
+	
+	\noindent Additionally, the numerical density is basically constant across all $U$:
+	
+	\esp
+	
+	\begin{equation}
+		\frac{N_s}{V_s} \simeq \frac{N_w}{V_w} \tag{6.10}
+	\end{equation}
+	
+	\esp
+	
+	If we disregard the interaction energy between $S$ and $W$, the energy of the ''supersystem'' $U$ reads
+	
+	\esp
+	
+	
+	\begin{equation}
+		E_u \simeq E_s + E_w, \quad \text{with } E_s \ll E_w \tag{6.11}
+	\end{equation}
+	
+	\esp
+	
+	\textbf{Figure 6.4:} Sketch of a macroscopic system $S$ exchanging mass and energy with its surroundings $W$.
+	
+	\esp
+	
+	Given that the Hamiltonian of the super-system $U$ is separated into two parts ($S + W$), the Schrödinger equation also separates:
+	
+	\esp
+	
+	\begin{align}
+		\hat{H}_s |\phi_s\rangle &= E_s |\phi_s\rangle \tag{6.12} \\
+		\hat{H}_w |\phi_w\rangle &= E_w |\phi_w\rangle \tag{6.13}
+	\end{align}
+	
+	\esp
+	
+	where $E_s(N)$ is the energy of $S$, $E_w$ is the energy of $W$ and $|\phi_u\rangle = |\phi_s\rangle|\phi_w\rangle$. Given that $S$ has quantum numbers that are independent on $W$, it makes sense to estimate the probability, $P_{mN}$, that $S$ contains $N$ particles and is in the energy state $E_{mN}$. Since $W$ is much larger than $S$, we can also consider $W$ as an isolated system with energy $E_w = E_u - E_{mN}$ and $N_w = N_u - N$ particles. It follows that the number of accessible states in $U$ reads
+	
+	\esp
+	
+	\begin{equation}
+		\Omega_u = \Omega_u(E_u, N_u; \Delta E) \tag{6.14}
+	\end{equation}
+	
+	\esp
+	
+	and the number of accessible states in $U$ compatible with $S$ containing $N$ particles and having energy $E_{mN}$, reads
+	
+	\esp
+	
+	\begin{equation}
+		\Omega_w = \Omega_w(E_u - E_{mN}, N_u - N; \Delta E) \tag{6.15}
+	\end{equation}
+	
+	\esp
+	
+	We can then calculate the aforementioned probability in terms of the energy and number of particles of the reservoir $W$:
+	
+	\esp
+	
+	\begin{equation}
+		P_{mN} = \frac{\text{favourable cases}}{\text{possible cases}} = \frac{\Omega_w(E_u - E_{mN}, N_u - N; \Delta E)}{\Omega_u(E_u, N_u; \Delta E)} \tag{6.16}
+	\end{equation}
+	
+	\esp
+	
+	Given that $E_{mN} \ll E_u$, we can develop a power series of $\Omega_w$. Nevertheless, since $\Omega_w$ increases exponentially with energy and converges slowly, we prefer to Taylor-expand the logarithm of $\Omega_w$ near the point $(E_u, N_u)$:
+	
+	\esp
+	
+	\begin{equation}
+		\ln \Omega_w(E_w, N_w; \Delta E) \simeq \ln \Omega_w(E_u, N_u; \Delta E) + \left( \frac{\partial \ln \Omega_w}{\partial E_w} \right)_{E_w=E_u} (E_w - E_u) + \left( \frac{\partial \ln \Omega_w}{\partial N_w} \right)_{N_w=N_u} (N_w - N_u) \tag{6.17}
+	\end{equation}
+	
+	\esp
+	
+	\noindent or equivalently
+	
+	\esp
+	
+	\begin{equation}
+		\ln \Omega_w(E_w, N_w; \Delta E) \simeq \ln \Omega_w(E_u, N_u; \Delta E) - \underbrace{\frac{\partial \ln \Omega_w}{\partial E_w}}_{\beta=1/kT} E_{mN} - \underbrace{\frac{\partial \ln \Omega_w}{\partial N_w}}_{-\beta\mu} N \tag{6.18}
+	\end{equation}
+	
+	\esp
+	
+	where we used the fact that the thermal bath $W$ can be approximately treated as an isolated system and therefore within the microcanonical-ensemble framework. It follows that $S_w = k \ln \Omega_w$ and, from Eq. 6.3, we obtain the chemical potential in the above equation. Therefore,
+	
+	\esp
+	
+	\begin{equation}
+		\Omega_w(E_u - E_{mN}, N_u - N; \Delta E) \simeq \Omega_w(E_u, N_u; \Delta E) e^{-\beta(E_{mN} - \mu N)} \tag{6.19}
+	\end{equation}
+	
+	\esp
+	
+	\noindent and the probability reads
+	
+	\esp
+	
+	\begin{equation}
+		P_{mN} = \underbrace{\frac{\Omega_w(E_u, N_u; \Delta E)}{\Omega_u(E_u, N_u; \Delta E)}}_{\leq 1} e^{-\beta(E_{mN} - \mu N)} \tag{6.20}
+	\end{equation}
+	
+	\esp
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{IMG/design2.png}
+	\end{figure}
+	
+	\esp
+	
+	\noindent To calculate $P_{mN}$, we can impose the normalisation condition:
+	
+	\esp
+	
+	\begin{equation}
+		\sum_{N=0}^{\infty} \sum_{m} P_{mN} = 1 \tag{6.21}
+	\end{equation}
+	
+	\esp
+	
+	\noindent which gives
+	
+	\esp
+	
+	\begin{equation}
+		\sum_{N=0}^{\infty} \sum_{m} \underbrace{\frac{\Omega_w(E_u, N_u; \Delta E)}{\Omega_u(E_u, N_u; \Delta E)}}_{\equiv 1/\Xi} e^{-\beta(E_{mN} - \mu N)} = 1 \tag{6.22}
+	\end{equation}
+	
+	\esp
+	
+	where the sum is over all possible states and number of particles of system $S$, without restriction. Rearranging, one obtains
+	
+	\esp
+	
+	\begin{equation}
+		\Xi \equiv \frac{\Omega_u(E_u, N_u; \Delta E)}{\Omega_w(E_u, N_u; \Delta E)} = \sum_{N=0}^{\infty} \sum_{m} e^{-\beta(E_{mN} - \mu N)} \tag{6.23}
+	\end{equation}
+	
+	Substituting this result into Eq. 6.20, we obtain
+	
+	\begin{equation}
+		P_{mN} = \frac{1}{\Xi} e^{-\beta(E_{mN} - \mu N)} \tag{6.24}
+	\end{equation}
+	
+	where $\Xi = \Xi(\mu, T, V)$ is the \textbf{macrocanonical partition function} and $P_{mN}$ is the \textbf{macrocanonical probability}. Note that both $\Xi$ and $P_{mN}$ do not depend on $W$.
+
+	\printbibliography[title={Bibliografía}]
+\end{document}
