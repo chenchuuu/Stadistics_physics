@@ -255,5 +255,137 @@
 		Z = \sum_i \frac{1}{N!} e^{-\beta \sum_i \epsilon_{l_i}} = \frac{Z_1^N}{N!}
 	\end{equation}
 	
+	\subsection{Particles in a 3D potential well}
+	
+	\noindent Let's calculate the partition function in this system. Let's assume that
+	
+	\esp
+	
+	\begin{equation}
+		Z = \sum \frac{1}{N!}(Z_1)^N
+	\end{equation}
+	
+	\esp
+	
+	\noindent Then let's calculate $Z_1$
+	
+	\esp
+	
+	A single particle's energy has two contribution, one due to the traslational degrees of freedom and one due to the internal degrees of freedom.
+	
+	\esp
+	
+	\begin{equation}
+		\epsilon = \epsilon_{tr} + \epsilon_{in}
+	\end{equation}
+	
+	\esp
+	
+	\noindent Then the particle function of a single particle is
+	
+	\esp
+	
+	\begin{equation}
+		Z_1 = \sum_{l_{tr}}\sum_{l_{in}} e^{-\beta \epsilon_{tr}-\beta \epsilon_{in}} = Z_1^{tr} Z_1^{in}
+	\end{equation}
+	
+	\esp
+	
+	In RAW we developed the solution of Schrödinger's Equation in a potential well in 1D. From this solution we obtained the expression for energy, which is related to the momentum.
+	
+	\esp
+	
+	\begin{equation}
+		\epsilon = \frac{nh}{4Lm}
+	\end{equation}
+	
+	\esp
+	
+	\noindent Using this for the traslational energy expression
+	
+	\esp
+	
+	\begin{equation}
+		\epsilon_{tr} = \frac{p_x^2+p_y^2+p_z^2}{2m} = \frac{\Lambda}{2m}\left(\frac{n_x^2h^2}{4L^2}+\frac{n_y^2h^2}{4L^2}+\frac{n_z^2h^2}{4L^2}\right)
+	\end{equation}
+	
+	\esp
+	
+	\noindent Let's calculate the partition function
+	
+	\esp
+	
+	\begin{equation}
+		Z_1^{tr} = \sum_{n_x=1}^{\infty} \sum_{n_y=1}^{\infty} \sum_{n_z=1}^{\infty} e^{-\beta \frac{ h^2}{8mL^2} (n_x^2 + n_y^2 + n_z^2)}
+	\end{equation}
+	
+	\esp
+	
+	\noindent Let's take a look how to solve individualy
+	
+	\esp
+	
+	\begin{equation}
+		\sum_{n=1}^{\infty} e^{-\beta \frac{ h^2}{8mL^2}n^2}
+	\end{equation}
+	
+	\esp
+	
+	If we notice, $p$ is related to the length of the well: $p=hn/2L$, then $\Delta p = p_{n+1}-p_n =h/2L$. If we consider a very large $L$, this is $L\rightarrow\infty$ then $\Delta p = dp$, let's use this to simplify the summatory. Let's change of variable: $n=pL/h\pi$
+	
+	\esp
+	
+	\begin{equation}
+		\sum_{n=1}^{\infty} e^{-\beta \frac{ h^2}{8mL^2}n^2} = \sum_{p=\frac{h}{2L}}^{\infty} e^{-\beta \frac{p^2}{2m}}
+	\end{equation}
+	
+	\esp
+	
+	\noindent We introduce $\Delta p$ in the summatory and we are going to perform a limit, then we can covert the summatory into an integral.
+	
+	\esp
+	
+	\begin{equation}
+		\underset{\rightarrow \infty}{lim} \sum_{p=\frac{h}{2L}}^{\infty} \frac{2L}{h} \Delta p\ e^{-\beta \frac{p^2}{2m}} = \int_0^{\infty} e^{-\beta \frac{p^2}{2m}}\ dp = \frac{1}{2} \int_{-\infty}^{\infty} e^{-\beta \frac{p^2}{2m}}\ dp
+	\end{equation}
+	
+	\esp
+	
+	\noindent Substituing the partition function with this integral we have
+	
+	\esp
+	
+	\begin{equation}
+		\frac{1}{h^3} \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} dp_x \, dp_y \, dp_z \, e^{-\frac{\beta}{2m}(p_x^2 + p_y^2 + p_z^2)}
+	\end{equation}
+	
+	\esp
+	
+	\noindent Taking into account the Gaussian integral:
+	\begin{equation}
+		\int_{-\infty}^{\infty} e^{-\frac{x^2}{2\sigma^2}} dx = \sqrt{2\pi\sigma^2}
+	\end{equation}
+	
+	\esp
+	
+	\noindent It follows that:
+	\begin{equation}
+		Z_1^{(tr)} = \frac{L^3}{h^3} (2\pi mkT)^{3/2} = \frac{V}{\Lambda_T^3}
+	\end{equation}
+	
+	\esp
+	
+	\noindent Then the partition funcion is
+	
+	\esp
+	
+	\begin{equation}
+		Z = \frac{1}{N!}\left(\frac{V}{\Lambda_T^3}\right)^N
+	\end{equation}
+	
+	\esp
+	
+	\noindent \textbf{The previous result coincide with the classical ideal monoatomic gas.}
+	
 	\printbibliography[title={Bibliografía}]
 \end{document}
