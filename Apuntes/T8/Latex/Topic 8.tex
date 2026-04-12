@@ -387,5 +387,176 @@
 	
 	\noindent \textbf{The previous result coincide with the classical ideal monoatomic gas.}
 	
+	\subsection{Thermodynamic properties of the BG}
+	
+	\esp
+	
+	$A(T, V, N) = -kT \ln Z_{BG} = -NkT \ln z_1^{(tr)} + \underbrace{kT \ln N!}_{NkT \ln N - NkT} - NkT \ln z_1^{(in)}$
+	
+	\esp
+	
+	Using the \textit{Stirling approximation} and knowing that $z_1^{(tr)} = \frac{V}{\Lambda_T^3}$:
+	
+	\esp
+	
+	$A(T, V, N) = -NkT + NkT \ln \left( \frac{V}{N} \right) - NkT \ln \Lambda_T^3 + NkT \ln z_1^{(in)}$
+	
+	\esp
+	
+	Defining the free energy per particle $a(T, n) = \frac{A(T, V, N)}{N} = -kT + kT \ln(n \Lambda_T^3) + a_{in}(T)$, where $a_{in}(T) = -kT \ln z_1^{(in)}$ and $n = \frac{N}{V}$.
+	
+	\esp
+	
+	Considering $dA = -SdT - PdV + \mu dN$:
+	
+	\esp
+	
+	\noindent \textbf{Eq. of State (Pressure)}
+	
+	\begin{equation}
+		P = -\left( \frac{\partial A}{\partial V} \right)_{T, N}
+	\end{equation}
+	
+	\esp
+	
+	Since $-kT \ln z_1^{(in)}$ has no $V$ dependence, only the translational degrees of freedom contribute to the equation of state (pressure):
+	\begin{equation}
+		P = -N \left( - \frac{\partial}{\partial V} (kT \ln(\frac{V}{N})) \right) = \frac{NkT}{V} \implies \text{Boltzmann gas behaves as an ideal gas}
+	\end{equation}
+	
+	\esp
+	
+	The internal partition function $z^{(in)}$ contributes to the entropy, free energy, and specific heat.
+	
+	\esp
+	
+	\noindent \textbf{Entropy}
+	
+	\begin{equation}
+		S = -\left( \frac{\partial A}{\partial T} \right)_{V, N} \implies s = -\left( \frac{\partial a}{\partial T} \right)_n = -\left[ k \ln(n \Lambda_T^3) - k + a'_{in}(T) + \frac{kT \cdot 3\Lambda_T^2 \cdot \Lambda'_T(T)}{\Lambda_T^3} \right]
+	\end{equation}
+	
+	\esp
+	
+	Given that $\Lambda_T = \frac{h}{\sqrt{2\pi mkT}} \implies \Lambda'_T(T) = -\frac{\Lambda_T(T)}{2T}$, we derive the \textbf{Sackur-Tetrode equation}:
+	
+	\esp
+	
+	\begin{equation}
+		s(T, n) = k \left[ \frac{5}{2} - \ln(n \Lambda_T^3) \right] - a'_{in}(T)
+	\end{equation}
+	
+	\esp
+	
+	It appears that $s(T \to 0, n) \neq 0$. This occurs because we are using the BG model; therefore, $T$ must be high and/or $n$ must be low for the approximation to hold.
+	
+	\esp
+	
+	\noindent \textbf{Internal Energy}
+	
+	\begin{equation}
+		A = U - TS \implies U = A + TS \implies u = a + Ts
+	\end{equation}
+	
+	\esp
+	
+	\begin{equation}
+		u = a + Ts = \frac{3kT}{2} + a_{in}(T) - T a'_{in}(T)
+	\end{equation}
+	
+	\esp
+	
+	The $\frac{3kT}{2}$ term is the contribution from the equipartition theorem. We have a contribution of $\frac{1}{2}kT$ for each quadratic term in the Hamiltonian $H = \frac{p_x^2}{2m} + \frac{p_y^2}{2m} + \frac{p_z^2}{2m} + \dots$
+	
+	\textbf{Specific Heat}
+	\begin{equation}
+		c_v = \left( \frac{\partial u}{\partial T} \right)_n = \frac{3}{2}k - T a''_{in}(T)
+	\end{equation}
+	
+	\esp
+	
+	---
+	
+	\esp
+	
+	\subsection{Role played by internal degrees of freedom}
+	
+	\esp
+	
+	$A_{in} = -NkT \ln z_1^{(in)} \quad \text{(Free energy)}$
+	
+	\esp
+	
+	$S_{in} = -\left( \frac{\partial A_{in}}{\partial T} \right)_{V, N} = Nk \left( \ln z_1^{(in)} + T \frac{\partial}{\partial T} \ln z_1^{(in)} \right) \quad \text{(Entropy)}$
+	
+	\esp
+	
+	$U_{in} = A_{in} + TS_{in} = -NkT \ln z_1^{(in)} + NkT \left( \ln z_1^{(in)} + T \frac{\partial}{\partial T} \ln z_1^{(in)} \right) = NkT^2 \frac{\partial}{\partial T} \ln z_1^{(in)} \quad \text{(Internal energy)}$
+	
+	\esp
+	
+	$C_v^{in} = \frac{\partial}{\partial T} \left[ NkT^2 \frac{\partial}{\partial T} \ln z_1^{(in)} \right]_{V, N} \quad \text{(Specific heat)}$
+	
+	\esp
+	
+	If $z_1^{(in)} = z_{rot} \cdot z_{vib} \cdot z_{elec}$:
+	\begin{align*}
+		A^{(in)} &= -kT \ln z^{(in)} = A_{rot} + A_{vib} + A_{elec} \\
+		S^{(in)} &= -\left( \frac{\partial A^{(in)}}{\partial T} \right) = S_{rot} + S_{vib} + S_{elec} \\
+		U^{(in)} &= U_{rot} + U_{vib} + U_{elec} \\
+		C_v^{(in)} &= C_v^{rot} + C_v^{vib} + C_v^{elec}
+	\end{align*}
+	
+	\esp
+	
+	\noindent \textbf{Activation of internal energy d.o.f.}
+	
+	\esp
+	
+	$z_1^{(in)} = \sum_{n} e^{-\beta \varepsilon_n^{(in)}}$ where $n$ is the quantum number.
+	
+	\esp
+	
+	\noindent \textbf{Spectrum of the internal d.o.f. for the internal d.o.f.}
+	
+	\begin{itemize}
+		\item $\Delta \varepsilon > \varepsilon_1 - \varepsilon_0$ (gap or activation energy)
+		\item $T_a = \frac{\Delta \varepsilon}{k}$ (activation temperature)
+	\end{itemize}
+	
+	\esp
+	
+	\noindent \textbf{First limit case: Thermal energy ($kT$) much smaller than $\Delta \varepsilon$}
+	
+	\esp
+	
+	$kT \ll \Delta \varepsilon \implies \beta \Delta \varepsilon \gg 1$.
+	Taking $\varepsilon_0, \varepsilon_1, \varepsilon_2 \dots$ and assuming $\ln e^{-\beta \varepsilon_0} = -\beta \varepsilon_0 = -\frac{\varepsilon_0}{kT}$:
+	\begin{equation}
+		z^{in} = \sum_{\varepsilon} g(\varepsilon) e^{-\beta \varepsilon} \approx g(\varepsilon_0) e^{-\beta \varepsilon_0} \left( 1 + \frac{g(\varepsilon_1)}{g(\varepsilon_0)} e^{-\beta \Delta \varepsilon} + \dots \right) \approx e^{-\beta \varepsilon_0} g(\varepsilon_0)
+	\end{equation}
+	
+	\esp
+	
+	Then $C_v^{in} = k \frac{\partial}{\partial T} \left[ T^2 \frac{\partial}{\partial T} \ln z^{in} \right] \approx k \frac{\partial}{\partial T} \left[ T^2 \frac{\partial}{\partial T} \left( -\frac{\varepsilon_0}{kT} \right) \right] = k \frac{\partial}{\partial T} \left[ T^2 \frac{\varepsilon_0}{kT^2} \right] = 0$.
+	$\implies$ In this case, internal degrees of freedom do not contribute to $C_v$.
+	
+	\esp
+	
+	\noindent \textbf{Second limit case: Thermal energy ($kT$) much larger than $\Delta \varepsilon$}
+	
+	\esp
+	
+	$kT \gg \Delta \varepsilon$: We can take the continuous limit of the specific energies and the system behaves as classical.
+	$\implies$ Equipartition theorem holds $\implies U = \alpha NkT$ ($C_v = \text{constant}$).
+	
+	\esp
+	
+	\textbf{Graph of $C_v = C_v^{(tr)} + C_v^{(in)}$}
+	\begin{itemize}
+		\item At low $T$: $C_v^{in} = 0$, so $C_v = \frac{3}{2}k$.
+		\item At high $T$ ($kT \gg \Delta \varepsilon$): $C_v$ increases and reaches a new plateau due to the activation of internal degrees of freedom.
+	\end{itemize}
+	
 	\printbibliography[title={Bibliografía}]
 \end{document}
