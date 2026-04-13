@@ -24,6 +24,8 @@
 
 \usepackage{graphicx}
 
+\usepackage{cancel}
+
 % Espaciadora
 
 \newcommand{\esp}{\vspace{0.5cm}}
@@ -557,6 +559,119 @@
 		\item At low $T$: $C_v^{in} = 0$, so $C_v = \frac{3}{2}k$.
 		\item At high $T$ ($kT \gg \Delta \varepsilon$): $C_v$ increases and reaches a new plateau due to the activation of internal degrees of freedom.
 	\end{itemize}
+	
+	\esp
+	
+	To study the vibrational d.o.f., we are going to study diatomic molecules.
+	
+	\esp
+	
+	$V(r)$ Taylor expansion around $r_0$, the equilibrium position:
+	\begin{equation}
+		V(r) \approx V(r_0) + \cancel{V'(r_0)(r-r_0)} + \frac{1}{2}V''(r_0)(r-r_0)^2 + \dots \implies \frac{1}{2}kx^2 \rightarrow \text{Harmonic Oscillator}
+	\end{equation}
+	
+	\esp
+	
+	Now we consider Schrödinger eq:
+	\begin{equation}
+		\hat{H} \psi = E \psi \rightarrow -\frac{\hbar^2}{2\mu} \frac{d^2\psi}{dx^2} + \frac{1}{2}kx^2 \psi = E \psi \rightarrow \omega = \sqrt{\frac{k}{\mu}} \rightarrow \frac{d^2\psi}{dx^2} + \frac{2\mu}{\hbar^2}E = \dots
+	\end{equation}
+	
+	\esp
+	
+	The solution to this is: $\varepsilon_n = \hbar\omega(n + 1/2)$ with $\omega = \sqrt{\frac{k}{\mu}}$, where $n = 0, 1, 2, 3 \dots$
+	
+	\esp
+	
+	\textbf{Partition function:}
+	\begin{equation}
+		z_1^{vib} = \sum_{n=0}^{\infty} e^{-\beta \varepsilon_n} = \sum_{n=0}^{\infty} e^{-\beta \hbar\omega(n+1/2)} = e^{-\frac{\beta\hbar\omega}{2}} \sum_{n=0}^{\infty} (e^{-\beta\hbar\omega})^n = e^{-\frac{\beta\hbar\omega}{2}} \frac{1}{1-e^{-\beta\hbar\omega}} = \frac{e^{-\frac{\beta\hbar\omega}{2}}}{1-e^{-\beta\hbar\omega}} \cdot \frac{e^{\frac{\beta\hbar\omega}{2}}}{e^{\frac{\beta\hbar\omega}{2}}} = \frac{1}{e^{\frac{\beta\hbar\omega}{2}} - e^{-\frac{\beta\hbar\omega}{2}}}
+	\end{equation}
+	
+	\esp
+	
+	Using the identity $2 \sinh(x) = e^x - e^{-x}$:
+	\begin{equation}
+		z_1^{vib} = [2 \sinh(\beta\hbar\omega/2)]^{-1} \implies Z^{vib} = (z_1^{vib})^N = [2 \sinh(\beta\hbar\omega/2)]^{-N}
+	\end{equation}
+	
+	\esp
+	
+	\textbf{Free energy:}
+	$A_{vib} = -kT \ln Z = N [ \frac{1}{2}\hbar\omega + kT \ln(1 - e^{-\beta\hbar\omega}) ] \implies \text{does not depend on } V$.
+	
+	\esp
+	
+	\textbf{Therm. pressure:}
+	$P = -(\frac{\partial A}{\partial V})_{T,N} = 0 \implies$ vibrational d.o.f. do not contribute to the pressure.
+	
+	\esp
+	
+	\textbf{Entropy:}
+	$s_{vib} = -(\frac{\partial a}{\partial T})_n = Nk \left[ \frac{\beta\hbar\omega}{e^{\beta\hbar\omega}-1} - \ln(1 - e^{-\beta\hbar\omega}) \right]$
+	
+	\esp
+	
+	\textbf{Internal energy:}
+	$u_{vib} = a + Ts = Nk \left[ \frac{1}{2}\hbar\omega + \frac{\hbar\omega}{e^{\beta\hbar\omega}-1} \right]$
+	
+	\esp
+	
+	\textbf{Specific heat:}
+	$c_{v,vib} = \frac{1}{N} (\frac{\partial U}{\partial T})_{V,N} = k (\beta\hbar\omega)^2 \frac{e^{\beta\hbar\omega}}{(e^{\beta\hbar\omega}-1)^2}$
+	
+	\esp
+	
+	As we see, the $z^{vib}$ which is an internal degree of freedom does not contribute to the state of stage equation (pressure).
+	
+	\esp
+	
+	$\Theta_v \rightarrow$ \textit{vibrational activation temperature}
+	Activation energy: $\varepsilon_n = \hbar\omega(n + 1/2)$
+	$k \Theta_v = \hbar\omega \implies \Theta_v = \frac{\hbar\omega}{k} \implies c_{v,vib} = k (\frac{\Theta_v}{T})^2 \frac{e^{\Theta_v/T}}{(e^{\Theta_v/T}-1)^2}$
+	
+	\esp
+	
+	\textbf{We shall distinguish two cases:}
+	\begin{itemize}
+		\item $T \gg \Theta_v \implies \frac{\Theta_v}{T} \ll 1$:
+		$c_{v,vib} \approx k (\frac{\Theta_v}{T})^2 \frac{1 + \dots}{(1 + \frac{\Theta_v}{T} + \dots - 1)^2} = k \frac{(\Theta_v/T)^2}{(\Theta_v/T)^2} = k$
+		\item $T \ll \Theta_v \implies \frac{\Theta_v}{T} \gg 1$:
+		$c_{v,vib} \approx k (\frac{\Theta_v}{T})^2 \frac{e^{\Theta_v/T}}{(e^{\Theta_v/T})^2} \xrightarrow{T \to 0} 0$
+	\end{itemize}
+	
+	\esp
+	
+	\textbf{Rotational d.o.f.}
+	
+	\esp
+	
+	\textit{Rigid rotor model}:
+	$T = \frac{1}{2}I\omega^2$ (rotational kinetic energy) with $I = \mu r_0^2$ and $\mu = \frac{m_1 m_2}{m_1 + m_2}$.
+	$L = I\omega \implies \vec{L} = \vec{r} \times \vec{p}$, then $T = \frac{L^2}{2I}$.
+	
+	\esp
+	
+	$\hat{H} \psi = E \psi \rightarrow \frac{L^2}{2I} \psi = E \psi$
+	$\vec{L} = \vec{r} \times \vec{p} = \dots \implies L^2 = L_x^2 + L_y^2 + L_z^2$
+	
+	\esp
+	
+	Using spherical coordinates:
+	$x = r \sin\theta \cos\phi$
+	$y = r \sin\theta \sin\phi$
+	$z = r \cos\theta$
+	
+	\esp
+	
+	$L^2 = -\hbar^2 \left[ \frac{1}{\sin\theta} \frac{\partial}{\partial\theta} (\sin\theta \frac{\partial}{\partial\theta}) + \frac{1}{\sin^2\theta} \frac{\partial^2}{\partial\phi^2} \right]$
+	
+	\esp
+	
+	The solution of this Schrödinger equation is:
+	$\psi(\theta, \phi) = A Y_{lm}(\theta, \phi) = Y_{lm}(\theta, \phi)$
+	where $l = 0, 1, 2 \dots$ and $m = -l, \dots, l$.
 	
 	\printbibliography[title={Bibliografía}]
 \end{document}
