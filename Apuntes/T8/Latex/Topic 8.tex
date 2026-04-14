@@ -673,5 +673,140 @@
 	$\psi(\theta, \phi) = A Y_{lm}(\theta, \phi) = Y_{lm}(\theta, \phi)$
 	where $l = 0, 1, 2 \dots$ and $m = -l, \dots, l$.
 	
+	\esp
+	
+	The eigenvalue is: $\varepsilon_l = \frac{\hbar^2}{2I} l(l+1)$ \quad $H \psi = E \psi$
+	
+	\esp
+	
+	\begin{equation}
+		z_1 = \sum_{l=0}^{\infty} (2l+1) e^{-\beta \varepsilon_l} = \sum_{l=0}^{\infty} (2l+1) e^{-\beta \frac{\hbar^2}{2I} l(l+1)}
+	\end{equation}
+	
+	For each $l$, there are $(2l+1)$ possible values of $m_l$ that give us the same energy. I'm taking into account the degeneracy.
+	
+	\esp
+	
+	\textbf{Temperature:}
+	$\Theta_{rot} = \frac{\Delta \varepsilon}{k} = \frac{\hbar^2}{2Ik}$ \quad $\implies \Theta_{rot} = \frac{\hbar^2}{2Ik}$ (added by convenience).
+	$\Delta \varepsilon = \varepsilon_1 - \varepsilon_0 = \frac{\hbar^2}{2I} \cdot 1 \cdot 2 - 0 = \frac{\hbar^2}{I}$
+	
+	\esp
+	
+	Then $z_1^{rot} = \sum_{l=0}^{\infty} (2l+1) e^{-\frac{\Theta_{rot}}{T} l(l+1)}$. This summation is very difficult to compute, so we are going to perform approximations.
+	
+	\esp
+	
+	\textbf{A particular case: $T \ll \Theta_{rot} \implies \Theta_{rot}/T \gg 1$}
+	
+	\esp
+	
+	$\implies z_1^{rot} \approx 1 + 3 e^{-2\Theta_{rot}/T} + 5 e^{-6\Theta_{rot}/T} + \dots$ (the rest is negligible).
+	
+	Using $\ln(1+x) \approx x$ with $x \ll 1$:
+	\begin{equation}
+		c_{v,rot} = k \frac{\partial}{\partial T} \left[ T^2 \frac{\partial}{\partial T} \ln z_1^{rot} \right] \approx k \frac{\partial}{\partial T} \left[ T^2 \frac{\partial}{\partial T} 3 e^{-2\Theta_{rot}/T} \right] = 3k \left( \frac{2\Theta_{rot}}{T} \right)^2 e^{-2\Theta_{rot}/T}
+	\end{equation}
+	
+	When $\frac{T}{\Theta_{rot}} \to 0 \implies c_{v,rot} \to 0$. We are in this regime (the curve starts when the degree of freedom is activated).
+	
+	\esp
+	
+	We approximate the sum ($\sum f(n) \dots$) with the \textbf{Euler-Maclaurin Formula}:
+	\begin{equation}
+		\sum_{n=a}^b f(n) \approx \int_a^b f(x)dx + \frac{f(a)+f(b)}{2} + \sum_{j=1}^p \frac{B_{2j}}{(2j)!} [f^{(2j-1)}(b) - f^{(2j-1)}(a)] + \dots
+	\end{equation}
+	where $B_{2j}$ are Bernoulli numbers and $f^{(n)}$ are derivatives.
+	
+	\esp
+	
+	Then:
+	$z_1^{rot} = \sum_{l=0}^{\infty} (2l+1) e^{-\frac{\Theta_{rot}}{T} l(l+1)}$
+	Taking $f(x) = (2x+1) e^{-\frac{\Theta_{rot}}{T} x(x+1)}$:
+	\begin{itemize}
+		\item $\int_0^\infty f(x)dx = \frac{T}{\Theta_{rot}}$
+		\item $f(0) = 1, \quad f(\infty) = 0$
+		\item $f'(0) = \frac{\Theta_{rot}}{T} (1 - 2 \cdot 0) = \frac{\Theta_{rot}}{T}, \quad f'(\infty) = 0$
+	\end{itemize}
+	
+	\esp
+	
+	$z_1^{rot} \approx \frac{T}{\Theta_{rot}} + \frac{1}{2} - \frac{1}{12} \left[ \frac{\Theta_{rot}}{T} \right] + \frac{1}{720} f'''(0) \dots$
+	\begin{equation}
+		z_1^{rot} \approx \frac{T}{\Theta_{rot}} + \frac{1}{3} + \frac{1}{15} \frac{\Theta_{rot}}{T} + \frac{4}{315} \left( \frac{\Theta_{rot}}{T} \right)^2 \dots \rightarrow \text{let's study the another limit case}
+	\end{equation}
+	
+	\esp
+	
+	\textbf{When $T \gg \Theta_{rot} \implies \frac{T}{\Theta_{rot}} \gg 1$}, then $z_1^{rot} \approx \frac{T}{\Theta_{rot}}$.
+	
+	\esp
+	
+	Then $c_{v,rot} = k \frac{\partial}{\partial T} \left[ T^2 \frac{\partial}{\partial T} \ln \frac{T}{\Theta_{rot}} \right] = k$.
+	
+	\esp
+	
+	\begin{center}
+		\textit{Combined Specific Heat Analysis}
+	\end{center}
+	
+	\esp
+	
+	The graph shows the stages of activation for the degrees of freedom ($C_v$ vs $kT$). In the rotational regime:
+	\begin{itemize}
+		\item There is a predicted maximum in the curve (indicated by the red circle), which can be measured experimentally.
+		\item In this regime, as $T \gg \Theta_{rot}$:
+	\end{itemize}
+	
+	\begin{equation}
+		c_{v,rot} \approx k \left[ 1 + \frac{1}{45} \left( \frac{\Theta_{rot}}{T} \right)^2 + \frac{16}{945} \left( \frac{\Theta_{rot}}{T} \right)^3 + \dots \right]
+	\end{equation}
+	
+	\esp
+	
+	\textbf{Activation Temperature Comparison}
+	
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{Molecule} & $\mathbf{\Theta_{rot}}$ (K) & $\mathbf{\Theta_{vib}}$ (K) \\ \hline
+			$H_2$             & 86.4                        & 6240                       \\ \hline
+			$OH$              & 15.2                        & 4140                       \\ \hline
+			$N_2$             & 2.86                        & 3340                       \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	\esp
+	
+	For homonuclear molecules: $z_{homonuclear}^{rot} = \frac{z_{heteronuclear}^{rot}}{2}$
+	
+	\esp
+	
+	\textbf{Note:} As we see, $\Theta_{rot} \ll \Theta_{vib}$. It is much easier to rotate the molecule than to vibrate it. Therefore, at low temperatures, the molecule begins to rotate, and only at much higher temperatures ($T$) does it start vibrating.
+	
+	\esp
+	
+	\textbf{Electronic d.o.f.}
+	
+	\esp
+	
+	\begin{equation}
+		z^{elect} = \sum_{n} \Omega(E_n) e^{-\beta E_n}
+	\end{equation}
+	where $n$ is the quantum electronic level and $\Omega$ is the degeneracy.
+	
+	\esp
+	
+	In general, the activation temperature for electronic states $T_{ae}$ is around $10^4 - 10^5$ K (very high temperatures). This is much larger than commonly reachable temperatures in standard lab conditions.
+	
+	\esp
+	
+	Since $kT \ll \Delta E = \frac{T_{ae}}{k}$:
+	\begin{equation}
+		Z^{elect} \approx \Omega(E_0) e^{-\beta E_0} \implies C_{v,elect} \approx 0
+	\end{equation}
+	We did this before!
+	
 	\printbibliography[title={Bibliografía}]
 \end{document}
