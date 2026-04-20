@@ -1,0 +1,207 @@
+\documentclass[12pt,a4paper]{report}
+
+% --- Paquetes de Idioma y Codificación ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish, es-tabla]{babel}
+
+% --- Diseño de Página ---
+\usepackage{geometry}
+\geometry{top=2.5cm, bottom=2.5cm, left=3cm, right=3cm}
+
+% --- Matemáticas y Símbolos ---
+\usepackage{amsmath, amssymb, amsthm}
+
+% --- Colores y Cajas ---
+\usepackage[dvipsnames]{xcolor}
+\usepackage[most]{tcolorbox}
+
+% Caption
+
+\usepackage{caption}
+
+% Gráficos
+
+\usepackage{graphicx}
+
+% Espaciadora
+
+\newcommand{\esp}{\vspace{0.5cm}}
+
+% promedio
+
+\newcommand{\prom}[1]{\left\langle #1 \right\rangle}
+
+% ket
+
+\newcommand{\ket}[1]{| #1 \rangle}
+
+% bra
+
+\newcommand{\bra}[1]{\langle #1 |}
+
+% braket
+
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}
+
+% Bibliografía
+
+\usepackage[style=apa, backend=biber]{biblatex} % Estilo APA
+\addbibresource{biblio.bib} % Nombre de tu archivo .bib
+
+% Configuración de cajas personalizadas
+\newtcolorbox{importante}{
+	colback=red!5!white,
+	colframe=red!75!black,
+	title=Importante,
+	fonttitle=\bfseries
+}
+
+\newtcolorbox{nota}{
+	colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Nota,
+	fonttitle=\bfseries
+}
+
+% Definición de la caja de bibliografía
+\newtcolorbox{bibliografia}{
+	colback=gray!5!white,
+	colframe=gray!75!black,
+	title=Bibliografías útiles,
+	fonttitle=\bfseries,
+	breakable
+}
+
+% Socrative para óptica 2
+
+\newtcolorbox{Socrative}{
+	colback=orange!5!white,
+	colframe=orange!75!black,
+	title=Socrative,
+	fonttitle=\bfseries,
+	breakable
+}
+
+% Float
+
+\usepackage{float}
+
+% --- Hipervínculos ---
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+
+% --- Datos del Documento ---
+\title{Stadistical Physics}
+\author{Chengyu Jin}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	
+	\tableofcontents
+	\newpage
+	
+	\chapter{Solids}
+	
+	\section{Solids with N atoms in 3D}
+	
+	$T = \frac{1}{2} m \sum_{i=1}^{3N} \dot{x}_i^2 \quad ; \quad x_i \text{ : positions of } N \text{ atoms at time } t$
+	
+	\esp
+	
+	$\hookrightarrow T = \frac{1}{2} m \sum_{i=1}^{3N} \dot{u}_i^2 \quad \text{taking } u_i(t) = (x_i - x_i^0)$
+	
+	\esp
+	
+	$V(\{x_i\}) = V(\{x_i^0\}) + \sum_{i=1}^{3N} \left( \frac{\partial V}{\partial x_i} \right)_{\{x_i^0\}} (x_i - x_i^0) + \frac{1}{2} \sum_{i,j=1}^{3N} \left( \frac{\partial^2 V}{\partial x_i \partial x_j} \right)_{\{x_i^0\}} (x_i - x_i^0)(x_j - x_j^0) + \dots$
+	
+	\esp
+	
+	At the \textit{equilibrium position}: $V(\{x_i^0\}) = 0$ and $\left( \frac{\partial V}{\partial x_i} \right)_{\{x_i^0\}} = 0$.
+	For small oscillations, higher order terms are neglected.
+	
+	\esp
+	
+	\begin{equation}
+		H = \sum_{i=1}^{3N} \frac{1}{2} m \dot{u}_i^2 + \frac{1}{2} \sum_{i,j=1}^{3N} K_{ij} u_i u_j
+	\end{equation}
+	
+	where $K_{ij} = \left( \frac{\partial^2 V}{\partial x_i \partial x_j} \right)_{\{x_i^0\}} \rightarrow$ Microscopic physics of the solid (its interactions).
+	
+	\esp
+	
+	But $H \neq \sum H_i$ due to the potential. As our framework needs $H = \sum H_i$, we perform a transformation to decouple it.
+	
+
+	\subsection{Normal mode decomposition}
+	
+	$u = \begin{pmatrix} u_1 \\ \vdots \\ u_{3N} \end{pmatrix}$. Then $T = \frac{1}{2} m \dot{u}^T \dot{u}$ and $V = \frac{1}{2} u^T K u$ (Our original Hamiltonian).
+	
+	\esp
+	
+	We search for an orthogonal transformation ($S^T S = I$) over $u = S q$ such that $S^T K S = \Lambda$, where $\Lambda$ is diagonal.
+	
+	\esp
+	
+	\begin{align*}
+		\dot{u}^T &= \dot{q}^T S^T \\
+		u &= S q
+	\end{align*}
+	then $H = \frac{1}{2} m \dot{q}^T \dot{q} + \frac{1}{2} q^T \Lambda q \rightarrow H = \frac{1}{2} \sum_{i=1}^{3N} m \dot{q}_i^2 + \frac{1}{2} \sum_{i=1}^{3N} \lambda_i q_i^2$
+	
+	\esp
+	
+	Which can be expressed as $H = \sum H_i \rightarrow H$ becomes a sum of independent oscillators!!
+	\begin{equation}
+		H = \sum_{i=1}^{3N} \left[ \frac{p_i^2}{2m} + \frac{1}{2} m \omega_i^2 q_i^2 \right] \text{ with } p_i = m\dot{q}_i \text{ and } \omega_i = \sqrt{\frac{\lambda_i}{m}}
+	\end{equation}
+	$\lambda_i$ is the eigenvalue of $K$.
+	
+	\esp
+	
+	\noindent \textit{A very complicated movement can be decomposed as a sum of normal modes.}
+	
+	\esp
+	
+	\noindent \textbf{Example 1: Eq. of motion for the displacements}
+	
+	\esp
+	
+	$H = \sum_{i=1}^{3N} \frac{p_i^2}{2m} + \frac{1}{2} \sum_{i,j=1}^{3N} K_{ij} u_i u_j$ with $p_i = m\dot{u}_i$.
+	
+	\esp
+	
+	$\dot{u}_i = \frac{\partial H}{\partial p_i} = \frac{p_i}{m}$
+	$\dot{p}_i = -\frac{\partial H}{\partial u_i} \rightarrow m\ddot{u}_i = -\sum_{j=1}^{3N} K_{ij} u_j \implies \ddot{u} = \frac{-K}{m} u$
+	
+	\esp
+	
+	Since $u = S q$:
+	$S \ddot{q} = -S \frac{\Lambda}{m} q \implies \ddot{q} = -\frac{\Lambda}{m} q \implies \ddot{q}_i + \frac{\lambda_i}{m} q_i = 0 \implies \ddot{q}_i + \omega_i^2 q_i = 0$
+	
+	\esp
+	
+	Solution:
+	$q_i(t) = a_i \cos(\omega_i t + \phi_i)$
+	$u_i(t) = (S q)_i \rightarrow u_i(t) = \sum_{j=1}^{3N} S_{ij} a_j \cos(\omega_j t + \phi_j)$
+	$a_j$ and $\phi_j$ are fixed by initial conditions.
+	
+	\esp
+	
+	\noindent \textbf{Example 2: 2 atoms (1D)}
+	
+	\esp
+	
+	$V(u_1, u_2) = \frac{1}{2} k u_1^2 + \frac{1}{2} c (u_1 - u_2)^2 + \frac{1}{2} k u_2^2$
+	$u(t)$?
+	Initial conditions: $u_1(0) = u_2(0) = \alpha$, $\dot{u}_1(0) = \dot{u}_2(0) = 0$.
+
+	\printbibliography[title={Bibliografía}]
+\end{document}
