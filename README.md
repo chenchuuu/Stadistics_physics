@@ -26,7 +26,7 @@ Convocatoria ordinaria:
 
 Evaluación continua:
 * 17/04/2026: 1º Parte (15%)
-* TBC: 2º Parte (15%)
+* 20/05/2026: 2º Parte (15%)
 
 Nota mínima para la evaluación continua: 3.5
 
