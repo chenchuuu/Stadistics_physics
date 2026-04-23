@@ -199,9 +199,320 @@
 	
 	\esp
 	
-	$V(u_1, u_2) = \frac{1}{2} k u_1^2 + \frac{1}{2} c (u_1 - u_2)^2 + \frac{1}{2} k u_2^2$
+	$V(u_1, u_2) = \frac{1}{2} k u_1^2 + \frac{1}{2} c (u_1 - u_2)^2 + \frac{1}{2} k u_2^2$ 
+	
+	\esp
+	
 	$u(t)$?
+	
+	\esp
+	
 	Initial conditions: $u_1(0) = u_2(0) = \alpha$, $\dot{u}_1(0) = \dot{u}_2(0) = 0$.
-
+	
+	\esp
+	
+	$V = \frac{k u_1^2}{2} + \frac{c(u_1-u_2)^2}{2} + \frac{k u_2^2}{2} \implies K = k \begin{pmatrix} 1 & -1 \\ -1 & 1 \end{pmatrix} \quad (\text{assuming } c=k)$
+	
+	\esp
+	
+	$|K - \lambda I| = 0 \implies \begin{cases} \lambda_1 = k \\ \lambda_2 = 3k \end{cases} \implies \Lambda = \begin{pmatrix} k & 0 \\ 0 & 3k \end{pmatrix}$
+	
+	\esp
+	
+	For $\lambda_1 = k \to s_1 = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix}$ (In-phase mode) \\
+	For $\lambda_2 = 3k \to s_2 = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ -1 \end{pmatrix}$ (Out-of-phase mode)
+	
+	\esp
+	
+	$S = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}$. We can check $S S^T = I$.
+	
+	\esp
+	
+	\textbf{Initial conditions:} $u_1(0) = \alpha, u_2(0) = \alpha, \dot{u}_1(0) = 0, \dot{u}_2(0) = 0$
+	
+	\esp
+	
+	$u_i(0) = \sum_{j} S_{ij} a_j \cos(\phi_j) \to \begin{cases} \frac{1}{\sqrt{2}} a_1 \cos(\phi_1) + \frac{1}{\sqrt{2}} a_2 \cos(\phi_2) = \alpha \\ \frac{1}{\sqrt{2}} a_1 \cos(\phi_1) - \frac{1}{\sqrt{2}} a_2 \cos(\phi_2) = \alpha \end{cases}$
+	
+	\esp
+	
+	Summing both: $2 a_1 \cos(\phi_1) = \alpha \sqrt{2}$. Since $\dot{u}(0)=0 \to \phi_j = 0$.
+	The amplitude associated with the second mode is zero, $a_2 = 0$.
+	Then: $u_1(t) = \alpha \cos(\omega_1 t)$ and $u_2(t) = \alpha \cos(\omega_1 t)$. The oscillators are \textit{in phase}.
+	
+	\esp
+	
+	
+	\esp
+	
+	If $u_1(0) = \alpha$ and $u_2(0) = -\alpha \to a_1 = 0$, $a_2 = \sqrt{2}\alpha$.
+	Then: $u_1(t) = \alpha \cos(\omega_2 t)$ and $u_2(t) = -\alpha \cos(\omega_2 t)$. Oscillators are \textit{out of phase}.
+	
+	\esp
+	
+	\begin{center}
+		\textbf{ANY VIBRATION CAN BE DECOMPOSED AS A SUM OF NORMAL MODES}
+	\end{center}
+	
+	\esp
+	
+	\noindent \textbf{Solid as classical independent harmonic oscillators (same mass)}
+	
+	\esp
+	
+	$H = \sum_{i=1}^{3N} H_i = \sum_{i=1}^{3N} \frac{p_i^2}{2m} + \frac{1}{2} m \omega^2 q_i^2$ where $p_i = m \dot{q}_i$.
+	
+	\esp
+	
+	$Q(N, V, T) = (z_1)^{3N}$
+	$z_1 = \frac{1}{h} \int \int dp dq \, e^{-\beta (\frac{p^2}{2m} + \frac{1}{2} m \omega^2 q^2)} = \frac{1}{h} \underbrace{\int e^{-\frac{\beta p^2}{2m}} dp}_{\sqrt{2\pi m k T}} \underbrace{\int e^{-\frac{\beta m \omega^2 q^2}{2}} dq}_{\sqrt{\frac{2\pi k T}{m \omega^2}}} = \frac{2\pi}{h \beta \omega} = \frac{kT}{\hbar \omega}$
+	
+	\esp
+	
+	Then $Q = \left( \frac{kT}{\hbar \omega} \right)^{3N} = (c \beta)^{-3N}$
+	
+	\esp
+	
+	$A(V, T, N) = -kT \ln Q = 3N kT \ln \left( \frac{\hbar \omega}{kT} \right)$
+	
+	\esp
+	
+	$P = -\left( \frac{\partial A}{\partial V} \right)_{T, N} = 0 \quad$ (Pressure vanishes since $\omega$ is independent of $V$ in this model).
+	
+	\esp
+	
+	$S = -\left( \frac{\partial A}{\partial T} \right)_{V, N} = 3N k \ln \left( \frac{kT}{\hbar \omega} \right) + 3N k$
+	
+	\esp
+	
+	$U = A + TS = 3N kT = 3N \cdot 2 \cdot \frac{1}{2} kT$
+	\textit{(3N particles, each with 2 degrees of freedom: kinetic and potential. Each provides 1/2 kT according to equipartition theorem)}.
+	
+	\esp
+	
+	$C_v = \frac{1}{n} \left( \frac{\partial U}{\partial T} \right)_v = 3k \quad$ This is not $C_v$ per mol, it is per particle.
+	Then $\quad C_v^{(m)} = C_v \cdot N_A = 3 k N_A = 3R$
+	
+	\esp
+	
+	$C_v^{(m)} \approx 3R \approx 6 \text{ cal/mol}\cdot\text{K}$ \\
+	\textbf{Dulong-Petit law}
+	
+	\esp
+	
+	$C_v^{(m)} \begin{cases} \text{Pb} \sim 6.43 \\ \text{Al} \sim 6.03 \end{cases} \implies \text{Simple solids}$
+	
+	\esp
+	
+	For diatomic gases has higher $C_v^{(m)}$ \\
+	$C_v \sim \frac{1}{N} \left( \frac{\partial U}{\partial T} \right)_v \to$ energy needed to increase $T$ by 1. 
+	
+	\esp
+	
+	\noindent (\text{In diatomic atoms there are more ways to use the energy, then is required more energy} $\to$ \text{Need more } $C_v$)
+	
+	\esp
+	
+	Given a graph, we should be able to know which has higher $C_v$:
+	
+	\esp
+	
+	
+	\esp
+	
+	$U = \alpha T \implies \frac{\partial U}{\partial T} = \alpha = C_v$ \\
+	If $\alpha_1 > \alpha_2 \implies C_{v1} > C_{v2}$
+	
+	\esp
+	
+	But there is a contradiction between $C_v$ predicted and measured. Then Einstein proposed to take account the quantum behavior.
+	
+	\esp
+	
+	\noindent \textbf{See in RAW graphics}
+	
+	\esp
+	
+	\textbf{Independent Quantum Harmonic Oscillator}
+	
+	\esp
+	
+	$H = \sum_{j=1}^{3N} H_j \quad , \quad \epsilon_n = (n + 1/2) \hbar \omega \quad \text{for } n = 0, 1, 2 \dots$
+	
+	\esp
+	
+	$z_1 = \sum_{n=0}^{\infty} e^{-\beta (n + 1/2) \hbar \omega} \to \sum x^n = \frac{1}{1-x} \to z_1 = \left[ 2 \operatorname{senh} \left( \frac{\hbar \omega \beta}{2} \right) \right]^{-1}$
+	
+	\esp
+	
+	$A = -kT \ln z_{3N} = 3N \left[ \frac{1}{2} \hbar \omega + kT \ln \left( 1 - e^{-\beta \hbar \omega} \right) \right]$ \\
+	$z_{3N} = (z_1)^{3N}$
+	
+	\esp
+	
+	$P = -\left( \frac{\partial A}{\partial V} \right)_{T,N} = 0$
+	
+	\esp
+	
+	$S = -\left( \frac{\partial A}{\partial T} \right)_{V,N} = 3Nk \left[ \frac{\beta \hbar \omega}{e^{\beta \hbar \omega} - 1} - \ln \left( 1 - e^{-\beta \hbar \omega} \right) \right] \quad \text{Notice that when } T \to 0 \implies S \to 0$ \\
+	(Satisfying the Third Principle of Thermodynamics).
+	
+	\esp
+	
+	When $T \to \infty$ (or $\beta \to 0$): \\
+	$e^x - 1 \approx x \quad \text{when } x \ll 1 \implies S = 3Nk \left[ 1 + \ln \left( \frac{kT}{\hbar \omega} \right) \right] \to$ Same result as we got for the classical model.
+	
+	
+	\esp
+	
+	$U = A + TS = 3N \left[ \frac{1}{2} \hbar \omega + \frac{\hbar \omega}{e^{\beta \hbar \omega} - 1} \right]$
+	
+	\esp
+	
+	$\lim_{T \to 0} U(T) = \frac{3N \hbar \omega}{2} \quad \text{(Zero-point energy)}$
+	
+	\esp
+	
+	$kT \gg \hbar \omega \implies e^{\beta \hbar \omega} - 1 \approx \beta \hbar \omega \implies U(t) \approx 3N \left( \frac{1}{2} \hbar \omega + kT \right)$
+	
+	\esp
+	
+	\textbf{Plotting this:}
+	\textit{Classical result: $U = 3NkT$ (Equipartition theorem). Quantum result: Approaches $3/2 N\hbar\omega$ as $T \to 0$.}
+	
+	\esp
+	
+	\textbf{Now we can determine $C_v$:}
+	$C_v = \frac{1}{N} \left( \frac{\partial U}{\partial T} \right)_v = \frac{3k (\beta \hbar \omega)^2 e^{\beta \hbar \omega}}{(e^{\beta \hbar \omega} - 1)^2}$
+	
+	\esp
+	
+	$\begin{cases} T \to \infty & C_v \approx 3k \\ T \to 0 & C_v \approx 3k \frac{(\beta \hbar \omega)^2 e^{\beta \hbar \omega}}{(e^{\beta \hbar \omega})^2} = \frac{(kT \hbar \omega)^2}{e^{\beta \hbar \omega}} \to 0 \end{cases}$
+	
+	\esp
+	
+	\textbf{Plotting $C_v$:}
+	\textit{Graph shows $C_v$ saturating at $3k$ (Dulong-Petit) at high $T$ and dropping exponentially as $T \to 0$.}
+	
+	\esp
+	
+	\textbf{Einstein Function:}
+	$\mathcal{E}(x) = \frac{x^2 e^x}{(e^x - 1)^2}$
+	$\Theta_E = \frac{\hbar \omega}{k} \to$ Einstein Temperature.
+	We can express then: $C_v = 3k \mathcal{E} \left( \frac{\Theta_E}{T} \right)$
+	
+	\esp
+	
+	\textbf{But experimental points did not fit exactly as the quantum model:}
+	\textit{Einstein model drops too fast (exponentially). Experiment shows a $T^3$ behavior at low temperatures.}
+	
+	\esp
+	
+	\textbf{Einstein model had assumed that particles are independent and have the SAME FREQUENCY.}
+	
+	\esp
+	
+	\textbf{Debye Model}
+	
+	\esp
+	
+	$H = \sum_{j=1}^{3N} H_j \quad , \quad H_j = \frac{p_j^2}{2m} + \frac{1}{2}m\omega_j^2 q_j^2 \quad , \quad Z = \prod_{j=1}^{3N} z_j$
+	
+	\esp
+	
+	$z_j = \sum_{n=0}^{\infty} e^{-\beta (n + 1/2) \hbar \omega_j} = \frac{e^{-\beta \hbar \omega_j / 2}}{1 - e^{-\beta \hbar \omega_j}}$
+	
+	\esp
+	
+	$A = -kT \ln Z = -kT \ln \prod z_j = \sum_{j=1}^{3N} \left[ \frac{1}{2}\hbar\omega_j + kT \ln(1 - e^{-\beta\hbar\omega_j}) \right]$
+	
+	\esp
+	
+	$U = \sum_{j=1}^{3N} \left[ \frac{1}{2}\hbar\omega_j + \frac{\hbar\omega_j}{e^{\beta\hbar\omega_j}-1} \right]$
+	
+	\esp
+	
+	$C_v = \frac{1}{N} \left( \frac{\partial U}{\partial T} \right)_v = \frac{1}{N} k \sum_{j=1}^{3N} \mathcal{E}(\beta\hbar\omega_j) \quad \text{where } \mathcal{E}(x) = \frac{x^2 e^x}{(e^x-1)^2}$
+	
+	\esp
+	
+	Using limits: $\int f(\omega) g(\omega) \, d\omega$ \\
+	$\sum f(\omega_j) = \sum_j \int f(\omega) \delta(\omega - \omega_j) \, d\omega = \int f(\omega) \underbrace{\sum_j \delta(\omega - \omega_j)}_{g(\omega)} \, d\omega$
+	
+	\esp
+	
+	Then: $\sum_j f(\omega_j) = \int f(\omega) g(\omega) \, d\omega$
+	
+	\esp
+	
+	I assume that $g(\omega)$ is a smooth function because I have a high number of modes, and I assume a \textit{fixed medium}. I suppose that $C_v$ can be written as:
+	
+	\esp
+	
+	$C_v = \frac{1}{N} k \int \mathcal{E}(\beta\hbar\omega) g(\omega) \, d\omega$ \\
+	$g(\omega) \equiv$ density of modes.
+	
+	\esp
+	
+	$\int_0^{\omega_D} g(\omega) \, d\omega = 3N \quad \text{(Total number of modes)}$ \\
+	$\omega_D = $ \textit{cutoff or maximum frequency} $\to$ Debye Frequency.
+	
+	\esp
+	
+	$C_v = \frac{1}{N} k \int_0^{\omega_D} \mathcal{E}(\beta\hbar\omega) g(\omega) \, d\omega$
+	
+	\esp
+	
+	\textit{The wavelength is the distance between two consecutive maximums or minimums.}
+	$n=1 \to \lambda = 2L$, $n=2 \to \lambda = L$, $n=3 \to \lambda = 2L/3$...
+	As we grow in $n$, a minimum wavelength corresponds to $\lambda = 2a$ ($a$ is lattice constant).
+	Then: $\frac{\omega}{k} = c \implies \omega = c k_c = c \frac{2\pi}{\lambda_c} = c \frac{2\pi}{2a} = c \frac{\pi}{a} \to$ maximum frequency.
+	
+	\esp
+	
+	$\int g(\omega) \, d\omega \to$ gives us the total number of modes in a range.
+	In this case, $g(\omega) \propto \omega^2$ for a 3D elastic medium.
+	$g(\omega) = \frac{V \omega^2}{2\pi^2 c^3}$ where $c$ is the speed of sound.
+	
+	\esp
+	
+	$\int_0^{\omega_D} g(\omega) \, d\omega = 3N \implies \int_0^{\omega_D} \frac{V\omega^2}{2\pi^2 c^3} d\omega = \frac{V\omega_D^3}{6\pi^2 c^3} = 3N \implies \omega_D = c \left( \frac{18\pi^2 N}{V} \right)^{1/3}$
+	
+	\esp
+	
+	
+	\esp
+	
+	$C_v = \frac{3k}{N} \int_0^{\omega_D} \mathcal{E}(\beta\hbar\omega) \frac{V\omega^2}{2\pi^2 c^3} d\omega = \frac{9k}{\omega_D^3} \int_0^{\omega_D} \frac{(\beta\hbar\omega)^2 e^{\beta\hbar\omega}}{(e^{\beta\hbar\omega}-1)^2} \omega^2 d\omega$
+	
+	\esp
+	
+	Let $x = \beta\hbar\omega \implies dx = \beta\hbar d\omega$. \\
+	Using the Debye temperature $\Theta_D = \frac{\hbar\omega_D}{k}$:
+	
+	\esp
+	
+	$C_v = 9k \left( \frac{T}{\Theta_D} \right)^3 \int_0^{\Theta_D/T} \frac{x^4 e^x}{(e^x-1)^2} dx$
+	
+	\esp
+	
+	\textbf{Case 1: $T \gg \Theta_D$ (High $T$)} \\
+	$x$ is very small, so $\frac{x^4 e^x}{(e^x-1)^2} \approx \frac{x^4}{x^2} = x^2$. \\
+	Then $C_v \approx 9k \left( \frac{T}{\Theta_D} \right)^3 \int_0^{\Theta_D/T} x^2 dx = 9k \left( \frac{T}{\Theta_D} \right)^3 \frac{1}{3} \left( \frac{\Theta_D}{T} \right)^3 = 3k \to$ This is the classical result.
+	
+	\esp
+	
+	\textbf{Case 2: $T \ll \Theta_D$ (Low $T$)} \\
+	The integral limit goes to $\infty$. $\int_0^{\infty} \frac{x^4 e^x}{(e^x-1)^2} dx = \frac{4\pi^4}{15}$. \\
+	Then $C_v \approx 9k \left( \frac{T}{\Theta_D} \right)^3 \frac{4\pi^4}{15} = \alpha T^3 \to$ \textbf{cubic dependence that we were looking for}.
+	
+	\esp
+	
+	\begin{itemize}
+		\item \textcolor{green}{Experimental}
+		\item \textcolor{blue}{Theoretical (Debye Model)}
+	\end{itemize}
+	
+	
 	\printbibliography[title={Bibliografía}]
 \end{document}
