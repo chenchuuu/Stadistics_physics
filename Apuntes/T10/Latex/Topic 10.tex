@@ -1,0 +1,326 @@
+\documentclass[12pt,a4paper]{report}
+
+% --- Paquetes de Idioma y Codificación ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish, es-tabla]{babel}
+
+% --- Diseño de Página ---
+\usepackage{geometry}
+\geometry{top=2.5cm, bottom=2.5cm, left=3cm, right=3cm}
+
+% --- Matemáticas y Símbolos ---
+\usepackage{amsmath, amssymb, amsthm}
+
+% --- Colores y Cajas ---
+\usepackage[dvipsnames]{xcolor}
+\usepackage[most]{tcolorbox}
+
+% Caption
+
+\usepackage{caption}
+
+% Gráficos
+
+\usepackage{graphicx}
+
+% Espaciadora
+
+\newcommand{\esp}{\vspace{0.5cm}}
+
+% promedio
+
+\newcommand{\prom}[1]{\left\langle #1 \right\rangle}
+
+% ket
+
+\newcommand{\ket}[1]{| #1 \rangle}
+
+% bra
+
+\newcommand{\bra}[1]{\langle #1 |}
+
+% braket
+
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}
+
+% Bibliografía
+
+\usepackage[style=apa, backend=biber]{biblatex} % Estilo APA
+\addbibresource{biblio.bib} % Nombre de tu archivo .bib
+
+% Configuración de cajas personalizadas
+\newtcolorbox{importante}{
+	colback=red!5!white,
+	colframe=red!75!black,
+	title=Importante,
+	fonttitle=\bfseries
+}
+
+\newtcolorbox{nota}{
+	colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Nota,
+	fonttitle=\bfseries
+}
+
+% Definición de la caja de bibliografía
+\newtcolorbox{bibliografia}{
+	colback=gray!5!white,
+	colframe=gray!75!black,
+	title=Bibliografías útiles,
+	fonttitle=\bfseries,
+	breakable
+}
+
+% Socrative para óptica 2
+
+\newtcolorbox{Socrative}{
+	colback=orange!5!white,
+	colframe=orange!75!black,
+	title=Socrative,
+	fonttitle=\bfseries,
+	breakable
+}
+
+% Float
+
+\usepackage{float}
+
+% --- Hipervínculos ---
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+
+% --- Datos del Documento ---
+\title{Óptica II}
+\author{Chengyu Jin}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	
+	\tableofcontents
+	\newpage
+	
+	\chapter{Quantum Ideal Gas}
+	
+	\section{Non-interacting Ising model}
+	
+	\noindent $H = -J \sum_{i} s_i$ where $s_i = \pm 1$ (spin)
+	
+	\esp
+	
+	\noindent We must to find:
+	
+	\esp
+	
+	\noindent $Z$ \\
+	\noindent $A$ \\
+	\noindent $U = \langle H \rangle$ \\
+	\noindent $\langle M \rangle = \langle \sum s_i \rangle / N$
+	
+	\esp
+	
+	\noindent \textbf{For interacting case}
+	
+	\esp
+	
+	At $T_c$ my particles are disordered. Below $T_c$, symmetry is broken (spontaneous magnetization).
+	
+	\esp
+	
+	$Z = (z_i)^N$ 
+	
+	\esp
+	
+	$z_i = \sum_{s_i = \pm 1} e^{-\beta H_i} = e^{\beta J} + e^{-\beta J} = 2\cosh(\beta J)$
+	
+	\esp
+	
+	$Z = (2\cosh(\beta J))^N$
+	
+	\esp
+	
+	$A = -kT \ln Z = -NkT \ln(2\cosh(\beta J))$
+	
+	\esp
+	
+	$U = \left( -\frac{\partial \ln Z}{\partial \beta} \right)_{N, V} = -\frac{\partial}{\partial \beta} (N \ln(2\cosh(\beta J))) = -N \frac{2\sinh(\beta J)}{2\cosh(\beta J)} \cdot J = -NJ \tanh(\beta J)$
+	
+	\esp
+	
+	\noindent \textbf{In other way:}
+	
+	\esp
+	
+	$U = \langle H \rangle = -J \sum_i \langle s_i \rangle = -NJ \tanh(\beta J)$ \\
+	$\langle s_i \rangle = 1 \cdot P(s_i=1) - 1 \cdot P(s_i=-1) = \frac{2\sinh(\beta J)}{2\cosh(\beta J)} = \tanh(\beta J)$
+	
+	\esp
+	
+	where $P(s_i) = \frac{e^{-\beta J s_i}}{2\cosh(\beta J)}$ \\
+	$P(1) = \frac{e^{\beta J}}{2\cosh(\beta J)}$ \\
+	$P(-1) = \frac{e^{-\beta J}}{2\cosh(\beta J)}$
+	
+	\section{Ideal Quantum Gas}
+	
+	System made of $N$ identical particles:
+	\begin{equation}
+		\Psi(r_1, r_2, \dots, r_N, t)
+	\end{equation}
+	
+	\esp
+	
+	Its evolution is given by:
+	\begin{equation}
+		i\hbar \frac{\partial \Psi}{\partial t} = H\Psi \quad ; \quad H = \sum_{i=1}^N \frac{p_i^2}{2m} + V(r_1, r_2, \dots, r_N)
+	\end{equation}
+	
+	\esp
+	
+	$P_{ij}$ is the \textbf{permutation operator} which exchanges the labels of particles $i$ and $j$:
+	\begin{equation}
+		P_{ij} \Psi(\dots, r_i, \dots, r_j, \dots, t) = \Psi(\dots, r_j, \dots, r_i, \dots, t)
+	\end{equation}
+	
+	\esp
+	
+	$[H, P_{ij}] = 0 \quad \forall i, j \quad (i \neq j)$
+	
+	\esp
+	
+	If $H\phi_n = E_n\phi_n$:
+	\begin{equation}
+		\phi(r_1, \dots, r_N, t) = \sum a_n \phi_n(r_1, \dots, r_N) \quad ; \quad a_n = \langle \phi_n | \Psi \rangle
+	\end{equation}
+	
+	\esp
+	
+	Now we apply $P_{ij}$ to $\Psi$ and then $H$:
+	\begin{align*}
+		H P_{ij} \Psi(\dots, r_i, \dots) &\to \\
+		H \Psi(\dots, r_j, \dots, r_i, \dots, t) &= \sum a_n E_n \phi_n(\dots, r_j, \dots, r_i, \dots, t) = \sum a_n E_n \underbrace{P_{ij}}_{\text{scalars}} \phi_n(\dots, r_i, \dots, r_j, \dots, t) \\
+		&= P_{ij} \sum a_n E_n \phi_n(\dots, r_i, \dots, r_j, \dots, t) = P_{ij} H \Psi \\
+		&\to \text{We have proved that } [H, P_{ij}] = 0 \quad \forall i, j \quad (i \neq j)
+	\end{align*}
+	
+	\esp
+	
+	Commuting observables have a complete set of common eigenfunctions:
+	\begin{equation}
+		P_{ij} H \phi = P_{ij} E \phi = E (P_{ij} \phi) \xrightarrow{[H, P_{ij}]=0} H (P_{ij} \phi)
+	\end{equation}
+	This implies $P_{ij} \phi$ is also an eigenfunction of $H$ with the eigenvalue $E$.
+	
+	\esp
+	
+	$P_{ij} \phi = \Theta \phi$
+	
+	\esp
+	
+	\textbf{Value of $\Theta$?}
+	\begin{align*}
+		P_{ij} \phi(\dots, r_i, \dots, r_j, \dots, t) &= \phi(\dots, r_j, \dots, r_i, \dots, t) \\
+		P_{ij}^2 \phi(\dots, r_i, \dots, r_j, \dots, t) &= \phi(\dots, r_i, \dots, r_j, \dots, t) = I \phi
+	\end{align*}
+	Then $P_{ij}^2 = I$.
+	
+	\esp
+	
+	As $P_{ij} \phi = \Theta \phi$:
+	\begin{align*}
+		P_{ij} \phi(\dots, r_i, \dots, r_j, \dots, t) &= \Theta \phi(\dots, r_i, \dots, r_j, \dots, t) \\
+		P_{ij}^2 \phi(\dots, r_i, \dots, r_j, \dots, t) &= \Theta^2 \phi(\dots, r_i, \dots, r_j, \dots, t)
+	\end{align*}
+	As $P_{ij}^2 = I$, then $\Theta^2 = 1 \implies \Theta = \pm 1$.
+	
+	\esp
+	
+	\begin{itemize}
+		\item \textbf{Bosons:} $\Theta = +1 \to$ \textit{Symmetric}
+		\item \textbf{Fermions:} $\Theta = -1 \to$ \textit{Antisymmetric}
+	\end{itemize}
+	
+	\esp
+	
+	\textbf{What happens if two particles are in the same position ($r_i = r_j$) and I exchange them with $P_{ij}$?}
+	
+	\esp
+	
+	\textbf{First case (Fermions):} $P_{ij} \phi(\dots, r_i, \dots, r_i, \dots, t) = -\phi(\dots, r_i, \dots, r_i, \dots, t)$ \\
+	$\implies \phi(\dots, r_i, \dots, r_i, \dots, t) = 0 \quad \to$ It is \textbf{forbidden} that two particles occupy the same position. These particles are known as \textbf{Fermions} (half-integer spin).
+	
+	\esp
+	
+	\textbf{Second case (Bosons):} $P_{ij} \phi(\dots, r_i, \dots, r_i, \dots, t) = \phi(\dots, r_i, \dots, r_i, \dots, t)$ \\
+	$\implies \phi(\dots, r_i, \dots, r_i, \dots, t) = \phi(\dots, r_i, \dots, r_i, \dots, t) \quad \to$ It is \textbf{not forbidden} that two particles occupy the same position. These particles are known as \textbf{Bosons} (integer spin).
+	
+	\esp
+	
+	\textbf{Examples:}
+	
+	\esp
+	
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{ll}
+			\textbf{Fermions} & \textbf{Bosons} \\
+			\textcolor{red}{Electron} & \textcolor{red}{Quark} \\
+			\textcolor{red}{Proton} & \textcolor{red}{Gluon} \\
+			\textcolor{red}{Neutron} & \textcolor{red}{$\alpha$ particle} \\
+			$\vdots$ & $\vdots$ \\
+			$\phi$ is antisymmetric ($\Theta = -1$) & $\phi$ is symmetric ($\Theta = +1$)
+		\end{tabular}
+	\end{table}
+	
+	\esp
+	
+	\textbf{Ideal $\to H = \sum_i^N H_i$}
+	
+	\esp
+	
+	$\sum_i n_i = N$ \\
+	$\sum_i n_i \epsilon_i = E$
+	
+	\esp
+	
+	\textbf{Fermions vs Bosons occupancy:}
+	
+	\esp
+	
+	\begin{itemize}
+		\item \textbf{Fermions:} $n_j \in \{0, 1\}$ (Pauli exclusion principle).
+		\item \textbf{Bosons:} $n_j \in \{0, 1, 2, \dots, N\}$ (No restriction).
+	\end{itemize}
+	
+	\esp
+	
+	\begin{equation}
+		Z(T, V) = \sum_{\{n_i\}} e^{-\beta \sum n_i \epsilon_i} = \sum_{\{n_i\}} e^{-\beta E(\{n_i\})} \delta_{N, \sum n_i}
+	\end{equation}
+	$\to$ \textit{This restriction ($\sum n_i = N$) does not allow us to perform the sum easily.}
+	
+	\esp
+	
+	\textbf{Boltzmann approximation} $\to z_N = \sum_{\{n_i\}} \frac{n_1! n_2! \dots n_i!}{N!} e^{-\beta \sum n_i \epsilon_i} \approx \frac{1}{N!} \sum_{\{n_i\}} e^{-\beta \sum n_i \epsilon_i}$
+	
+	\esp
+	
+	\textbf{Ensembles Comparison:}
+	
+	\esp
+	
+	\begin{itemize}
+		\item \textbf{Microcanonical:} $(E, V, N)$ fixed. Isolated system.
+		\item \textbf{Canonical:} $(\langle E \rangle, V, N)$ fixed. Thermal contact with reservoir at $T$.
+		\item \textbf{Grand Canonical (Macrocanonical):} $(\langle E \rangle, V, \langle N \rangle)$ fixed. Thermal and particle contact $(\mu, T)$.
+	\end{itemize}
+
+	\printbibliography[title={Bibliografía}]
+\end{document}
