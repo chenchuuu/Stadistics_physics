@@ -321,6 +321,145 @@
 		\item \textbf{Canonical:} $(\langle E \rangle, V, N)$ fixed. Thermal contact with reservoir at $T$.
 		\item \textbf{Grand Canonical (Macrocanonical):} $(\langle E \rangle, V, \langle N \rangle)$ fixed. Thermal and particle contact $(\mu, T)$.
 	\end{itemize}
+	
+	\esp
+	
+	\noindent \textbf{Macrocanonical ensemble}
+	
+	\esp
+	
+	$\Xi(\mu, T, V) = \sum_{N=0}^{\infty} e^{\beta \mu N} Z_N(T, V) \quad \to$ \textit{similar to } $\int e^{tx} p(x) dx \to$ \textit{moment generating function}
+	
+	\esp
+	
+	\begin{align*}
+		\Xi(\mu, T, V) &= \sum_{N=0}^{\infty} e^{\beta \mu N} \sum_{\{n_i\}} e^{-\beta \sum n_i \epsilon_i} \delta_{N, \sum n_i} = \sum_{\{n_i\}} e^{\beta \mu \sum n_i} \sum_{N=0}^{\infty} e^{\beta \mu N} \delta_{N, \sum n_i} \\
+		&= \sum_{\{n_i\}} e^{-\beta \sum n_i \epsilon_i} e^{\beta \mu \sum n_i} = \sum_{\{n_i\}} e^{\beta \sum (\mu - \epsilon_i) n_i} = \sum_{\{n_i\}} \prod_i e^{\beta (\mu - \epsilon_i) n_i} \\
+		&= \prod_i \sum_{\{n_i\}} e^{\beta (\mu - \epsilon_i) n_i}
+	\end{align*}
+	
+	\esp
+	
+	\noindent \textbf{Fermions}
+	
+	\esp
+	
+	$n_i = 0, 1 \quad \forall i$
+	
+	\esp
+	
+	\noindent \textbf{then}
+	
+	\esp
+	
+	\begin{equation}
+		\Xi(\mu, T, V) = \prod_i \left( 1 + e^{\beta (\mu - \epsilon_i)} \right)
+	\end{equation}
+	\textit{where 1 is when } $n_i=0$ \textit{ and the exponential is when } $n_i=1$.
+	
+	\esp
+	
+	\noindent \textbf{Bosons}
+	
+	\esp
+	
+	$n_i = 0, 1, \dots, \infty \quad \forall i$
+	
+	\esp
+	
+	\noindent \textbf{then}
+	
+	\esp
+	
+	\begin{equation}
+		\Xi(\mu, T, V) = \prod_i \sum_{n_i=0}^{\infty} \left( e^{\beta (\mu - \epsilon_i)} \right)^{n_i} = \prod_i \left( 1 - e^{\beta (\mu - \epsilon_i)} \right)^{-1}
+	\end{equation}
+	\textit{using } $\sum x^n = \frac{1}{1-x}$ \textit{ for } $|x| < 1$.
+	
+	\esp
+	
+	\noindent \textbf{I can write generally this:}
+	
+	\esp
+	
+	\begin{equation}
+		\Xi(\mu, T, V) = \prod_i \left( 1 - \Theta e^{\beta (\mu - \epsilon_i)} \right)^{-1/\Theta}
+	\end{equation}
+	
+	\esp
+	
+	\textbf{where } $\Theta = \begin{cases} +1 & \text{for bosons} \\ -1 & \text{for fermions} \end{cases}$
+
+	\esp
+	
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{ll}
+			\textbf{Canonical ensemble} & \textbf{Macrocanonical ensemble} \\
+			$A = -kT \ln Z$ & $J = -kT \ln \Xi$ \\
+			$A = U - TS$ & $J = U - TS - \mu N$
+		\end{tabular}
+	\end{table}
+	
+	\esp
+	
+	From the macrocanonical ensemble we are going to use:
+	\begin{itemize}
+		\item $J = -kT \ln \Xi$
+		\item $PV = -J$
+		\item $\langle N \rangle = - \left( \frac{\partial J}{\partial \mu} \right)_{T, V}$
+	\end{itemize}
+	
+	\esp
+	
+	\textbf{From what we know:}
+	\begin{equation}
+		J = -kT \ln \Xi = -kT \ln \left[ \prod_i (1 - \Theta e^{\beta(\mu - \epsilon_i)})^{-1/\Theta} \right] = \frac{kT}{\Theta} \sum_i \ln(1 - \Theta e^{\beta(\mu - \epsilon_i)})
+	\end{equation}
+	
+	\esp
+	
+	\begin{center}
+		\textbf{For Bosons $\mu < 0$ \quad For Fermions $\mu$ can be any value}
+	\end{center}
+	
+	\esp
+	
+	\begin{equation}
+		\langle N \rangle = - \left( \frac{\partial J}{\partial \mu} \right)_{T, V} = -\frac{kT}{\Theta} \sum_i \frac{-\Theta \beta e^{\beta(\mu - \epsilon_i)}}{1 - \Theta e^{\beta(\mu - \epsilon_i)}} = \sum_i \frac{1}{e^{\beta(\epsilon_i - \mu)} - \Theta} \to \text{this remembers us the restriction } \sum n_i = N
+	\end{equation}
+	$\implies \langle N \rangle = \langle \sum n_i \rangle = \sum \langle n_i \rangle$
+	
+	\esp
+	
+	\textbf{So we can know the average of $n_i$ for each energy level $\epsilon_i$:}
+	\begin{equation}
+		\langle n_i \rangle = \frac{1}{e^{\beta(\epsilon_i - \mu)} - \Theta}
+	\end{equation}
+	\textit{Average occupation number of level $i$:}
+	
+	\esp
+	
+	\begin{itemize}
+		\item \textbf{Fermi-Dirac Statistics (Fermions):} $\langle n_i \rangle = \frac{1}{e^{\beta(\epsilon_i - \mu)} + 1}$
+		\item \textbf{Bose-Einstein Statistics (Bosons):} $\langle n_i \rangle = \frac{1}{e^{\beta(\epsilon_i - \mu)} - 1}$
+	\end{itemize}
+	
+	\esp
+	
+	
+	\esp
+	
+	\begin{equation}
+		J = \frac{kT}{\Theta} \sum_i \ln(1 - \Theta e^{\beta(\mu - \epsilon_i)})
+	\end{equation}
+	
+	\esp
+	
+	\begin{equation}
+		\lim_{\Theta \to 0} J = \lim_{\Theta \to 0} -kT \sum_i \ln(1 - \Theta e^{\beta(\mu - \epsilon_i)})^{1/\Theta} = -kT \sum_i e^{\beta(\mu - \epsilon_i)}
+	\end{equation}
+	\textit{Using } $e^x = \lim_{n \to \infty} (1 + \frac{x}{n})^n$
 
 	\printbibliography[title={Bibliografía}]
 \end{document}
