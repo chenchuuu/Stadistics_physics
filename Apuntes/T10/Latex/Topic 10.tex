@@ -460,6 +460,111 @@
 		\lim_{\Theta \to 0} J = \lim_{\Theta \to 0} -kT \sum_i \ln(1 - \Theta e^{\beta(\mu - \epsilon_i)})^{1/\Theta} = -kT \sum_i e^{\beta(\mu - \epsilon_i)}
 	\end{equation}
 	\textit{Using } $e^x = \lim_{n \to \infty} (1 + \frac{x}{n})^n$
+	
+	\esp
+	
+	\textbf{Remember that} $z_{MB} = \frac{1}{N!} (z_{MB})^N \quad \text{so} \quad \Xi(\mu, T, V) = \sum_{N=0}^{\infty} e^{\beta \mu N} z_{MB} = \sum_{N=0}^{\infty} \lambda^N \frac{z_1^N}{N!} = e^{\lambda z_1}$
+	\textit{where } $\lambda$ \textit{ is the fugacity: } $\lambda = e^{\beta \mu}$
+	
+	\esp
+	
+	$J = -kT \ln \Xi = -\lambda z_1 kT = -kT e^{\beta \mu} \sum_i e^{-\beta \epsilon_i} = -kT \sum_i e^{\beta(\mu - \epsilon_i)}$
+	
+	\esp
+	
+	\textbf{Then } $J(\mu, T, V) = \frac{kT}{\Theta} \sum_i \ln(1 - \Theta e^{\beta(\mu - \epsilon_i)})$ 
+	$\begin{cases} \Theta = 1 & \text{Bosons} \\ \Theta = -1 & \text{Fermions} \\ \Theta \to 0 & \text{MB} \end{cases} \quad \to$ \textit{this unified the three statistics.}
+	
+	\esp
+	
+	$\langle n_i \rangle = \frac{1}{e^{\beta(\epsilon_i - \mu)} - \Theta}$
+	
+	\esp
+	
+	
+	\esp
+	
+	\textbf{Boltzmann approximation} $\to$ We see that bosons and fermions converge to the same behavior.
+	In this limit: $\langle n_i \rangle = e^{\beta(\mu - \epsilon_i)} \ll 1$. In 3D $\to \rho \Lambda^3 \ll 1$.
+	
+	\esp
+	
+	\textbf{Let's demonstrate that the Boltzmann approximation (which means $\langle n_i \rangle = e^{\beta(\mu - \epsilon_i)} \ll 1$) corresponds to considering $\rho \Lambda^3 \ll 1$}
+	
+	\esp
+	
+	For free particle in 3D: $z_1 = \frac{V}{\Lambda^3}$, then $Z = \frac{z_1^N}{N!}$ (where $L \gg \Lambda$) \\
+	$\to$ \textit{as calculated before for the Boltzmann gas.}
+	
+	\esp
+	
+	$A(N, T, V) = -kT \ln Z = -kT \ln \left( \frac{V^N}{\Lambda^{3N} N!} \right)$
+	
+	\esp
+	
+	$\mu = \left( \frac{\partial A}{\partial N} \right)_{T, V} \to$ \textit{The chemical potential is the cost of Free Energy of varying $N$.}
+	
+	\esp
+	
+	A system always wants to minimize the Helmholtz Free Energy:
+	$A = U - TS \begin{cases} \text{sometimes we just need to minimize } U \to \text{Example: } T=0 \\ \text{sometimes we just need to maximize } S \to \text{Example: fixed } U \end{cases}$
+	
+	\esp
+	
+	\textbf{What does $\mu$ mean to $A$?}
+	
+	\esp
+	
+	\begin{itemize}
+		\item When $\mu < 0$, this means that as we increase $N$, we get a lower $A$. In this situation, the system wants more $N$ in order to decrease $A$.
+		\item When $\mu > 0$, this means that as we decrease $N$, we get higher $A$. Then the system wants to reduce $N$ to decrease $A$.
+	\end{itemize}
+	
+	\esp
+	
+	
+	\esp
+	
+	\textbf{Boltzmann approximation:}
+	$e^{\beta(\mu - \epsilon)} \ll 1 \implies \beta(\mu - \epsilon) \ll 0 \implies \mu\beta - \epsilon\beta \ll 0 \xrightarrow{\epsilon \to 0} \ln(\rho \Lambda^3) < 0 \implies \rho \Lambda^3 \ll 1$
+	\textit{(If it's satisfied for $\epsilon=0$, the most unfavorable case, it's satisfied for any $\epsilon$)}.
+	
+	\esp
+	
+	Thus, the Boltzmann approximation is equivalent to considering $\rho \ll 1$ and/or $T \gg 1$.
+	
+	\esp
+	
+	\textbf{Thermodynamic properties of Bosons and Fermions}
+	
+	\esp
+	
+	$J(\mu, T, V) = \frac{kT}{\Theta} \sum_i \ln(1 - \Theta e^{\beta(\mu - \epsilon_i)})$
+	
+	\esp
+	
+	We are going to consider \textbf{free particles in a 3D box}. What is the spectrum in this case?
+	
+	\esp
+	
+	$H \psi_{n_x, n_y, n_z} = \epsilon_{n_x, n_y, n_z} \psi_{n_x, n_y, n_z}$ \\
+	$H = \sum_{i=1}^N -\frac{\hbar^2}{2m} \nabla_i^2$ \\
+	$\epsilon_{n_x, n_y, n_z} = \epsilon_{nx} + \epsilon_{ny} + \epsilon_{nz}$ \\
+	$\epsilon_{nx} = \frac{\hbar^2}{2m} \frac{\pi^2}{L^2} n_x^2 \quad \text{where } n = x, y, z$ \\
+	$\psi_{n_x, n_y, n_z} = \left( \frac{2}{L} \right)^{3/2} \sin\left( \frac{n_x \pi x}{L} \right) \sin\left( \frac{n_y \pi y}{L} \right) \sin\left( \frac{n_z \pi z}{L} \right)$
+	
+	\esp
+	
+	As $L \to \infty$, we are going to perform the sum over $n_x, n_y, n_z$ instead of $\epsilon$:
+	$J(\mu, T, V) = \frac{kT}{\Theta} \sum_{n_x=1}^\infty \sum_{n_y=1}^\infty \sum_{n_z=1}^\infty \ln(1 - \Theta e^{\beta(\mu - \epsilon_{n_x, n_y, n_z})})$
+	
+	\esp
+	
+	$\xrightarrow{\text{change of variable}} p_{nx} = \frac{\hbar \pi n_x}{L} \to \epsilon_{n_x, n_y, n_z} = \frac{p_{nx}^2 + p_{ny}^2 + p_{nz}^2}{2m}$
+	
+	\esp
+	
+	$\implies J(\mu, T, V) = \frac{kT}{\Theta} \sum_{\vec{n}} \ln\left( 1 - \Theta e^{\beta\left( \mu - \frac{\hbar^2 \pi^2 (n_x^2 + n_y^2 + n_z^2)}{2mL^2} \right)} \right)$
 
 	\printbibliography[title={Bibliografía}]
 \end{document}
