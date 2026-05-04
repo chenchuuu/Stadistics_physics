@@ -205,7 +205,8 @@
 	Now we apply $P_{ij}$ to $\Psi$ and then $H$:
 	\begin{align*}
 		H P_{ij} \Psi(\dots, r_i, \dots) &\to \\
-		H \Psi(\dots, r_j, \dots, r_i, \dots, t) &= \sum a_n E_n \phi_n(\dots, r_j, \dots, r_i, \dots, t) = \sum a_n E_n \underbrace{P_{ij}}_{\text{scalars}} \phi_n(\dots, r_i, \dots, r_j, \dots, t) \\
+		H \Psi(\dots, r_j, \dots, r_i, \dots, t)\\ 
+		&= \sum a_n E_n \phi_n(\dots, r_j, \dots, r_i, \dots, t) = \sum a_n E_n \underbrace{P_{ij}}_{\text{scalars}} \phi_n(\dots, r_i, \dots, r_j, \dots, t) \\
 		&= P_{ij} \sum a_n E_n \phi_n(\dots, r_i, \dots, r_j, \dots, t) = P_{ij} H \Psi \\
 		&\to \text{We have proved that } [H, P_{ij}] = 0 \quad \forall i, j \quad (i \neq j)
 	\end{align*}
@@ -465,6 +466,10 @@
 	
 	\textbf{Remember that} $z_{MB} = \frac{1}{N!} (z_{MB})^N \quad \text{so} \quad \Xi(\mu, T, V) = \sum_{N=0}^{\infty} e^{\beta \mu N} z_{MB} = \sum_{N=0}^{\infty} \lambda^N \frac{z_1^N}{N!} = e^{\lambda z_1}$
 	\textit{where } $\lambda$ \textit{ is the fugacity: } $\lambda = e^{\beta \mu}$
+	
+	\esp
+	
+	\noindent we reached the same result as the boltzmann gas approximation
 	
 	\esp
 	
