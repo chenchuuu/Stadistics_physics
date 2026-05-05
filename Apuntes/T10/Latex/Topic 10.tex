@@ -652,6 +652,77 @@
 	\esp
 	For Boltzmann gas:
 	$\left. \begin{aligned} PV &= NkT \\ u &= \langle E \rangle = \frac{3}{2} NkT \end{aligned} \right\} PV = \frac{2}{3} u \rightarrow$ It is also satisfied for Boltzmann gas.
+	
+	\esp
+	
+	\textbf{Weakly degenerate limit}
+	
+	\esp
+	Classical limit:
+	$\langle n(\epsilon) \rangle_{\theta} \ll 1 \rightarrow \lambda \text{ (fugacity)} \ll 1$
+	$\lambda = e^{\beta\mu}$
+	
+	\esp
+	Boltzmann approximation is OK
+	$\text{as } (\frac{\partial P}{\partial \lambda})_T = \text{ctan}(\rho(\epsilon)) \rightarrow \lambda \rho \Lambda^3 \text{ is the same value obtained in Boltzmann approximation}$
+	
+	\esp
+	In this case, $\frac{\lambda}{\Lambda^3}$ connects to the ideal gas law since I recover that $P = \rho kT$ as $PV = NkT$
+	$D(\epsilon) \text{ is } g \frac{V}{h^3} (1 - \theta e^{-\beta(\epsilon-\mu)})^{-1}$
+	
+	\esp
+	For fermions we can check that when $\theta = -1 \rightarrow \text{higher } P$
+	
+	\esp
+	$P(T, \mu) = \frac{g}{\theta} \frac{kT}{\Lambda^3} \frac{V}{h^3} \int_{0}^{\infty} \epsilon^{1/2} \langle n(\epsilon) \rangle_{\theta} \, d\epsilon$
+	$P(3/2) = \frac{3}{4} \sqrt{\pi}$
+	
+	\esp
+	$\int_{0}^{\infty} \frac{\epsilon^{3/2}}{e^{\beta(\epsilon-\mu)} - \theta} \, d\epsilon = \int_{0}^{\infty} \frac{\epsilon^{3/2}}{e^{\beta\epsilon} \lambda^{-1} - \theta} \, d\epsilon \rightarrow \text{since } \theta\lambda e^{-\beta\epsilon} < 1 \rightarrow \int_{0}^{\infty} \epsilon^{3/2} \lambda e^{-\beta\epsilon} \sum_{n=0}^{\infty} (\theta \lambda e^{-\beta\epsilon})^n = \int_{0}^{\infty} \epsilon^{3/2} \lambda e^{-\beta\epsilon} (1 + \theta \lambda e^{-\beta\epsilon} + \theta^2 \lambda^2 e^{-2\beta\epsilon} + \dots)$
+	$= \lambda \Gamma(5/2) \beta^{-5/2} + \lambda^2 \theta \Gamma(5/2) 2^{-5/2} \beta^{-5/2} + \lambda^3 \theta^2 \Gamma(5/2) 3^{-5/2} \beta^{-5/2} + \dots = \lambda \frac{3}{4} \sqrt{\pi} \beta^{-5/2} (1 + \theta \lambda 2^{-5/2} + \theta^2 \lambda^2 3^{-5/2} + \dots)$
+	
+	\esp
+	Using this: $\int_{0}^{\infty} dx \, x^n e^{-ax} = \frac{\Gamma(n+1)}{a^{n+1}}$
+	
+	\esp
+	Then $P(T, \mu) = \frac{g}{\Lambda^3} \frac{kT}{\theta} \frac{1}{\theta} (\lambda \frac{3}{4} \sqrt{\pi} \beta^{5/2} \beta^{-5/2} (1 + \theta \lambda 2^{-5/2} + \theta^2 \lambda^2 3^{-5/2} + \dots)) = \frac{g kT}{\Lambda^3} (\lambda + \theta \lambda^2 2^{-5/2} + \theta^2 \lambda^3 3^{-5/2} + \dots)$
+	Our goal is to express this $P = P(T, \rho)$. Check this in line.
+	
+	\esp
+	$\rho(T, \mu) = \frac{\langle N \rangle}{V} = \frac{1}{V} \left( \frac{\partial J}{\partial \mu} \right)_{T,V} = \left( \frac{\partial P}{\partial \mu} \right)_{T} \Rightarrow \rho(T, \lambda) = \left( \frac{\partial P}{\partial \lambda} \right)_T \left( \frac{\partial \lambda}{\partial \mu} \right)_T = \lambda \left( \frac{\partial P}{\partial \lambda} \right)_T = \frac{g}{\Lambda^3} (1 + \theta \lambda 2^{-3/2} + \theta^2 \lambda^2 3^{-3/2} + \dots)$
+	
+	\esp
+	Next challenge: $\lambda(\rho, T)$
+	$\rightarrow \lambda \propto \rho \rightarrow$ then substitute in $P$ to obtain $P = P(\rho, T)$
+	From $\rho(T, \mu) = \frac{g}{\Lambda^3} (\lambda + \theta \lambda^2 2^{-3/2} + \theta^2 \lambda^3 3^{-3/2} + \dots) \Rightarrow \lambda(\rho, T) = \Lambda^3 \rho - \theta 2^{-3/2} (\Lambda^3 \rho)^2 - (\frac{1}{3^{3/2}} - \frac{1}{2^{3/2}}) (\Lambda^3 \rho)^3 + \dots$
+	
+	\esp
+	Lagrange theorem $\rightarrow$ (Inverse $y = \rho$ and $x = \lambda$)
+	We found $y = ax + bx^2 + cx^3 + \dots$ (eq. 1)
+	We want $x = sy + ty^2 + uy^3 + \dots$
+	Step 1: Substitute (we want until second order, $y^2$ so)
+	$x(y)$ into the rhs (right hand side) of eq. (1)
+	$y = a(sy + ty^2 + \dots) + b(sy + ty^2)^2 + c(sy + ty^2)^3 + \dots$
+	Let's compute this up to the second order $O(y^2)$
+	First term: $a(sy + ty^2) = asy + aty^2$
+	Second term: $b(sy)^2 = bs^2y^2$
+	$\rightarrow y = asy + aty^2 + bs^2y^2 + O(y^3)$ (eq. 2)
+	
+	\esp
+	Step 2: Equal term by term in eq. (2)
+	$y = asy + (aty + bs^2)y^2 + O(y^3)$
+	$y = asy \Rightarrow s = 1/a$
+	$aty^2 + bs^2y^2 = 0 \rightarrow at + bs^2 = 0 \rightarrow at + \frac{b}{a^2} = 0 \rightarrow t = -b/a^3$
+	
+	\esp
+	So $x(y) = \frac{y}{a} - \frac{b}{a^3} y^2$
+	
+	\esp
+	$\Rightarrow P(T, \lambda(T, \rho)) = kT \rho (1 - \theta (2^{-5/2} - 2^{-3/2}) \Lambda^3 \rho + O((\Lambda^3 \rho)^2))$
+	$\updownarrow$ virial expansion in terms of $\rho$
+	With $y = \rho$, $x = \lambda$, $a = \Lambda^{-3}$, $b = \theta 2^{-3/2}$
+	$\hookrightarrow \lambda(\rho, T) = \Lambda^3 \rho - \Lambda^3 \theta 2^{-3/2} \rho^2 + \dots \approx \Lambda^3 \rho (1 - \theta 2^{-3/2} \Lambda^3 \rho + \dots)$
+	$\frac{\Lambda^3 \rho}{g} < 1$ Boltzmann approximation. Is weakly degenerate limit.
 
 	\printbibliography[title={Bibliografía}]
 \end{document}
